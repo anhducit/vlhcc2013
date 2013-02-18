@@ -1,0 +1,57 @@
+\tikzset{myfillcolor/.style = {draw,fill=#1}}%
+\colorlet{MyBlueColor}{blue!50}
+\colorlet{MyRedColor}{red!50}
+\colorlet{MyOrangeColor}{orange!50}
+\colorlet{MyPurpleColor}{purple!50}
+\colorlet{MyGrayColor}{gray!50}
+\colorlet{MyHeadingColor}{gray!20}
+\colorlet{MyFillerCellColor}{black!60}
+
+\tikzset{mymatrixstyle_noheading/.style={matrix of nodes, nodes={rectangle,draw}, minimum width=3em, minimum height=2em, row sep=-\pgflinewidth, column sep=-\pgflinewidth,ampersand replacement =\&,text depth=0.5ex,text height=2ex,nodes in empty cells}}
+
+% it would be nice if withheading could just reuse a bunch of styles from noheading.
+\tikzset{mymatrixstyle_withheading/.style={matrix of nodes, nodes={rectangle,draw}, minimum width=3em, minimum height=2em, row sep=-\pgflinewidth, column sep=-\pgflinewidth,ampersand replacement =\&,text depth=0.5ex,text height=2ex,nodes in empty cells, column 1/.style={nodes={rectangle,fill=MyHeadingColor}}, row 1/.style={nodes={rectangle,fill=MyHeadingColor}}}}
+
+
+\NewDocumentCommand{\highlight}{O{MyBlueColor} m m}{%
+\fill[#1] (#2.north west)rectangle (#3.south east);
+}
+
+\NewDocumentCommand{\vshade}{O{MyBlueColor} O{white} m m}{%
+\draw[bottom color =#1,top color=#2,draw=none] (#3.north west)rectangle (#4.south east);
+}
+
+\NewDocumentCommand{\oshade}{O{MyBlueColor} O{white} m m}{%
+\draw[right color =#1,left color=#2,draw=none] (#3.north west)rectangle (#4.south east);
+}
+
+\NewDocumentCommand{\inshade}{O{MyBlueColor} O{white} m m}{%
+\draw[inner color =#1,outer color=#2,draw=none] (#3.north west)rectangle (#4.south east);
+}
+
+\NewDocumentCommand{\fillpattern}{O{north west lines} O{MyBlueColor} m m}{%
+\draw[pattern=#1, pattern color=#2,draw=none] (#3.north west)rectangle (#4.south east);
+}
+
+\NewDocumentCommand{\idedcell}{O{\null} O{1.8cm} O{0.43cm} m m}
+{
+  \resizebox{#2}{#3}{
+      \begin{minipage}{#2}
+        \centering
+        {\small{#4} \hfill \small{#1} \linebreak}%
+        {\Large{#5}}%
+        {\linebreak}%
+      \end{minipage}
+  }
+}
+
+
+% \NewDocumentCommand{\idedcell}{O{-0.1cm} O{2cm} O{0.5cm} m m}
+% {   \resizebox{#2}{#3}{ 
+        % \begin{tabular}{ l c r}
+            % &            & \small{#4} \\ [#1]
+            % & \LARGE{#5} &            \\ [#1]
+            % &            &            \\ [#1]
+        % \end{tabular}
+    % }
+% }

@@ -1,0 +1,25 @@
+\documentclass[varwidth=true, border=10pt]{standalone}
+\usepackage{xparse}
+\usepackage{tikz}
+\usetikzlibrary{calc,matrix,patterns,shadings,backgrounds}
+\input{tikz.tex}
+\pgfdeclarelayer{myback}
+\pgfsetlayers{myback,background,main}
+
+\begin{document}
+\begin{center}
+\begin{tikzpicture}
+\matrix (m)[mymatrixstyle_withheading, minimum width=6.5em]
+{
+   \&        A        \&         B       \&        C         \& D\\
+ 1 \& \idedcell[(1,1)]{1}{} \& \idedcell[(2,1)]{7}{} \& \idedcell[(3,1)]{9}{}  \& \idedcell[(4,1)]{5}{} \\
+ 2 \& \idedcell[(1,2)]{2}{=D1+1} \& \idedcell[(2,2)]{8}{} \& \idedcell[(3,2)]{10}{} \& \idedcell[(4,2)]{6}{} \\
+};
+
+\begin{pgfonlayer}{myback}
+	\highlight[MyBlueColor]{m-2-3}{m-3-4}
+\end{pgfonlayer}
+\end{tikzpicture}
+\end{center}
+
+\end{document} 

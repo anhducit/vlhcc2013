@@ -1,0 +1,31 @@
+\documentclass[varwidth=true, border=10pt]{standalone}
+\usepackage{xparse}
+\usepackage{tikz}
+\usetikzlibrary{calc,matrix,patterns,shadings,backgrounds}
+\input{tikz.tex}
+\pgfdeclarelayer{myback}
+\pgfsetlayers{myback,background,main}
+
+
+\newcommand{\cellsize}{3.3cm}
+\newcommand{\cellsizeS}{2.7cm}
+\begin{document}
+\begin{center}
+\begin{tikzpicture}
+\matrix (m)[mymatrixstyle_withheading, minimum width=6.5em]
+{
+   \&  \idedcell[\null][\cellsizeS]{}{A}           \&         \idedcell[\null][\cellsize]{}{B}        \\
+ 1 \& \idedcell[(1,1)][\cellsizeS]{1}{Price}      \& \idedcell[(2,1)][\cellsize]{5}{110} \\
+ 2 \& \idedcell[(1,2)][\cellsizeS]{2}{Tax}        \& \idedcell[(2,2)][\cellsize]{7}{0.09} \\
+ 3 \& \idedcell[(1,3)][\cellsizeS]{3}{Total Cost} \& \idedcell[(2,3)][\cellsize]{11}{=\#5*(1 + \#7)} \\
+};
+
+\begin{pgfonlayer}{myback}
+	\highlight[MyBlueColor]{m-2-3}{m-2-3}
+	\highlight[MyRedColor]{m-3-3}{m-3-3}
+	\highlight[MyPurpleColor]{m-4-3}{m-4-3}
+\end{pgfonlayer}
+\end{tikzpicture}
+\end{center}
+
+\end{document} 

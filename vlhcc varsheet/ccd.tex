@@ -1,0 +1,310 @@
+\newcommand{\OR}{\ |\ }
+\newenvironment{fsyntax}{\hfill$\begin{array}{rcl@{\quad}l}}
+                        {\end{array}$\hfill{\ }}
+\newenvironment{syntax}{\[\begin{array}{rcl@{\quad}l}}
+                       {\end{array}\]\ignorespacesafterend}
+% \newenvironment{example}{\[\begin{array}{l}}
+%                        {\end{array}\]\ignorespacesafterend}
+\newenvironment{example}{\par\medskip\indent$\begin{array}{l}}
+                       {\end{array}$\par\medskip\noindent\ignorespacesafterend}
+
+%% overlay macros
+%
+\newlength{\overlaywidth}
+\newlength{\overlayheight}
+
+\newcommand{\voverlay}[3][-]{%
+   \settowidth{\overlaywidth}{\mbox{\OB{#2}}}\divide\overlaywidth2%
+   \hspace*{\overlaywidth}%
+   \makebox[0mm]{\OB{#2}}%
+   \if#1-\makebox[0mm]{\OB{#3}}\else%
+         \raisebox{#1}[0mm][0mm]{\makebox[0mm]{\OB{#3}}}\fi%
+   \hspace*{\overlaywidth}}
+
+\newcommand{\vhoverlay}[3][-]{%
+   \settowidth{\overlaywidth}{\mbox{\OB{#2}}}\divide\overlaywidth2%
+   \settoheight{\overlayheight}{\mbox{\OB{#3}}}%
+   \if#1-\else\addtolength{\overlayheight}{-#1}\fi
+   \hspace*{\overlaywidth}%
+   \makebox[0mm]{\OB{#2}}%
+   \raisebox{-\overlayheight}[0mm][0mm]{\makebox[0mm]{\OB{#3}}}%
+   \hspace*{\overlaywidth}}
+
+
+%%
+%% Math definitions
+%%
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newenvironment{definition}[1][Definition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
+%%% 
+%%% MATH
+%%%
+\def\OB#1{\ifmmode#1\else\mbox{$#1$}\fi}
+\newcommand{\vij}[3]{\OB{#1_{#2},\ldots,#1_{#3}}}
+\newcommand{\vi}[2]{\vij{#1}{1}{#2}}
+\newcommand{\vn}[2][n]{\vi{#2}{#1}}
+\newcommand{\vnButi}[3][n]{\OB{#2_1,\ldots,#2_{#3-1},#2_{#3+1},\ldots,#2_{#1}}}
+\newcommand{\set}[1]{\OB{\{#1\}}}
+\newcommand{\vect}[1]{\OB{\langle#1\rangle}}
+\newcommand{\cseq}[2][n]{\OB{^{#2:1..#1}}}
+\newcommand{\iPat}[2][i]{\OB{[#1\mathop:#2]}}
+
+% \newcommand{\xn}[1][n]{\OB{^{\bar{#1}}}}
+% \newcommand{\xn}[1][n]{\OB{_{\bar{#1}}}}
+
+\newcommand{\dom}[1]{\OB{\textit{dom}(#1)}}
+\newcommand{\rng}[1]{\OB{\textit{rng}(#1)}}
+
+\newcommand{\semL}{\OB{[\![}}
+\newcommand{\semR}{\OB{]\!]}}
+\newcommand{\sem}[2][{}]{\OB{\semL#2\semR_{#1}}}
+\newcommand{\subst}[3]{\OB{[#1/#2]#3}}
+%% multi-line definitions
+\newcommand{\Begindef}{\ =\ \BegindefNES}
+\newcommand{\BegindefNES}{\left\{\begin{array}{@{}l@{\quad}l}}
+\newcommand{\Enddef}{\end{array}\right.}
+% \newcommand{\If}{\textrm{if\ }}
+\newcommand{\Otherwise}{\textrm{otherwise}}
+
+\newcommand{\FV}[1]{\OB{\textit{FV}(#1)}}
+\newcommand{\FD}[1]{\OB{\textit{FD}(#1)}}
+
+% \newcommand{\bigstep}[3][\Delta]{\OB{#1 :- #2\Downarrow#3}}
+
+\newcommand{\mrk}[1]{\underline{#1}}
+
+%% 
+%%  Choice calculus syntax
+%%
+
+%%% Documents and trees
+% \newcommand{\prog}[1]{\texttt{#1}}
+% \newcommand{\sub}[1]{\OB{{\scriptstyle\langle}#1{\scriptstyle\rangle}}}
+\newcommand{\sub}[1]{\OB{\mathord\Yleft#1\mathord\Yright}}
+\newcommand{\tr}[2][a]{\OB{#1\sub{#2}}}
+\newcommand{\trn}[2][a]{\OB{#1\sub{\vn{#2}}}}
+% \newcommand{\trPat}[4][a]{\tr[#1]{#2_{#3}|#4}}
+
+%%% Key words & formatting/indenting
+\newcommand{\CCkeyw}[1]{\textbf{\textrm{#1}}}
+\newcommand{\LET}{\CCkeyw{let}}
+\newcommand{\DIM}{\CCkeyw{dim}}
+\newcommand{\IN}{\CCkeyw{in}}
+\newcommand{\Ind}[2][{}]{\hphantom{#1}\makebox[0mm][r]{#2}\ }
+
+%%% Choices
+\newcommand{\chcL}{\langle}
+\newcommand{\chcR}{\rangle}
+\newcommand{\chc}[2][D]{\OB{#1\chcL#2\chcR}}
+% \newcommand{\chcPP}[3][D]{\chc[#1]{\prog{#2},\prog{#3}}}
+
+%%% Dimensions
+\newcommand{\Dim}[2][D]{\OB{\DIM\ \chc[#1]{#2}}}
+\newcommand{\DimIn}[3][D]{\Dim[#1]{#2}\ \IN\ #3}
+
+%%% Let expressions
+% \newcommand{\Let}[2]{\OB{\LET\ #1 = #2}\ }
+% \newcommand{\Let}[3][-]{\OB{\if#1-\LET\ \else\Ind[\LET]{#1}\fi#2 = #3}}
+% \newcommand{\Let}[3][\LET]{\OB{\Ind[#1]{\LET}#2 \texttt{=} #3}}
+\newcommand{\Let}[3][\LET]{\OB{\Ind[#1]{\LET}#2 {\small=} #3}}
+\newcommand{\LetIn}[3]{\Let{#1}{#2}\ \IN\ #3}
+
+
+%%% OLD Choice notation / abbreviation
+% \newcommand{\ptch}[2][L]{\OB{#2^{#1}}}
+% \newcommand{\ptch}[2][L]{\OB{\overline{#2}^{#1}}}
+% \newcommand{\ptch}[2][L]{\OB{#1\mathord:\ #2}}
+% \newcommand{\ptch}[2][L]{\OB{#1\mathord|\ #2}}
+\newcommand{\ptch}[2][L]{\OB{#1\mapsto #2}}
+% \newcommand{\ptch}[2][L]{\OB{#1\to #2}}
+% \newcommand{\ptch}[2][L]{\OB{#1\mathord\to #2}}
+\newcommand{\ochc}[1]{\OB{\set{#1}}}
+\newcommand{\chcn}[3][n]{\OB{\chc{\ptch[#2_1]{#3_1},\ldots,\ptch[#2_#1]{#3_#1}}}}
+\newcommand{\ochcA}[2]{\ochc{\ptch[#1]{#2}}}
+\newcommand{\ochcB}[4]{\ochc{\ptch[#1]{#2},\ptch[#3]{#4}}}
+\newcommand{\ochcBi}[4]{\ochc{\ptch[\textit{#1}]{#2},\ptch[\textit{#3}]{#4}}}
+\newcommand{\ochcC}[6]{\ochc{\ptch[#1]{#2},\ptch[#3]{#4},\ptch[#5]{#6}}}
+\newcommand{\ochcD}[8]{\ochc{\ptch[#1]{#2},\ptch[#3]{#4},\ptch[#5]{#6},\ptch[#7]{#8}}}
+%%% OLD Choice binding
+\newcommand{\lbnd}[2]{\OB{#1=#2}}
+\newcommand{\bnd}[2]{\OB{#1\leftarrow#2}}
+\newcommand{\cbnd}[2]{\bnd{#1}{\chc{#2}}}
+\newcommand{\cbind}[2]{\bnd{#1}{\chc{#2}}}
+\newcommand{\bind}[3]{\OB{#1:\cbind{#2}{#3}}}
+\newcommand{\bindB}[5]{\OB{#1:\cbind{#2}{#3};\cbind{#4}{#5}}}
+\newcommand{\bindk}[3]{\OB{#1:\cbind{#2_1}{#3_1};\ldots;\cbind{#2_k}{#3_k}}}
+\newcommand{\bindkC}[3]{\OB{#1:\bnd{#2_1}{#3_1};\ldots;\bnd{#2_k}{#3_k}}}
+\newcommand{\noDbindkC}[2]{\OB{\bnd{#1_1}{#2_1};\ldots;\bnd{#1_k}{#2_k}}}
+\newcommand{\noCode}{\OB{\bullet}}
+\newcommand{\tagsName}{\textit{tags}}
+\newcommand{\tags}[1]{\OB{\tagsName(#1)}}
+\newcommand{\ctags}[1]{\OB{\textit{ctags}(#1)}}
+\newcommand{\ddom}[1]{\OB{\textit{dom}^*(#1)}}
+
+%% formatting choice names/ids
+% \newcommand{\choice}[1]{\OB{{\cal #1}}}
+
+%% names for change objects
+% \newcommand{\chObj}{\OB{\omega}}
+% \newcommand{\chObjB}{\OB{\omega'}}
+% \newcommand{\chObj}{\OB{\bar{O}}}
+% \newcommand{\chObjB}{\OB{\bar{O'}}}
+% \newcommand{\vo}{\OB{\bar{O}}}
+% \newcommand{\vo}{\OB{V}}
+% \newcommand{\voB}{\OB{V'}}
+
+
+%%
+%% Static analysis
+%%
+\newcommand{\wdim}[2][\Delta]{\OB{#1\vdash#2}}
+
+%%% Context notation
+% \newcommand{\ctx}[1]{\OB{^{\sswarrow}C[#1]}}
+%\newcommand{\ctx}[1]{\OB{\hat{C}[#1]}}
+\newcommand{\ctx}[2][C]{\OB{#1[#2]}}
+
+
+%%% Tag selection
+\newcommand{\sel}[2][D.t]{\OB{#2\mathop\shortuparrow#1}}
+% \newcommand{\tsel}[3][\Delta]{\OB{#2|_{#1}^{#3}}}
+\newcommand{\tsel}[2][s]{\OB{\lfloor#2\rfloor_{#1}}}
+% \newcommand{\tsel}[3][\Delta]{\OB{\sigma(#1,#2,#3)}}
+% \newcommand{\tseltd}[2][\Delta]{\tsel[#1]{#2}{d.t}}
+% \newcommand{\tselq}[2][\Delta]{\tsel[#1]{#2}{q}}
+
+\newcommand{\dimSym}{\OB{\delta}}
+\newcommand{\dims}[1]{\dimSym(#1)}
+\newcommand{\dimProd}{\OB{\otimes}}
+\newcommand{\dimSum}{\OB{\oplus}}
+\newcommand{\dimUnit}{\textbf{1}}
+
+\newcommand{\expSym}{\OB{\mu}}
+\newcommand{\expEnv}{\OB{\rho}}
+\newcommand{\expand}[2][\expEnv]{\expSym_{#1}(#2)}
+
+
+\newcommand{\chcdep}[2]{\OB{#1\leftarrow#2}}
+
+%% name of positional relationship
+% \newcommand{\prel}{\OB{\Delta}}
+% 
+% \newcommand{\mkchc}[3][p]{\OB{#2[#1]\mathord{:}#3}}
+% \newcommand{\addchc}[3][p]{\OB{#2[#1]\mathord{:}\mathord\cup#3}}
+% \newcommand{\chcex}[2][p]{\OB{#2_{#1}}}
+
+%% 
+%%  Choice calculus semantics
+%%
+
+\newcommand{\tselB}[3]{\tsel[#3]{\tsel[#2]{#1}}}
+\newcommand{\lft}[1]{\OB{\mathord\uparrow#1}}
+\newcommand{\plain}[1]{\OB{\underline{#1}}}
+\newcommand{\allsel}[2]{\OB{#1\mathord\Downarrow#2}}
+% \newcommand{\lsel}[2][t_1,\ldots,t_n]{\OB{#2.\set{#1}}}
+
+%%% Dimensions
+\newcommand{\choicesSym}[1][{}]{\OB{\Gamma^{#1}}}
+\newcommand{\choices}[2][{}]{\OB{\choicesSym[#1](#2)}}
+\newcommand{\dimm}[1]{\dimSym(#1)}
+
+%%% Variations
+\newcommand{\variSym}{\OB{V}}
+\newcommand{\vari}[1]{\OB{\variSym(#1)}}
+
+
+%% 
+%%  Design theory
+%%
+\newcommand{\equivSym}{\OB{\sim}}
+
+\newcommand{\equalt}[3][C]{\OB{#2\equivSym_{#1}#3}}
+\newcommand{\equtag}[3][C]{\OB{#2\equivSym_{#1}#3}}
+
+% \newcommand{\dropName}{\textit{rem}}
+% \newcommand{\drop}[4][C]{\OB{\dropName\textit{#2}_{#1}^{#3}(#4)}}
+% \newcommand{\dropA}[3][C]{\drop{A}{#2}{#3}}
+% \newcommand{\dropT}[3][C]{\drop{T}{#2}{#3}}
+% \newcommand{\dropA}[3][C]{\OB{\alpha_{#1}^{#2}(#3)}}
+% \newcommand{\dropA}[3][C]{\OB{\alpha_{#2}^{#1}(#3)}}
+
+
+\newcommand{\dropi}[4][C]{\OB{\bar{#2}_{#1/#3}(#4)}}
+\newcommand{\drop}[3][C]{\OB{\bar{#2}_{#1}(#3)}}
+
+\newcommand{\dropA}[3][C]{\dropi[#1]{\alpha}{#2}{#3}}
+\newcommand{\dropT}[3][C]{\dropi[#1]{\tau}{#2}{#3}}
+\newcommand{\dropC}[2][C]{\drop[#1]{\gamma}{#2}}
+\newcommand{\dropD}[2][C]{\drop[#1]{\delta}{#2}}
+
+
+
+\newcommand{\vequiv}[2]{\OB{#1\sim#2}}
+\newcommand{\tequiv}[4][e]{\OB{#3\equivSym^{#1}_{#2}#4}}
+\newcommand{\tsubst}[4][D]{\OB{[#1:#2/#3]#4}}
+
+
+
+
+%%% Properties of dimensions
+% \newcommand{\indep}[2]{\OB{#1\rightleftarrows#2}}
+% \newcommand{\depnd}[2]{\OB{#1\Leftarrow#2}}
+\newcommand{\indep}[2]{\OB{#1\mathop\|#2}}
+\newcommand{\related}[2]{\OB{#1\mathop\sim#2}}
+\newcommand{\relclSym}{\OB{\vhoverlay[1.6ex]{\sim}{\scriptstyle *}}}
+% \newcommand{\relclSym}{\OB{\overset{*}{\sim}}}
+\newcommand{\relcl}[2]{\OB{#1\,\relclSym\,#2}}
+\newcommand{\depnd}[2]{\OB{#1\rightarrow#2}}
+\newcommand{\synch}[2]{\OB{#1\leftrightarrow#2}}
+\newcommand{\ovlap}[2]{\OB{#1\leftrightharpoons#2}}
+
+
+%%% Operations on versioned objects
+\newcommand{\factorSym}{\OB{\varphi}}
+\newcommand{\factor}[1]{\OB{\factorSym(#1)}}
+\newcommand{\distrSym}{\OB{\delta}}
+\newcommand{\distr}[1]{\OB{\distrSym(#1)}}
+
+
+%%% Java example
+% \newcommand{\etc}{\OB{\cdots}}
+% \newcommand{\etc}{}
+\newcommand{\tok}[1]{\texttt{\small #1}}
+\newcommand{\toktr}[2]{\tr[\tok{#1}]{#2}}
+\newcommand{\Nesting}[2]{\begin{array}[b]{@{}l@{}}%
+     \tok{#1}\langle\\ \indnt#2\end{array}}
+\newcommand{\End}{\rangle}
+\newcommand{\indnt}{\hspace*{1em}}
+
+\newcommand{\showEx}[1]{\medskip\noindent\centerline{#1}\medskip\noindent}
+
+\newcommand{\class}[1]{\toktr{class}{#1}}
+% \newcommand{\classNest}[1]{\Nesting{class}{#1}}
+\newcommand{\List}{\tok{List}}
+\newcommand{\Listg}{\tok{List<Job>}}
+\newcommand{\voidName}{void}
+\newcommand{\void}[1]{\toktr{\voidName}{#1}}
+\newcommand{\intt}{\tok{int}}
+\newcommand{\Iter}{\tok{Iter}}
+\newcommand{\while}[1]{\toktr{while}{#1}}
+\newcommand{\forr}[1]{\toktr{for}{#1}}
+\newcommand{\Job}{\tok{Job}}
+\newcommand{\run}{\tok{j.run}}
+\newcommand{\ifff}{\tok{if}}
+\newcommand{\nocode}{\OB{\bullet}}
+
+% alternative content-based naming
+\renewcommand{\voidName}{runJob}
+\renewcommand{\intt}{\tok{trialCount}}
+\renewcommand{\ifff}{\tok{break}}
+
+\newcommand{\prel}{\OB{{\cal R}}}
+
+% class, List/List<Job>, runJobs, trialCount, Iter, for/while, Job, j.run, break
+
+
+

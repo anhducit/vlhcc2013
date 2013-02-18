@@ -1,0 +1,1033 @@
+% Conferences
+@string{AMAST = {{Int.\ Conf.\ on Algebraic Methodology and Software Technology}}}
+@string{ASE = {{IEEE Int.\ Conf.\ on Automated Software Engineering}}}
+@string{CHI = {{ACM SIGCHI Conf.\ on Human Factors in Computing Systems}}}
+@string{ECOOP = {{European Conf.\ on Object-Oriented Programming}}}
+@string{ESEC = {{TODO!}}}
+@string{FM = {{Int.\ Symp.\ on Formal Methods}}}
+@string{GCSE = {{Int.\ Conf.\ on Generative and Component-Based Software Engineering}}}
+@string{GPCE = {{Int.\ Conf.\ on Generative Programming and Component Engineering}}}
+@string{ICSE = {{IEEE Int.\ Conf.\ on Software Engineering}}}
+@string{OOPSLA = {{ACM SIGPLAN Int.\ Conf.\ on Object-Oriented Programming, Systems, Languages, and Applications}}}
+@string{PFE = {{Int.\ Workshop on Software Product-Family Engineering}}}
+@string{RE = {{IEEE Int.\ Requirements Engineering Conf.}}}
+@string{SPLC = {{Int.\ Software Product Line Conf.}}}
+
+% Journals
+@string{CACM  = {{Comm.\ of the ACM}}}
+@string{JOT   = {{Journal of Object Technology}}}
+@string{SEN   = {{ACM SIGSOFT Software Engineering Notes}}}
+@string{TOSEM = {{ACM Trans.\ on Software Engineering and Methodology}}}
+@string{TSE   = {{IEEE Trans.\ on Software Engineering}}}
+@string{SCP   = {{Science of Computer Programming}}}
+
+% Series
+@string{LNCS  = {{LNCS}}}
+
+% Publishers
+@string{ACM = {{ACM Press}}}
+@string{ACM:US = {{New York}}}
+
+@string{AW = {{Addison-Wesley}}}
+@string{AW:Bos = {{Boston}}}
+@string{AW:Read = {{Reading, MA}}}
+
+@string{IEEE = {{IEEE Computer Society}}}
+@string{IEEE:DC = {{Washington, DC}}}
+@string{IEEE:CA = {{Los Alamitos, CA}}}
+
+@string{SP = {{Springer-Verlang}}}
+@string{SP:EU = {{Berlin Heidelberg}}}
+@string{SP:US = {{New York}}}
+
+@string{EL = {{Elsevier}}}
+@string{EL:AM = {{Amsterdam}}}
+
+% Institutions
+@string{SEI:CMU = {{Software Engineering Institute, Carnegie Mellon University}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Software Product Lines %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@inproceedings{Bos01,
+  author = {Bosch, Jan and Florijn, Gert and Greefhorst, Danny and Kuusela, Juha and
+            Obbink, Henk and Pohl, Klaus},
+  title = {{Variability Issues in Software Product Lines}},
+  booktitle = PFE,
+  series = LNCS,
+  volume = 2290,
+  year = 2001,
+  pages = {13--21},
+  publisher = SP,
+}
+
+% Very management-speaky document on adopting product line methodologies.
+@techreport{CDM09,
+  author = {Chastek, Gary and Donohoe, Patrick and McGregor, John},
+  title = {{Formulation of a Production Strategy for a Software Product Line}},
+  institution = SEI:CMU,
+  number = {CMU/SEI-2009-TN-025},
+  month = Aug,
+  year = 2009,
+}
+
+@book{CN01,
+  author = {Clements, Paul C. and Northrop, Linda M.},
+  title = {{Software Product Lines: Practices and Patterns}},
+  publisher = AW,
+  address = AW:Bos,
+  year = 2001,
+}
+
+% explicates the requirements of variation management for software product lines,
+% argues that traditional SCM and variation management tools are complementary,
+% and are solutions to different parts of the puzzle.
+@inproceedings{Kru02,
+  author = {Krueger, Charles W.},
+  title = {{Variation Management for Software Production Lines}},
+  booktitle = SPLC,
+  series = LNCS,
+  volume = 2379,
+  year = 2002,
+  pages = {37--48},
+  publisher = SP,
+}
+
+% Living document describing how to build product lines from a management-speak
+% businessy point of view.  Maybe just include URL as a footnote to CN01...
+@book{NC07,
+  author = {Northrop, Linda M. and Clements, Paul C.},
+  title = {{A Framework for Software Product Line Practice, Version 5.0}},
+  publisher = SEI:CMU,
+  year = 2007,
+  howpublished = {Web published},
+  note = {\url{http://www.sei.cmu.edu/productlines/frame_report/}},
+}
+
+@article{Par76,
+  author = {Parnas, David L.},
+  title = {{On the Design and Development of Program Families}},
+  journal = TSE,
+  volume = 2,
+  number = 1,
+  pages = {1--9},
+  year = 1976,
+  publisher = IEEE,
+}
+
+@book{PBV05,
+  title = {{Software Product Line Engineering: Foundations, Principles, and Techniques}},
+  author = {Pohl, Klaus and B{\"o}ckle, G{\"u}nter and van der Linden, Frank},
+  publisher = SP,
+  address = SP:EU,
+  year = 2005,
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Feature-Oriented Software Development %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@article{AK09,
+  title = {{An Overview of Feature-Oriented Software Development}},
+  author = {Apel, S. and K\"{a}stner, C.},
+  journal = JOT,
+  volume = 8,
+  number = 5,
+  pages = {49--84},
+  year = 2009
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Compositional Approaches %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@inproceedings{AKB08,
+  author = {Apel, Sven and K\"{a}stner, Christian and Batory, Don},
+  title = {{Program Refactoring Using Functional Aspects}},
+  booktitle = GPCE,
+  pages = {161--170},
+  year = 2008,
+}
+
+@article{ALS08,
+  title = {{Aspectual feature modules}},
+  author = {Apel, Sven and Leich, Thomas and Saake, Gunter},
+  journal = TSE,
+  volume = 34,
+  number = 2,
+  pages = {162--180},
+  year = {2008a},
+  publisher = IEEE,
+  address = IEEE:DC,
+}
+
+% GenVoca
+@article{BO92,
+  author = {Batory, Don and O'Malley, Sean},
+  title = {{The Design and Implementation of Hierarchical Software Systems with Reusable Components}},
+  journal = TOSEM,
+  volume = 1,
+  number = 4,
+  pages = {355--398},
+  year = 1992,
+  publisher = ACM,
+  address = ACM:US,
+}
+
+@inproceedings{Bat02,
+  author = {Batory, Don and Lopez-Herrejon, Roberto E. and Martin, Jean-Philippe},
+  title = {{Generating Product-Lines of Product-Families}},
+  booktitle = ASE,
+  pages = {81--92},
+  year = 2002,
+}
+
+@inproceedings{Bat03,
+  author = {Batory, Don and Liu, Jia and Sarvela, Jacob Neal},
+  title = {{Refinements and Multi-Dimensional Separation of Concerns}},
+  booktitle = ESEC,
+  pages = {48--57},
+  year = 2003,
+}
+
+@inproceedings{Liu06,
+  author = {Liu, Jia and Batory, Don and Lengauer, Christian},
+  title = {{Feature Oriented Refactoring of Legacy Applications}},
+  booktitle = ICSE,
+  pages = {112--121},
+  year = 2006,
+}
+
+% AHEAD
+@article{BSR04,
+  author = {Batory, Don and Sarvela, Jacob Neal and Rauschmayer, Axel},
+  title = {{Scaling Step-Wise Refinement}},
+  journal = TSE,
+  volume = 30,
+  number = 6,
+  pages = {355-371},
+  year = 2004,
+  publisher = IEEE,
+  address = IEEE:DC,
+}
+
+@inproceedings{Kel06,
+  author = {Kellens, Andy and Mens, Kim and Brichau, Johan and Gybels, Kris},
+  title = {{Managing the Evolution of Aspect-Oriented Software with Model-Based Pointcuts}},
+  booktitle = ECOOP,
+  series = LNCS,
+  volume = 4067,
+  pages = {501--525},
+  year = 2006,
+  publisher = SP,
+}
+
+% Aspect-Oriented Programming
+@inproceedings{Kic97,
+  author = {Kiczales, Gregor and Lamping, John and Mendhekar, Anurag and 
+            Maeda, Chris and Lopes, Cristina Videira and 
+            Loingtier, Jean-Marc and Irwin, John},
+  title = {{Aspect-Oriented Programming}},
+  booktitle = ECOOP,
+  series = LNCS,
+  volume = 1241,
+  pages = {220--242},
+  year = 1997,
+  publisher = SP,
+}
+
+% AspectJ
+@inproceedings{Kic01,
+  author = {Kiczales, Gregor and Hilsdale, Erik and Hugunin, Jim and
+            Kersten, Mik and Palm, Jeffrey and Griswold, William G.},
+  title = {{An Overview of AspectJ}},
+  booktitle = ECOOP,
+  series = LNCS,
+  volume = 2072,
+  pages = {327--354},
+  year = 2001,
+  publisher = SP,
+}
+
+% Caesar
+@article{MO04,
+  author = {Mezini, Mira and Ostermann, Klaus},
+  title = {{Variability Management with Feature-Oriented Programming and Aspects}},
+  journal = SEN,
+  volume = 29,
+  number = 6,
+  pages = {127--136},
+  year = 2004,
+  publisher = ACM,
+  address = ACM:US,
+}
+
+% Hyper/J
+@inproceedings{OT00,
+  author = {Ossher, Harold and Tarr, Peri},
+  title = {{Hyper/J: Multi-Dimensional Separation of Concerns for Java}},
+  booktitle = ICSE,
+  pages = {734--737},
+  year = 2000,
+}
+
+% MDSoC
+@inproceedings{Tarr99,
+  author = {Tarr, Peri and Ossher, Harold and Harrison, William and Sutton Jr., Stanley M.},
+  title = {{N Degrees of Separation: Multi-Dimensional Separation of Concerns}},
+  booktitle = ICSE,
+  pages = {107--119},
+  year = 1999,
+}
+
+@article{Wir71,
+  author = {Wirth, Niklaus},
+  title = {{Program Development by Stepwise Refinement}},
+  journal = CACM,
+  volume = 14,
+  number = 4,
+  year = 1971,
+  pages = {221--227},
+  publisher = ACM,
+  address = ACM:US,
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+% Annotative Approaches %
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+@article{EW11tosem,
+AUTHOR    = "Erwig, M. and Walkingshaw, E.",
+TITLE     = "{The Choice Calculus: A Representation for Software Variation}",
+JOURNAL   = TOSEM,
+YEAR      = "2011"
+}
+
+
+@book{Assm03,
+  title = {{Invasive Software Composition}},
+  author = {A{\ss}mann, U.},
+  year = 2003,
+  publisher = SP,
+  address = SP:US,
+}
+
+@inproceedings{Bou10,
+  author = {Boucher, Quentin and Classen, Andreas and Heymans, Patrick and Bourdoux, Arnaud and Demonceau, Laurent},
+  title = {{Tag and Prune: A Pragmatic Approach to Software Product Line Implementation}},
+  booktitle = ASE,
+  pages = {333--336},
+  year = 2010,
+}
+
+% CPP
+@book{cpp,
+  author = {{GNU Project}},
+  title = {{The C Preprocessor}},
+  publisher = {{Free Software Foundation}},
+  note = {\url{http://gcc.gnu.org/onlinedocs/cpp/}},
+  year = 2009,
+}
+
+% CPP Use
+@article{EBN02,
+  title = {{An Empirical Analysis of C Preprocessor Use}},
+  author = {Ernst, Michael D. and Badros, Greg J. and Notkin, David},
+  journal = TSE,
+  volume = 28,
+  number = 12,
+  pages = {1146--1170},
+  publisher = IEEE,
+  address = IEEE:DC,
+  year = 2002,
+}
+
+% CIDE
+
+@inproceedings{KAK08,
+  author = {K\"{a}stner, Christian and Apel, Sven and Kuhlemann, Martin},
+  title = {{Granularity in Software Product Lines}},
+  booktitle = ICSE,
+  pages = {311--320},
+  year = 2008,
+}
+
+@article{KA09,
+  title = {{Virtual Separation of Concerns---A Second Chance for Preprocessors}},
+  author = {K\"{a}stner, C. and Apel, S.},
+  journal = JOT,
+  volume = 8,
+  number = 6,
+  pages = {59--78},
+  year = 2009
+}
+
+% CIDE Feature Model
+@inproceedings{KKB08,
+  author = {Kim, Chang Hwan Peter and K\"{a}stner, Christian and Batory, Don},
+  title = {{On the Modularity of Feature Interactions}},
+  booktitle = GPCE,
+  pages = {19--23},
+  year = 2008,
+}
+
+% CIDE Alternatives
+@mastersthesis{Ros09,
+  author = {Rosenthal, M.},
+  title = {{Alternative Features in Colored Featherweight Java}},
+  year = 2009,
+  school = {{University of Passau, Germany}},
+  note = "{(In German)}",
+}
+
+@inproceedings{SC92,
+  author = {Spencer, Henry and Collyer, Geoff},
+  title = {{\#ifdef Considered Harmful, or Portability Experience With C News}},
+  booktitle = {{Proc.\ of the USENIX Summer Conf.}},
+  pages = {185--198},
+  year = 1992,
+}
+
+
+%%%%%%%%%%%%%%%%%%%%
+% Bridging the Gap %
+%%%%%%%%%%%%%%%%%%%%
+
+@inproceedings{KA08,
+  title = {{Integrating Compositional and Annotative Approaches for Product Line Engineering}},
+  author = {K\"{a}stner, Christian and Apel, Sven},
+  booktitle = {{GPCE Workshop on Modularization, Composition and Generative Techniques for Product Line Engineering}},
+  pages = {35--40},
+  year = 2008,
+}
+
+
+% XVCL 1
+@inproceedings{ZJ01,
+  author = {Zhang, Hongyu and Jarzabek, Stan and Swe, Soe Myat},
+  title = {{XVCL Approach to Separating Concerns in Product Family Assets}},
+  booktitle = GCSE,
+  series = LNCS,
+  volume = 2186,
+  pages = {36--47},
+  year = 2001,
+  publisher = SP,
+}
+
+
+% XVCL 2
+@article{ZJ04,
+  author = {Zhang, Hongyu and Jarzabek, Stan},
+  title = {{XVCL: A Mechanism for Handling Variants in Software Product Lines}},
+  journal = SCP,
+  volume = 53,
+  number = 3,
+  pages = {381--407},
+  year = 2004,
+  publisher = EL,
+  address = EL:AM,
+}
+
+
+%%%%%%%%%%%%%%%%%%
+% Feature Models %
+%%%%%%%%%%%%%%%%%%
+
+@inproceedings{AC04,
+  author = {Antkiewicz, Michal and Czarnecki, Krzysztof},
+  title = {{FeaturePlugin: Feature Modeling Plug-In for Eclipse}},
+  booktitle = {{OOPSLA Work.\ on Eclipse Technology eXchange}},
+  year = 2004,
+  pages = {67--72},
+  publisher = ACM,
+}
+
+
+@inproceedings{Apel08,
+  author = {Apel, Sven and Lengauer, Christian and M\"{o}ller, Bernhard and K\"{a}stner, Christian},
+  title = {{An Algebra for Features and Feature Composition}},
+  booktitle = AMAST,
+  series = LNCS,
+  volume = 5140,
+  pages = {36--50},
+  year = {2008b},
+  publisher = SP,
+}
+
+@inproceedings{Bat05,
+  author = {Batory, Don},
+  title = {{Feature Models, Grammars, and Propositional Formulas}},
+  booktitle = SPLC,
+  series = LNCS,
+  volume = 3714,
+  pages = {7--20},
+  year = 2005,
+  publisher = SP,
+}
+
+@inproceedings{HKM06,
+  author = {H\"{o}fner, Peter and Khedri, Ridha and M\"{o}ller, Bernhard},
+  title = {{Feature Algebra}},
+  booktitle = FM,
+  series = LNCS,
+  volume = 4085,
+  pages = {300--315},
+  year = 2006,
+  publisher = SP,
+}
+
+% Optional feature problem TODO
+@inproceedings{Kas09,
+  author = {K\"{a}stner, C. and Apel, S. and ur Rahman, S.~S. and Rosenm\"{u}ller, M. and Batory, D. and Saake, G.},
+  title = {{On the Impact of the Optional Feature Problem: Analysis and Case Studies}},
+  booktitle = SPLC,
+  pages = {181--190},
+  year = 2009
+}
+
+
+% Original feature diagram paper
+@techreport{Kang90,
+  title = {{Feature-Oriented Domain Analysis (FODA) Feasibility Study}},
+  author = {Kang, Kyo C. and Cohen, Sholom G. and Hess, James A. and Novak, William E. and Peterson, A. Spencer},
+  institution = SEI:CMU,
+  number = {CMU/SEI-90-TR-21},
+  month = Nov,
+  year = 1990,
+}
+
+@inproceedings{SHT06,
+  title = {{Feature Diagrams: A Survey and a Formal Semantics}},
+  author = {Schobbens, Pierre-Yves and Heymans, Patrick and Trigaux, Jean-Christophe},
+  booktitle = RE,
+  pages = {139--148},
+  year = 2006,
+}
+
+%%%%%%%
+% SCM %
+%%%%%%%
+
+@article{Est05,
+  author = {Estublier, Jacky and 
+            Leblang, David and 
+            van der Hoek, Andr\'{e} and 
+            Conradi, Reidar and 
+            Clemm, Geoffrey and 
+            Tichy, Walter and 
+            Wiborg-Weber, Darcy},
+  title = {{Impact of Software Engineering Research on the Practice of Software Configuration Management}},
+  journal = TOSEM,
+  volume = 14,
+  number = 4,
+  pages = {383--430},
+  year = 2005,
+  publisher = ACM,
+  address = ACM:US,
+}
+
+@article{Roc75,
+  author = {Rochkind, Marc J.},
+  title = {{The Source Code Control System}},
+  journal = TSE,
+  volume = 1,
+  number = 4,
+  pages = {364--370},
+  year = 1975,
+  publisher = IEEE,
+}
+
+@article{WS02,
+  author = {Walrad, Chuck and Strom, Darrel},
+  title = {{The Importance of Branching Models in SCM}},
+  journal = {Computer},
+  volume = 35,
+  number = 9,
+  pages = {31--38},
+  year = 2002,
+  publisher = IEEE,
+  address = IEEE:CA,
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Generative Programming %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@book{CE00,
+  author = {Czarnecki, Krzysztof and Eisenecker, Ulrich W.},
+  title = {{Generative Programming: Methods, Tools, and Applications}},
+  year = 2000,
+  publisher = AW,
+}
+
+%%%%%%%%
+% Misc %
+%%%%%%%%
+
+@inproceedings{BC90,
+  author = {Bracha, Gilad and Cook, William},
+  title = {{Mixin-Based Inheritance}},
+  booktitle = OOPSLA,
+  pages = {303--311},
+  year = 1990,
+}
+
+@book{Gam95,
+  author = {Gamma, Erich and Helm, Richard and Johnson, Ralph and Vlissides, John},
+  title = {{Design Patterns: Elements of Reusable Object-Oriented Software}},
+  publisher = AW,
+  address = AW:Read,
+  year = 1995,
+}
+
+% need for support for exploration of alternatives
+@inproceedings{SLN92,
+  author = {Szekely, Pedro and Luo, Ping and Neches, Robert},
+  title = {{Facilitating the Exploration of Interface Design Alternatives: The HUMANOID Model of Interface Design}},
+  booktitle = CHI,
+  pages = {507--515},
+  year = 1992,
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Below here is stuff not completely beautified yet.
+
+%% DB
+
+@book{Dat05,
+   author = {Date, C.~J.},
+   title = "{Database in Depth: Relational Theory for Practitioners}",
+   publisher = {O'Reilly Media, Inc.},
+   year = 2005,
+}
+
+
+%% business
+
+@book{Hay02,
+  author = {Hayes, J.},
+  title = "{The Theory and Practice of Change Management}",
+  publisher = "{Palgrave MacMillan}",
+  address = {Houndmills, UK},
+  year = 2002,
+}
+
+@book{Lue03,
+  author = {Luecke, R.},
+  title = "{Managing Change and Transition}",
+  publisher = "{Harvard Business School Press}",
+  address = {Boston, MA},
+  year = 2003,
+}
+
+@book{JP03,
+  author = {Jick, T.~D. and Peiperl, M.~A.},
+  title = "{Managing Change (2nd ed.)}",
+  publisher = "{McGraw Hill}",
+  address = {New York, NY},
+  year = 2003,
+}
+
+@book{Hol06,
+  author = {Holbeche, L.},
+  title = "{Understanding Change}",
+  publisher = "{Butterworth-Heinemann}",
+  address = {Oxford, UK},
+  year = 2006,
+}
+
+
+
+%% psychology and others
+
+@book{Daw04,
+  author = {Dawkins, R.},
+  title = "{The Ancestor's Tale -- A Pilgrimage to the Dawn of Life}",
+  publisher = "{Houghton Mifflin}",
+  address = {Boston, MA},
+  year = 2004,
+}
+
+@book{WK06,
+  editor = {Wimmer, A. and K\"{o}ssler, R.},
+  title = "{Understanding Change -- Models, Methologies, and Metapohors}",
+  publisher = "{Palgrave MacMillan}",
+  address = {Houndmills, UK},
+  year = 2006,
+}
+
+@incollection{Fon06,
+   author =   {Fontana, W.},
+   title =    "{The Topology of the Possible}",
+   chapter =  5,
+   pages =    {67--88},
+  editor =    {Wimmer, A. and K\"{o}ssler, R.},
+  booktitle = "{Understanding Change -- Models, Methologies, and Metapohors}",
+  publisher = "{Palgrave MacMillan}",
+  address = {Houndmills, UK},
+  year = 2006,
+}
+
+@incollection{Bot06,
+   author =   {Botkin, D.~B.},
+   title =    "{The Nature of Change}",
+   pages =    {6--11},
+  booktitle = "{Forces of Change -- A New View of Nature}",
+  publisher = "{National Geographic Society}",
+  year = 2006,
+}
+
+
+@article{KJJ02,
+  author = {Kay, A. and Jimenez, M.~C. and Jost, J.~T.},
+  title = "{Sour Grapes, Sweet Lemons, and the Anticipatory Rationalization
+of the Status Quo}",
+  journal = "{Personality and Social Psychology Bulletin}",
+  volume = 28,
+  pages = {1300--1312},
+  year = 2002
+}
+
+@article{SZ88,
+  author = {Samuelson, W. and Zeckhauser, R.~J.},
+  title = "{Status Quo Bias in Decision Making}",
+  journal = "{Journal of Risk and Uncertainty}",
+  volume = 1,
+  pages = {7--59},
+  year = 1988
+}
+
+% Revision Control and SCM
+
+@article{Buc04,
+  author = {Buckley, J. and Mens, T. and Zenger, M. and Rashid, A. and Kniesel, G.},
+  title = {{Towards a Taxonomy of Software Change}},
+  journal = {Journal of Software Maintenance and Evolution: Research and Practice},
+  year = {2004}
+}
+
+misc{darcs,
+  title = {{Darcs}},
+  key = {Darcs},
+  note = {{\small \tt http://darcs.net}},
+}
+
+% USED!
+@article{PW93,
+  author = {Plaice, J. and Wadge, W.~W.},
+  title = {{A New Approach to Version Control}},
+  journal = TSE,
+  volume = {19},
+  number = {3},
+  pages = {268--276},
+  year = {1993},
+}
+
+% USED!
+@inproceedings{Rou05,
+  author = {Roundy, D.},
+  title = {{Darcs: Distributed Version Management in Haskell}},
+  booktitle = {ACM SIGPLAN Workshop on Haskell},
+  pages = {1--4},
+  publisher = {ACM Press New York, NY, USA},
+  year = {2005},
+}
+
+@article{Tic82,
+  author = {Tichy, W.~F.},
+  title = {{Design, Implementation, and Evaluation of a Revision Control System}},
+  journal = ICSE,
+  pages = {58--67},
+  year = {1982},
+}
+
+% USED!
+@article{WMC01,
+  author = {Westfechtel, B. and Munch, B.~P. and Conradi, R.},
+  title = {{A Layered Architecture for Uniform Version Management}},
+  journal = TSE,
+  volume = 27,
+  number = 12,
+  pages = {1111--1133},
+  year = {2001}
+}
+
+% USED!
+@article{WS98,
+  title = {{High-level Best Practices in Software Configuration Management}},
+  author = {Wingerd, L. and Seiwald, C.},
+  journal = {Lecture notes in computer science},
+  pages = {57--66},
+  year = {1998},
+  publisher = {Springer}
+}
+
+
+% Software Merging
+
+@article{Ask94,
+  author = {Asklund, U.},
+  journal = {Proceedings of the Nordic Workshop on Programming Environment Research},
+  title = {{Identifying Conflicts During Structural Merge}},
+  year = {1994},
+}
+
+
+@inproceedings{Wes91,
+  title = {{Structure-Oriented Merging of Revisions of Software Documents}},
+  author = {Westfechtel, B.},
+  booktitle = {{Int.\ Workshop on Software Configuration Management}},
+  pages = {68--79},
+  publisher = {ACM},
+  address = {New York, NY, USA},
+  year = {1991},
+}
+
+
+% Product Lines
+
+@article{BPS04,
+ author = {Beuche, Danilo and Papajewski, Holger and Schr\"{o}der-Preikschat, Wolfgang},
+ title = "{Variability Management with Feature Models}",
+ journal = {Sci. Comput. Program.},
+ volume = {53},
+ number = {3},
+ year = {2004},
+ issn = {0167-6423},
+ pages = {333--352},
+ doi = {http://dx.doi.org/10.1016/j.scico.2003.04.005},
+ publisher = {Elsevier North-Holland, Inc.},
+ address = {Amsterdam, The Netherlands, The Netherlands},
+}
+
+@inproceedings{HV07,
+ author = {Hendrickson, Scott A. and van der Hoek, Andre},
+ title = "{Modeling Product Line Architectures Through Change Sets and Relationships}",
+ booktitle = {ICSE '07: Proceedings of the 29th international conference on Software Engineering},
+ year = {2007},
+ isbn = {0-7695-2828-7},
+ pages = {189--198},
+ doi = {http://dx.doi.org/10.1109/ICSE.2007.56},
+ publisher = {IEEE Computer Society},
+ address = {Washington, DC, USA},
+}
+
+@article{EFB01,
+  title={{Aspect-Oriented Programming: Introduction}},
+  author={Elrad, T. and Filman, R.~E. and Bader, A.},
+  journal={Communications of the ACM},
+  volume={44},
+  number={10},
+  pages={28--32},
+  year={2001}
+}
+
+% USED!
+@inproceedings{MO03,
+ author = {Mezini, M. and Ostermann, K.},
+ title = "{Conquering Aspects with Caesar}",
+ booktitle = {AOSD '03: Proceedings of the 2nd international conference on Aspect-oriented software development},
+ year = {2003},
+ isbn = {1-58113-660-9},
+ pages = {90--99},
+ location = {Boston, Massachusetts},
+ doi = {http://doi.acm.org/10.1145/643603.643613},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ }
+
+@inproceedings{KKB08,
+ author = {Kim, Chang Hwan Peter and K\"{a}stner, Christian and Batory, Don},
+ title = "{On the Modularity of Feature Interactions}",
+ booktitle = {GPCE '08: Proceedings of the 7th international conference on Generative programming and component engineering},
+ year = {2008},
+ isbn = {978-1-60558-267-2},
+ pages = {23--34},
+ location = {Nashville, TN, USA},
+ doi = {http://doi.acm.org/10.1145/1449913.1449919},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+}
+
+% added by Duc
+
+@INPROCEEDINGS{Krone94,
+    author = {Maren Krone and Gregor Snelting},
+    title = {On the Inference of Configuration Structures from Source Code},
+    booktitle = {In Proceedings of the 16th International Conference on Software Engineering},
+    year = {1994},
+    pages = {49--57},
+    publisher = {IEEE Computer Society Press}
+}
+
+
+@INPROCEEDINGS{FSPKDKF:EASE11,
+  AUTHOR = {Janet Feigenspan and Michael Schulze and Maria Papendieck and Christian K{\"a}stner and Raimund Dachselt and Veit K{\"o}ppen and Mathias Frisch},
+  TITLE = {Using Background Colors to Support Program Comprehension in Software Product Lines},
+  BOOKTITLE = {Proceedings of the 15th International Conference on Evaluation and Assessment in Software Engineering (EASE)},
+  YEAR = 2011,
+  NOTE = {to appear}
+}
+
+@inproceedings{VSC-CC-2003,
+ author = {Chu-Carroll, Mark C. and Wright, James and Ying, Annie T. T.},
+ title = {Visual separation of concerns through multidimensional program storage},
+ booktitle = {Proceedings of the 2nd international conference on Aspect-oriented software development},
+ series = {AOSD '03},
+ year = {2003},
+ isbn = {1-58113-660-9},
+ location = {Boston, Massachusetts},
+ pages = {188--197},
+ numpages = {10},
+ url = {http://doi.acm.org/10.1145/643603.643623},
+ doi = {http://doi.acm.org/10.1145/643603.643623},
+ acmid = {643623},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+} 
+
+
+@inproceedings{C-CLR07,
+ author = {Singh, Nieraj and Gibbs, Celina and Coady, Yvonne},
+ title = {C-CLR: a tool for navigating highly configurable system software},
+ booktitle = {Proceedings of the 6th workshop on Aspects, components, and patterns for infrastructure software},
+ series = {ACP4IS '07},
+ year = {2007},
+ isbn = {978-1-59593-657-8},
+ location = {Vancouver, British Columbia, Canada},
+ articleno = {9},
+ url = {http://doi.acm.org/10.1145/1233901.1233910},
+ doi = {http://doi.acm.org/10.1145/1233901.1233910},
+ acmid = {1233910},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {aspect-oriented programming, conditional compilation, modularization, preprocessor directives, structured programming, system configuration, tools},
+} 
+
+@article{AOP-EMP2009,
+author = {Stefan Hanenberg and Sebastian Kleinschmager and Manuel Josupeit-Walter},
+title = {Does aspect-oriented programming increase the development speed for crosscutting code? An empirical study},
+journal ={Empirical Software Engineering and Measurement, International Symposium on},
+volume = {0},
+isbn = {978-1-4244-4842-5},
+year = {2009},
+pages = {156-167},
+doi = {http://doi.ieeecomputersociety.org/10.1109/ESEM.2009.5316028},
+publisher = {IEEE Computer Society},
+address = {Los Alamitos, CA, USA},
+}
+
+
+@INPROCEEDINGS{Walker98aninitial,
+    author = {Robert Walker and Elisa L. A. Baniassad and Gail C. Murphy},
+    title = {An Initial Assessment of Aspect-oriented Programming},
+    booktitle = {In Proceedings of the 21st International Conference on Software Engineering},
+    year = {1998},
+    pages = {120--130},
+    publisher = {IEEE Computer Society Press}
+}
+
+@MISC{Lohmann06aquantitative,
+    author = {Daniel Lohmann and Fabian Scheler and Reinhard Tartler and Olaf Spinczyk and Wolfgang Schröder-Preikschat},
+    title = {A Quantitative Analysis of Aspects in the eCos Kernel },
+    year = {2006}
+}
+
+
+@INPROCEEDINGS{Favre97,
+    author={Favre, J.-M.},
+    booktitle={Program Comprehension, 1997. IWPC '97. Proceedings., Fifth Iternational Workshop on}, 
+    title={Understanding-in-the-large},
+    year={1997},
+    month=mar,
+    volume={},
+    number={},
+    pages={29 -38},
+    doi={10.1109/WPC.1997.601260},
+    ISSN={}
+}
+
+
+@book{advSE2008,
+    author = {Shull, Forrest and Singer, Janice and Sj{\o}berg, Dag I.K.},
+    title = {Guide to Advanced Empirical Software Engineering},
+    year = {2007},
+    isbn = {184800043X},
+    publisher = {Springer-Verlag New York, Inc.},
+    address = {Secaucus, NJ, USA}
+} 
+
+@INPROCEEDINGS{Ii05theeuses,
+    author = {Marc Fisher II and Gregg Rothermel},
+    title = {The EUSES Spreadsheet Corpus: A Shared Resource for Supporting Experimentation with Spreadsheet Dependability Mechanisms},
+    booktitle = {WEUSE},
+    year = {2005},
+    pages = {47--51}
+}
+
+@inproceedings{Scaffidi:2005,
+    author = {Scaffidi, Christopher and Shaw, Mary and Myers, Brad},
+    title = {Estimating the Numbers of End Users and End User Programmers},
+    booktitle = {VLHCC},
+    year = {2005},
+    pages = {207--214},
+} 
+
+@ARTICLE{Panko98whatwe,
+    author = {Raymond R. Panko},
+    title = {What we know about spreadsheet errors},
+    journal = {Journal of End User Computing},
+    year = {1998},
+    volume = {10},
+    pages = {15--21}
+}
+
+@article{Powell2008128,
+    title = "A critical review of the literature on spreadsheet errors",
+    journal = "Decision Support Systems",
+    volume = "46",
+    number = "1",
+    pages = "128 - 138",
+    year = "2008",
+    author = "Stephen G. Powell and Kenneth R. Baker and Barry Lawson",
+}
+
+@inproceedings{Chambers:2010,
+    author = {Chambers, Chris and Scaffidi, Chris},
+    title = {Struggling to Excel: A Field Study of Challenges Faced by Spreadsheet Users},
+    booktitle = {VLHCC},
+    year = {2010},
+    pages = {187--194},
+    numpages = {8}
+}
+
+@INPROCEEDINGS{Loesch:2007, 
+    author={Loesch, F. and Ploedereder, E.}, 
+    booktitle={Software Product Line Conference, 2007. SPLC 2007. 11th International}, title={Optimization of Variability in Software Product Lines}, 
+    year={2007},
+    pages={151 -162}
+}
+
+@misc{Synkronizer,
+    Title = {Synkronizer compares excel files faster than you can},
+    year = {2012},
+    howpublished = {http://www.synkronizer.com/} 
+}
+
+@misc{DiffEngineX,
+    title = {Florencesoft DiffEngineX Compares Microsoft Excel Worksheets},
+    year = {2012},
+    howpublished = {http://www.florencesoft.com/exceldiff.html}
+}
+
+@INPROCEEDINGS{le2011, 
+    author={Duc Le and Walkingshaw, E. and Erwig, M.}, 
+    booktitle={Visual Languages and Human-Centric Computing (VL/HCC), 2011 IEEE Symposium on}, title={\#ifdef confirmed harmful: Promoting understandable software variation}, 
+    year={2011}, 
+    pages={143 -150}
+}

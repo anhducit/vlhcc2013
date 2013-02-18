@@ -1,0 +1,27 @@
+\documentclass[varwidth=true, border=10pt]{standalone}
+\usepackage{xparse}
+\usepackage{tikz}
+\usetikzlibrary{calc,matrix,patterns,shadings,backgrounds}
+\input{tikz.tex}
+\pgfdeclarelayer{myback}
+\pgfsetlayers{myback,background,main}
+
+\begin{document}
+\begin{center}
+\begin{tikzpicture}
+\matrix (m)[mymatrixstyle_withheading, minimum width=8em]
+{
+   \&        A        \\
+ 1 \&   \\
+ 2 \&   \\
+ 3 \& =A1 + A2 \\
+};
+
+\begin{pgfonlayer}{myback}
+	\highlight[MyBlueColor]{m-2-2}{m-2-2}
+	\highlight[MyRedColor]{m-3-2}{m-3-2}
+\end{pgfonlayer}
+\end{tikzpicture}
+\end{center}
+
+\end{document} 
