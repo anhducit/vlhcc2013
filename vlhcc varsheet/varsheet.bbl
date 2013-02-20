@@ -14,6 +14,12 @@ D.~Batory.
 \newblock In {\em {Int.\ Software Product Line Conf.}}, volume 3714 of {\em
   {LNCS}}, pages 7--20. {Springer-Verlang}, 2005.
 
+\bibitem{CEL10hcc}
+C.~Chambers, M.~Erwig, and M.~Luckey.
+\newblock {SheetDiff: A Tool for Identifying Changes in Spreadsheets}.
+\newblock In {\em {IEEE Int.\ Symp.\ on Visual Languages and Human-Centric
+  Computing}}, pages 85--92, 2010.
+
 \bibitem{CN01}
 P.~C. Clements and L.~M. Northrop.
 \newblock {\em {Software Product Lines: Practices and Patterns}}.
