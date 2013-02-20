@@ -141,6 +141,8 @@
 % \newcommand{\xtag}[1]{\OB{\textit{tag}(#1)}}
 \newcommand{\dimsSym}{\textit{dims}}
 \newcommand{\dims}[1]{\OB{\dimsSym(#1)}}
+\newcommand{\dimtSym}{\textit{dim}}
+\newcommand{\dimt}[1]{\OB{\dimtSym(#1)}}
 % \newcommand{\tags}[2]{\OB{\textit{tags}_{#1}(#2)}}
 
 \newcommand{\decstr}{\OB{{\cal D}}}
@@ -153,14 +155,7 @@
 \newcommand{\Dec}[1][\decstr]{\OB{\Delta_{#1}}}
 
 % \newcommand{\tg}[2][e]{\OB{#2^{#1}}}
-\newcommand{\tagv}[1]{\OB{\bar{#1}}}
-\newcommand{\tagged}[2][\decstr]{\OB{\tau_{#1}(#2)}}
-\newcommand{\variT}[2][\decstr]{\OB{V_{#1}(#2)}}
-\newcommand{\vari}[2][\decstr]{\OB{V_{#1}(2^{#2})}}
-\newcommand{\variv}[1]{\OB{\vec{#1}}}
-\newcommand{\vv}{\variv{v}}
-\newcommand{\vf}{\variv{f}}
-\newcommand{\vS}{\variv{S}}
+
 
 \newcommand{\sel}[2]{\OB{#1!#2}}
 \newcommand{\indep}[2]{\OB{#1\nrightleftarrows#2}}
@@ -250,9 +245,18 @@
 \newcommand{\ltRel}[2]{#1 \ltText #2}
 \newcommand{\eqRel}[2]{#1 \eqText #2}
 
-\newcommand{\pos}{\OB{\pi}}
-\newcommand{\var}{\OB{V}}
-\newcommand{\fml}{\OB{\varphi}}
+\newcommand{\posSym}{\OB{\pi}}
+\newcommand{\varSym}{\OB{V}}
+\newcommand{\fmlSym}{\OB{\varphi}}
+\newcommand{\pos}[1]{\posSym(#1)}
+\newcommand{\var}[1]{\varSym(#1)}
+\newcommand{\fml}[1]{\fmlSym(#1)}
+\newcommand{\lbl}{\OB{l}}
+\newcommand{\Lbl}{\OB{L}}
+
+\newcommand{\variSym}{\OB{VS}}
+\newcommand{\vari}[1]{\OB{\variSym(#1)}}
+
 
 \newcommand{\htdim}{Housing\&Transportation}
 \newcommand{\lpdim}{Loan Payment}
@@ -470,8 +474,8 @@ Each variant contains a subset of a universe set of \emph{variational cells}.
 Variational cells encode information about which
 variants the cells belong to, where they appear in the two-dimentional grid structure, and what types of content they store.
 Each variational cell has an unique address $\add$ from the set $\A$. 
-A function $\var:\A\to2^{\qt[D^n]}$ maps the address to a subset of the tag universe.
-The purpose of $\var$ is to decide if a cell is selected after a decision is made.
+We define a function $\varSym:\A\to2^{\qt[D^n]}$ to map the address to a subset of the tag universe.
+The purpose of $\varSym$ is to decide whether a cell belongs to a variant.
 Each cell also contains a \emph{formula} $\f\in\F$, which can be a value, an address reference, or a function on other formulas.
 \[
 \begin{array}{lcl@{\qquad}l}
@@ -482,13 +486,13 @@ Each cell also contains a \emph{formula} $\f\in\F$, which can be a value, an add
 \]
 \noindent
 In the above definition, $\F$ represents the set of all formulas, $v$ ranges over primitive values 
-(integers, etc.), and $\omega$ stands for the set of all possible functions. 
-We define a function $\fml:\A\to\F$ to map cell addresses to formulas and a function $\pos:\A\to\POS$ to generate \emph{relative positions} given cell addresses.
+(integers, etc.), and $\omega$ stands for the set of all possible functions on formulas. 
+We define a function $\fmlSym:\A\to\F$ to map cell addresses to formulas and a function $\posSym:\A\to\POS$ to generate \emph{relative positions} given cell addresses.
 Relative positions $\p = (\natset, \natset)$ are stored as pairs of natural numbers and are used to aid a pretty
 printing algorithm in computing cells' absolute positions on two-dimentional grids.
 The first number in $\p$ represents relative vertical positions while the second represents horizontal positions.
 
-A variational spreadsheet combines a decision space $\dimset$ and the universe set of variational cells and is defined by the tuple $(\dimset, \var, \fml, \pos)$.
+A variational spreadsheet combines a decision space $\dimset$ and the universe set of variational cells and is defined by the tuple $(\dimset, \varSym, \fmlSym, \posSym)$.
 
 In Figure~\ref{fig:idedsheet} we provide two variants of a variational spreadsheet containing a single dimension $\mapname{D} = \set{D.1, D.2}$.
 Relative positions are shown on the top-right corner of each cell, and cell addresses are shown on the top-left corner.
@@ -542,8 +546,8 @@ we ignore the discussion about the semantics of individual variants since
 they are basically the semantics of plain spreadsheets.}
 
 The steps involved in computing variation semantics are: (1) generating all complete decisions,
-(2) performing \emph{tag selection} on those decisions to label each cell with either checked (\checked) or crossed (\unchecked), and 
-(3) collect all checked cells into variants.
+(2) performing \emph{tag selection} on those decisions to mark several cells as excluded (\unchecked), and 
+(3) collect all remaining cells into variants and map corresponding decisions to those variants.
 
 \subsection*{Dimensions and Complete Decisions}
 \newcommand{\dimColText}{\textit{dims}}
@@ -557,195 +561,66 @@ The steps involved in computing variation semantics are: (1) generating all comp
 The set of complete decisions of a variational spreadsheet \vsheet~is defined below with $D^n$ being \vsheet's decision space.
 \begin{align*}
 \decisions{s} = \{\{D_1.t_1, \ldots, D_n.t_n\} \ |\ & \{D_1,\ldots,D_n\} = \dims{D^n}\\
-        & \wedge t_i \in D_i\}
+        & \wedge \forall i \in \set{1\ldots n}, t_i \in D_i\}
 \end{align*}
-
 
 \subsection*{Tag Selection}
 
-
-
-% The tag selection procedure $\tsel[ts]{\vsheet}$~takes a complete decision \OB{ts} and goes through
-% a variational spreadsheet \vsheet~to filter out all cells whose tags are subsets of \OB{ts} into a variant.
-
-% The two tag sequences $\OB{ts_1}$ and $\OB{ts_2}$ are compatible
-% when either $ts_1 \subseteq ts_2$ or $ts_2 \subseteq ts_1$.
-% \[
-% \tsel[ts]{\vsheet} = \{c\ |\ c \leftarrow \vsheet, \tagsCell{c} \subseteq ts\}
-% \]
-% \noindent
-% Notice the \tagsText~operation, which selects a variational cell's tags .
-
-% Variation semantics is then defined as
-% \[
-% \begin{array}{r@{\ =\ }l}
-    % \vari{\vsheet} & \{(ts, \tsel[ts]{\vsheet})\ |\ ts \leftarrow \decisions{\vsheet}\} \\
-% \end{array}
-% \]
-
-% For the spreadsheet in Figure~\ref{fig:idedsheet}, the decisions are \dset{\mapname{D.1}} and \dset{\mapname{D.2}}.
-% Given each cell's tags, \dset{\mapname{D.1}} is mapped to
-% the set of cells \{\gcell{1}, \gcell{2}, \gcell{3}, \gcell{4}, \gcell{5}, \gcell{6}\}, and \dset{\mapname{D.2}} is mapped to
-% the set of cells \{\gcell{1}, \gcell{2}, \gcell{5}, \gcell{6}, \gcell{7}, \gcell{8}, \gcell{9}, \gcell{10}\}.
-% These two sets then become inputs for the pretty printer to
-% generate cell addresses.
-
-% \section{Concrete Syntax}
-% \label{sec:concsyntax}
-
-% The concrete syntax has two different modes: the \emph{variation exploration} mode and the default \emph{individual variant} mode.
-% In the variation exploration mode, users can expand several variation points to show all the available alternatives as
-% in Figure~\ref{fig:selection}. Users can also select a certain alternative of a variation point and corresponding decisions 
-% will be made automatically. The individual variant mode displays individual variants to users. 
-% To see a variant, users make decisions using the dimension panel as in
-% Figure~\ref{fig:dimension_panel}, which visualizes the relationship between dimensions and tags.
-% All tags of a dimension are grouped into a radiobutton group.
-% Users make decision for that dimension by selecting one of the radiobuttons.
-% The idea of dimension panel is reused from our previous work on variational representation of source code \cite{le2011}.
-% This work confirmed that showing individual variants and separating the configuration structures into a dimension panel improved program comprehension.
-
-% Each dimension is mapped to a distinct color and all cells relating to that dimension is annotated with
-% the same color.
-% This matching is only applicable when a cell's tags has only one dimension.
-% When a cell is associated with two or more dimensions, we could apply different visual cues to represent the relationship.
-% One approach could be creating a color palette at one of the cell's corner for storing the colors of all associated dimensions. Another approach is using a special color for the cell to indicate its dependence on multiple dimensions
-% and then when the cell is highlighted, all related dimensions are also highlighted in the dimension panel.
-
-% \begin{figure}
-% \centering
-% \includegraphics[scale=\figscale]{img/dimension_panel}
-% \caption{Dimension Panel}
-% \label{fig:dimension_panel}
-% \end{figure}
-
-% Producing the concrete presentation of spreadsheet variants requires taking the output of the
-% pretty printer and positioning cells at appropriate addresses.
-% We require that each variant has a rectangular shape, which results in cases where one
-% has to add \emph{filler cells} to fill up empty spaces.
-% Table~\ref{tbl:fourvar} gives an example where filler cells are needed. 
-% There are four variants of a variational spreadsheet with two dimensions $D = \{D_1, D_2\}$ and $D' = \{D'_1, D'_2\}$.
-% The column and row headers represent the corresponding decision of each variant.
-% For instance, the decision \dset{$D_1, D'_2$} corresponds to the lower left variant.
-% Each cell's tags are listed below.
-% \[
-% \begin{array}{l@{\ : \ }l}
-    % \gcell{1} & \dset{D_1} \\
-    % \gcell{2} & \dset{{D'_1}} \\
-    % \gcell{3}, \gcell{4} & \dset{D_1} \\
-    % \gcell{5}, \gcell{6} & \dset{{D'_2}} \\
-% \end{array}
-% \]
-% Cell \gcell{7} and \gcell{8} are filler cells, that is, they are not represented or stored in our model, yet
-% they are needed to ensure variants' rectangular shapes. Cell \gcell{7} is added whenever $D'_2$ is chosen.
-% For example, our semantics function maps the decision \dset{$D_1, D'_2$} to the set of three cells \{\gcell{1}, \gcell{5}, \gcell{6}\}.
-% The pretty printer then generates the corresponding addresses for each of these cells.
-% \[
-% \begin{array}{l@{\ : \ }l}
-    % \gcell{1} & \prog{A1} \\
-    % \gcell{5} & \prog{B1} \\
-    % \gcell{6} & \prog{B2} \\
-% \end{array}
-% \]
-% Since address \prog{A2} is not occupied by any cell, it becomes a ``black hole'' and is filled with cell \gcell{7}.
-% While cell \gcell{7} is added when a singular choice $D'_2$ is chosen, \gcell{8} requires two choices $D_2$ and $D'_2$ 
-% to be added to corresponding variants.
-
-% \NOTE{TODO: Get rid of relative postions from \gcell{7} and \gcell{8} in Table~\ref{tbl:fourvar}}
-
-% \begin{table*}
-% \centering
-  % \begin{tabular}{|>{\centering\arraybackslash}m{2em}|>{\centering\arraybackslash}m{18em} >{\centering\arraybackslash}m{25em}|}
-    % \hline
-    % & $D_1$ & $D_2$ \\ \hline
-    % $D'_1$ & \includegraphics[scale=\figscale]{tikz/2dims1} 
-      % & \includegraphics[scale=\figscale]{tikz/2dims2} \\
-      % $D'_2$ & \includegraphics[scale=\figscale]{tikz/2dims3}
-      % & \includegraphics[scale=\figscale]{tikz/2dims4} \\ \hline
-  % \end{tabular}
-  % \caption{Four Variants of a Spreadsheet}\label{tbl:fourvar}
-% \end{table*}
-
-
-\section{Partial Tag Selection and Goal-Directed Selection}
-\newcommand{\ptsel}[2][s]{\OB{{\lfloor#2\rfloor}^p_{#1}}}
+\newcommand{\tsel}[2][s]{\OB{{\lfloor#2\rfloor}_{#1}}}
+\newcommand{\stsel}[2][s]{\OB{{\lfloor#2\rfloor}^{s}_{#1}}}
 \newcommand{\compatibleSym}{\OB{\sim}}
 \newcommand{\compatible}[2]{\OB{#1\compatibleSym#2}}
 \newcommand{\updateText}{\textit{update}}
 \newcommand{\update}[2]{\updateText(#1, #2)}
+% A cell is excluded from a variant when it is marked as \unchecked.
+Tag selection applies complete decisions to variational spreadsheets and mark several cells as excluded (\unchecked).
+First, each cell at address $\add$'s \emph{label} is instantiated as the cell's tags $\var{\add}$.
+During the tag selection process, the cell's label either becomes \unchecked~or get reduced to a smaller set of tags.
+The set of labels $\Lbl$ is defined as $\Lbl = 2^{\qt[D^n]} \cup \set{\unchecked}$.
 
-Variation semantics works with complete decisions, which is applicable
-when users could make decisions for all dimensions. In practice, 
-users might not know all decisions in advance. They might make decisions
-for some dimensions, observe the outcome, and then either undo or reiterate the process.
-We introduce the notion of \emph{partial tag selection} to support users
-in making partial decision. Partial tag selection takes a variational
-spreadsheet and a decision as input and returns another variational spreadsheet. 
-When the input is a complete decision, partial tag selection returns a variant.
-For instance, when applying the incomplete decision \dset{\mapname{\htdim.Close}}
-on the spreadsheet in Figure~\ref{fig:mspending}, we obtain a spreadsheet
-with \mapname{\lpdim} as the only dimension and the costs of housing and transportation become non-variational.  
- 
-Formally, the partially tag selection operation $\ptsel[]{} : \VSheet \times 2^{\tg} \rightarrow \VSheet$ is defined as
+The single tag selection operation $\stsel[]{} : \Lbl \times \qt[D^n] \rightarrow \Lbl$ is defined as
 \[
-\ptsel[ts]{\vsheet} = \{\update{c}{ts}\ |\ c \leftarrow \vsheet, \compatible{\tagsCell{c}}{ts} \}
+\begin{array}{l@{ = }ll}
+    \stsel[\tg]{\unchecked} & \unchecked & \\
+    \stsel[\tg]{\lbl} & \begin{cases}
+                        \{t'\ |\ t' \in \lbl\wedge \dimt{t'} \neq \dimt{t}\} &, \textrm{if } \tg \in \lbl \\
+                        \unchecked &, \textrm{otherwise} \\
+                     \end{cases} \\
+\end{array}
+\]
+The complete tag selection operation $\tsel[]{} : \Lbl \times 2^{\qt[D^n]} \rightarrow \Lbl$ is then defined as
+\[
+\begin{array}{l@{ = }l}
+    \tsel[\emptyset]{\lbl}          & \lbl  \\
+    \tsel[\set{\tg} \cup ts]{\lbl}  & \tsel[ts]{\stsel[\tg]{\lbl}} \\
+\end{array}
 \]
 
-\noindent
-The \updateText~operation removes all tags in \OB{ts} from cell \OB{c}'s tags.
-If $\tagsCell{c} \subseteq ts$, \OB{c}'s tags becomes empty and the cell becomes
-non-variational. The \compatibleSym~relation returns true if two sets of tags do not have
-conflicts in decisions, that is, for every shared dimension,
-corresponding tags must be the same. 
-For instance, \compatible{\dset{D_1.t_1, D_2.t_2}}{\dset{D_1.t_1}} holds while \compatible{\dset{D_1.t_1, D_2.t_2}}{\dset{D_1.{t_1'}, D_2.t_2}} does not.
-
+Variation semantics is thus defined as
 \[
-\compatible{ts_1}{ts_2} = \forall D, D.{t_1} \in ts_1 \wedge D.{t_2} \in ts_2 \rightarrow t_1 = t_2
+\begin{array}{r@{\ =\ }l}
+    \vari{\vsheet} & \{\tsel[ts]{\vsheet}\ |\ ts \in \decisions{\vsheet}\} \\
+\end{array}
 \]
 
-Goal-directed selection is defined as partial tag selection on variational spreadsheets. Users
-begin by inspecting all possible values of a cell. In Figure~\ref{fig:selection},
-the cell being inspected is \prog{B8} and has four possible values, each
-corresponding to a partial decision (In this example specifically, the partial decisions happen to be the complete decisions). The alternative \OB{1450} corresponds
-to the decision \mapname{\{\htdim.Close, \lpdim.500\}}, which could be applied to
- the spreadsheet to obtain a single variant.
-
-We simplify our discussion by looking four variants of a simpler spreadsheet in Table~\ref{tbl:costcalc}...
-
-
-\begin{table*}
-\centering
-  \begin{tabular}{|>{\centering\arraybackslash}m{2em}|>{\centering\arraybackslash}m{25em} >{\centering\arraybackslash}m{25em}|}
-    \hline
-    & $D_1$ & $D_2$ \\ \hline
-    $D'_1$ & \includegraphics[scale=\figscale]{tikz/costs1}
-      & \includegraphics[scale=\figscale]{tikz/costs2} \\
-      $D'_2$ & \includegraphics[scale=\figscale]{tikz/costs3} %\fixedlabel{fig:2dims3}{tikz/2dims3} 
-      & \includegraphics[scale=\figscale]{tikz/costs4} \\ \hline
-  \end{tabular}
-  \caption{Four Variants of the Receipt Spreadsheet}\label{tbl:costcalc}
-\end{table*}
-
-
-
-\NOTE{TODO: (0) Provide a simpler example to talk about goal directed selection and syntactic sugar, (1) Talk about syntactic sugar (address referencing) here to enable \gds, (2) Describe \gds~ in more details, (3) Syntactic revisit: how to show all variants of a cell at a certain address?}
 
 \section{Language Properties}
 \label{sec:langprops}
 
-\begin{theorem}
+% \begin{theorem}
 % If \compatible{ts_1}{ts_2} and $ts_1 \cap ts_2 = \emptyset$,
 % \[
 % \tsel[ts_1 \cup ts_2]{\vsheet} = \ptsel[ts_2]{\ptsel[ts_1]{\vsheet}} = \ptsel[ts_1]{\ptsel[ts_2]{\vsheet}}
 % \]
-\end{theorem}
+% \end{theorem}
 
-\begin{proof}
-...
-\end{proof}
+% \begin{proof}
+% ...
+% \end{proof}
 
 
 
-\NOTE{TODO: Add three more theorems: (1) C-S equivalent (choice expansion), (2) Reduction of tags, (3) Dimension dependency theorem}
+% \NOTE{TODO: Add three more theorems: (1) C-S equivalent (choice expansion), (2) Reduction of tags, (3) Dimension dependency theorem}
 
 % \NOTE{Some laws are: (1) Orders does not matter when performing tag selection.
 % (2) What about the composition of two variational spreadsheets?
