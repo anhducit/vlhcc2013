@@ -303,7 +303,43 @@ TBD
 \section{Introduction}
 \label{sec:intro}
 
-\NOTE{New motivation needed}
+In this paper we address the problem of working with variation in
+spreadsheets. Variation in software is an area of growing interest \cite{SPL,
+FOSD, ...}. One reason is that the demands on modern software to adapt to
+different environments is constantly increasing. The individualization of
+software to the needs of a particular company, person, or even with regard to
+when or where it is used is one important driving force.
+%
+As a software for particular application domains, spreadsheets are no
+different and also face the need to be flexible and adaptable.
+
+So far the question of variation in spreadsheets has only been touched
+tangentially in research. There has been some work on computing differences
+between spreadsheets \cite{CEL10hcc,Scaffidi12hcc.}, but this work has focused
+on identifying variation and does not offer solutions to the problem of how to
+represent, work with, and reason about variation on spreadsheets.
+
+In this paper we propose a formal model for variational spreadsheets, analyze
+some of its formal properties, and demonstrate how this model can be used as a
+basis for future spreadsheet systems. 
+%
+Specifically, we will demonstrate how we can systematize the work with
+variation through the two concepts of \emph{dimension} and \emph{choice}. This
+systematic approach to the representation of variation in spreadsheets allows
+the identification of consistency criteria that can be exploited to develop
+tools for finding errors in spreadsheets.
+%
+Moreover, we will illustrate how variational spreadsheets can support the
+exploratory design of spreadsheets. In many situations the definition of a
+spreadsheet model offers alternative ways of representing data and formulas,
+and a decision of what the best way is to do that is often not clear.
+Variations allow the spreadsheet designer/programmer to develop different
+model variants in parallel and defer the decision to a later point.
+
+\NOTE{Continue with an example. Make sure that each aspect of the example
+points to a technical problem/issue and say where in the paper this issue will
+be addressed.}
+
 
 We first give a motivating example for \varsheet. Figure~\ref{fig:before} shows a conventional spending estimate of
 a college student. Suppose the student is not happy with it,
@@ -632,6 +668,6 @@ Variation semantics is thus defined as
 TBD
 
 \bibliographystyle{abbrv}
-\bibliography{change}
+\bibliography{change,me}
 
 \end{document} 
