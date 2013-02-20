@@ -31,13 +31,6 @@ C.~K\"{a}stner and S.~Apel.
 \newblock In {\em {GPCE Workshop on Modularization, Composition and Generative
   Techniques for Product Line Engineering}}, pages 35--40, 2008.
 
-\bibitem{le2011}
-D.~Le, E.~Walkingshaw, and M.~Erwig.
-\newblock \#ifdef confirmed harmful: Promoting understandable software
-  variation.
-\newblock In {\em Visual Languages and Human-Centric Computing (VL/HCC), 2011
-  IEEE Symposium on}, pages 143 --150, 2011.
-
 \bibitem{Panko98whatwe}
 R.~R. Panko.
 \newblock What we know about spreadsheet errors.

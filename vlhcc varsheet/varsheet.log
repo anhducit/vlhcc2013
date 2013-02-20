@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.4.25)  20 FEB 2013 00:39
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.4.25)  20 FEB 2013 01:23
 entering extended mode
 **varsheet.tex
 ("C:\Users\Duc Anh Le\Documents\GitHub\vlhcc2013\vlhcc varsheet\varsheet.tex"
@@ -754,10 +754,10 @@ df> <C:/Users/Duc Anh Le/Documents/GitHub/vlhcc2013/vlhcc varsheet/tikz/v2.pdf>
 ] ("C:\Users\Duc Anh Le\Documents\GitHub\vlhcc2013\vlhcc varsheet\varsheet.aux"
 ) ) 
 Here is how much of TeX's memory you used:
- 8621 strings out of 494045
- 123427 string characters out of 3148372
- 197239 words of memory out of 3000000
- 11756 multiletter control sequences out of 15000+200000
+ 8620 strings out of 494045
+ 123419 string characters out of 3148372
+ 197236 words of memory out of 3000000
+ 11755 multiletter control sequences out of 15000+200000
  64004 words of font info for 142 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  44i,14n,46p,286b,349s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -778,7 +778,7 @@ courier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/symbol/usyr.pfb
 s/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/fon
 ts/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/time
 s/utmri8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on varsheet.pdf (4 pages, 192467 bytes).
+Output written on varsheet.pdf (4 pages, 191970 bytes).
 PDF statistics:
  112 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
