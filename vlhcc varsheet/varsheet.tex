@@ -16,6 +16,7 @@
 \usepackage{subfig}
 \usepackage{color}
 \usepackage{verbatim}
+\usepackage{pifont}
 \usepackage[lined,boxed,linesnumbered]{algorithm2e}
 
 \widowpenalty=0
@@ -73,14 +74,6 @@
         \else\def\args{#1:#2:#4\end}\fi
     \newdef{#2#3}{#1{#3}}}
     
-\makeatletter
-\def\fixedlabel#1#2{%
-  \@bsphack%
-  \protected@write\@auxout{}%
-         {\string\newlabel{#1}{{#2}{\thepage}}}%
-  \@esphack}
-\makeatother
-
 %%%
 %%% Meta notes
 %%%
@@ -102,9 +95,24 @@
 %%% MATH
 %%%
 \def\OB#1{\ifmmode#1\else\mbox{$#1$}\fi}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newenvironment{definition}[1][Definition]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}]}{\end{trivlist}}
+
 
 % shared CC definitions
-\input{ccd.tex}
+% \input{ccd.tex}
+
+\newcommand{\set}[1]{\ensuremath{\{#1\}}}
+\newcommand{\dom}{\textit{dom}}
+\newcommand{\rng}{\textit{rng}}
+\newcommand{\eset}{\ensuremath{\varnothing}}
+\newcommand{\OR}{\ |\ }
+\newcommand{\BB}{\ensuremath{\mathbb{B}}}
+\newcommand{\TT}{\ensuremath{true}}
+\newcommand{\FF}{\ensuremath{false}}
 
 % General language structure
 %
@@ -124,8 +132,96 @@
 \newcommand{\chcB}[1]{\chc[B]{#1}}
 \newcommand{\dcB}[2][b_1,b_2]{\dimB[#1]{\chcB{#2}}}
 
+\newcommand{\map}[2][\dec]{\OB{#1\mapsto#2}}
+
+% \newcommand{\dimset}[1][D]{\OB{\bar{#1}}}
+\newcommand{\dimset}[1][D]{\OB{#1^n}}
+\newcommand{\xdimSym}{\textit{dim}}
+\newcommand{\xdim}[1]{\OB{\xdimSym(#1)}}
+% \newcommand{\xtag}[1]{\OB{\textit{tag}(#1)}}
+\newcommand{\dimsSym}{\textit{dims}}
+\newcommand{\dims}[1]{\OB{\dimsSym(#1)}}
+% \newcommand{\tags}[2]{\OB{\textit{tags}_{#1}(#2)}}
+
+\newcommand{\decstr}{\OB{{\cal D}}}
+
+\newcommand{\qt}[1][\decstr]{\OB{Q_{#1}}}
+
+\newcommand{\deprel}{\OB{R}}
+\newcommand{\dep}[2]{\OB{#1\mathop\to#2}}
+\newcommand{\dec}{\OB{\delta}}
+\newcommand{\Dec}[1][\decstr]{\OB{\Delta_{#1}}}
+
+% \newcommand{\tg}[2][e]{\OB{#2^{#1}}}
+\newcommand{\tagv}[1]{\OB{\bar{#1}}}
+\newcommand{\tagged}[2][\decstr]{\OB{\tau_{#1}(#2)}}
+\newcommand{\variT}[2][\decstr]{\OB{V_{#1}(#2)}}
+\newcommand{\vari}[2][\decstr]{\OB{V_{#1}(2^{#2})}}
+\newcommand{\variv}[1]{\OB{\vec{#1}}}
+\newcommand{\vv}{\variv{v}}
+\newcommand{\vf}{\variv{f}}
+\newcommand{\vS}{\variv{S}}
+
+\newcommand{\sel}[2]{\OB{#1!#2}}
+\newcommand{\indep}[2]{\OB{#1\nrightleftarrows#2}}
+
+\newcommand{\anddSym}{\OB{\wedge}}
+\newcommand{\ordSym}{\OB{\vee}}
+\newcommand{\andd}[2]{\OB{#1\anddSym#2}}
+\newcommand{\ord}[2]{\OB{#1\ordSym#2}}
+\newcommand{\all}{\OB{\star}}
+
+\newcommand{\splt}[2]{\OB{#1\curlywedgedownarrow#2}}
+\newcommand{\fcup}{\OB{\mathrel{\vec{\cup}}}}
+\newcommand{\fcap}{\OB{\mathrel{\vec{\cap}}}}
+\newcommand{\fsqcup}{\OB{\mathrel{\vec{\sqcup}}}}
+\newcommand{\fsqcap}{\OB{\mathrel{\vec{\sqcap}}}}
+
+% \newcommand{\nlab}{\OB{\nu}}
+% \newcommand{\elab}{\OB{\eta}}
+\newcommand{\nlab}{\OB{N}}
+\newcommand{\elab}{\OB{E}}
+\newcommand{\tN}{\tagv{\nlab}}
+\newcommand{\tE}{\tagv{\elab}}
+\newcommand{\tG}{\tagv{G}}
+\newcommand{\tp}{\tagv{p}}
+\newcommand{\vN}{\variv{\nlab}}
+\newcommand{\vE}{\variv{\elab}}
+\newcommand{\vG}{\variv{G}}
+% \newcommand{\vG}{\variv{G}}
+
+\newcommand{\pth}{\textit{path}}
+\newcommand{\tpth}{\tagv{\textit{path}}}
+
+\newcommand{\strp}[1]{\OB{\lfloor#1\rfloor}}
+
+% \newcommand{\semL}{\OB{[\![}}
+% \newcommand{\semR}{\OB{]\!]}}
+\newcommand{\semL}{\llbracket}
+\newcommand{\semR}{\rrbracket}
+\newcommand{\sem}[2][{}]{\OB{\semL#2\semR_{#1}}}
+\newcommand{\xsem}[2][{}]{\OB{\semL#2\semR_{#1}}}
+
+\newcommand{\inclSym}{\ensuremath{\sqsubseteq}}
+\newcommand{\incl}[2]{\ensuremath{#1 \inclSym #2}}
+
+
+\newcommand{\cons}[2]{\OB{#1\mathop:#2}}
+
+% \newcommand{\qu}{\OB{\omega}}
+% \newcommand{\qd}{\OB{\rho}}
+% \newcommand{\qr}{\OB{\varphi}}
+% \newcommand{\id}{\OB{\iota}}
+
+\newcommand{\filt}[2]{\OB{\langle#1,#2\rangle}}
+\newcommand{\qu}{\OB{\phi}}
+\newcommand{\qd}{\OB{\alpha}}
+\newcommand{\qr}{\OB{\beta}}
+\newcommand{\id}{\OB{\iota}}
+
+\newcommand{\myHeader}[1]{\textbf{#1}.}
+
 %%
-%% Duc's def
 %%
 \newcommand{\figscale}{0.6}
 \newcommand{\varsheet}{VarSheet}
@@ -140,6 +236,8 @@
 \newcommand{\tg}{\OB{t}}
 \newcommand{\tgs}{\OB{2^t}}
 \newcommand{\F}{\OB{F}}
+\newcommand{\POS}{\OB{P}}
+\newcommand{\p}{\OB{p}}
 \newcommand{\vsheet}{\OB{s}}
 \newcommand{\VSheet}{\OB{S}}
 \newcommand{\V}[1]{\OB{V~#1}}
@@ -152,8 +250,19 @@
 \newcommand{\ltRel}[2]{#1 \ltText #2}
 \newcommand{\eqRel}[2]{#1 \eqText #2}
 
+\newcommand{\pos}{\OB{\pi}}
+\newcommand{\var}{\OB{V}}
+\newcommand{\fml}{\OB{\varphi}}
+
 \newcommand{\htdim}{Housing\&Transportation}
 \newcommand{\lpdim}{Loan Payment}
+
+\newcommand{\A}{\OB{A}}
+\newcommand{\natset}{\mathbb{N}}
+\newcommand{\checked}{\text{\ding{51}}}
+\newcommand{\unchecked}{\text{\ding{55}}}
+\newcommand{\undecided}{\OB{\bullet}}
+
 
 \pagestyle{plain}
 \date{}
@@ -303,59 +412,112 @@ levels with not-too-restrictive and not-too-relaxed constraints, making it highl
 applicable for tree-like structures. \varsheet~expands Choice Calculus's ideas of dimensions
 and choices to the spatial, two dimensional structure of spreadsheets.
 
-% \varsheet~reuses several Choice Calculus constructs and semantics in the domain of spreadsheet computing.
-% Hence, many of the existing results of the Choice Calculus will still be applicable in the context of the \varsheet~language.
+\section{Dimensions and Decisions}
+\label{sec:dims}
 
-%\section{Syntax}
-%\label{sec:syntax}
+A \emph{dimension} describes one way in which something varies.  For example,
+\mapname{\htdim} in our example in Figure~\ref{fig:mspending} is one
+dimension of variation.
+%
+A \emph{dimension definition} assigns a \emph{dimension name} to a non-empty
+set of \emph{tags}, which correspond to the alternatives in that dimension.  A
+dimension definition is written as $D=\set{t_1,\ldots,t_n}$, 
+%
+for example,
+% the mode of transportation dimension can be represented as
+$\htdim=\set{Close, Far}$.
+% 
+A \emph{qualified tag} is a tag prefixed by the name of the dimension it is
+taken from, written $D.t_i$. Qualified tags are used to distinguish between
+tags of the same name from different dimensions. Given a qualified tag $q=D.t$,
+we can extract the dimension name  with the function $\xdim{q}=D$.
+% and the tag with the functions $\xdim{q}=D$ and $\xtag{q}=t$.
 
-\section{\varsheet's Design}
-\label{sec:design}
 
-\varsheet's design follows the annotative approach and encodes variation at the most fine-grained
-level---the cell level. Every single cell is annotated with a description about which variant it belongs to.
-A variational spreadsheet represents a universe of annotated cells from
-which one could pick subset to form a variant.
-By convention, users only see individual variants, yet they can go into
-\emph{variational exploration mode} to explore all alternatives of a cell or a set of cells (as in Figure~\ref{fig:selection}).
-Each cell is associated with a distinct global identity.
-Formally, a variational spreadsheet is a partial function from the set of global identities to
-sets of tags, \emph{relative spatial positions}, and formulas.
+A \emph{decision space} of \emph{degree} $n$ is given by a set of $n$
+dimension definitions $\dimset = \set{D_1=T_1, \ldots, D_n=T_n}$ where $T_i$
+is the set of tags for dimension $D_i$. 
+%
+We define the function $\dims{\dimset}=\set{D_1,\ldots,D_n}$ to return the set
+of all dimension names in a decision space.
+% , and $\tags{\dimset}{D_i}=T_i$ to return
+% the tags of dimension $D_i$ in decision space $D^n$.
+%
+The \emph{tag universe} of decision space $D^n$, written $\qt[D^n]$, is the set
+of all qualified tags in $D^n$, defined as 
+$\qt[D^n]=\set{D.t\ |\ D\in\dims\dimset\wedge t\in D}$.
 
-\begin{equation}
-\label{eq:vsheet}
-\vsheet \in \VSheet = \gid \rightarrow (2^{\tg}, \spos, \f)
-\end{equation}
 
-In the above definition, \vsheet~stands for variational spreadsheets, \gid~ranges over global 
-identities\footnote{We assume the set of global identities is an
-infinite set from which fresh, unused identities can be drawn. In this paper, we use natural numbers to represent global identities.}, 
-\tg~stands for tags, $2^{\tg}$ is the power set of all tags, \spos~represents relative partial positions (more on this later), and \f~represents formulas.
-Each cell can then be encoded as a tuple (\gid, \tgs, \spos, \f).
+A \emph{decision} in a decision space \dimset\ is a set of
+qualified tags $\dec\subseteq\qt[D^n]$ that contains at most one tag for each
+dimension, that is, $q,q'\in\dec\implies q=q'\vee\xdim{q}\neq\xdim{q'}$.
+%
+We overload the function \dimsSym\ to also denote the dimension names of a
+decisions, that is, $\dims{\dec}=\bigcup_{q\in\dec}\xdim{q}$.
+% $\dims{\dec}=\bigcup_{q\in\dec}\xdim{q}$.
+% 
+A decision $\dec\subseteq\qt[D^n]$ is \emph{complete} if it contains
+a qualified tag from every dimension in $D^n$, that is, if
+$\dims{\dec}=\dims{D^n}$, otherwise it is \emph{partial}.
 
-\subsection{Dimensions and Tags}
-\label{sec:dimtag}
+\section{Variational Spreadsheets}
 
-\begin{definition}
-A \emph{dimension} consists of a set of options, each being called a \emph{tag}.
-\end{definition}
+A variational spreadsheet represents a family of related 
+plain spreadsheets, each being called a \emph{variant}.
+Figure~\ref{fig:before} and~\ref{fig:after} show two of the four variants of the monthly spending spreadsheet.
+Each variant contains a subset of a universe set of \emph{variational cells}.
 
+Variational cells encode information about which
+variants the cells belong to, where they appear in the two-dimentional grid structure, and what types of content they store.
+Each variational cell has an unique address $\add$ from the set $\A$. 
+A function $\var:\A\to2^{\qt[D^n]}$ maps the address to a subset of the tag universe.
+The purpose of $\var$ is to decide if a cell is selected after a decision is made.
+Each cell also contains a \emph{formula} $\f\in\F$, which can be a value, an address reference, or a function on other formulas.
+\[
+\begin{array}{lcl@{\qquad}l}
+\f \in \F & ::= & v  & \textit{values} \\
+         & \OR & \add & \textit{identity references} \\
+         & \OR & \OB{\omega} (\f, \ldots, \f) & \textit{functions}\\
+\end{array}
+\]
 \noindent
-We distinguish tags having identical names by qualifying them with dimension names (e.g. \mapname{\htdim.Close}).
-Dimensions and tags form the basis for how variational spreadsheets vary.
-Every variational spreadsheet can constitute several independent dimensions, each of which represents an independent choice users have to make.
-Every cell contains tags to decide which variant the cell belongs to.
+In the above definition, $\F$ represents the set of all formulas, $v$ ranges over primitive values 
+(integers, etc.), and $\omega$ stands for the set of all possible functions. 
+We define a function $\fml:\A\to\F$ to map cell addresses to formulas and a function $\pos:\A\to\POS$ to generate \emph{relative positions} given cell addresses.
+Relative positions $\p = (\natset, \natset)$ are stored as pairs of natural numbers and are used to aid a pretty
+printing algorithm in computing cells' absolute positions on two-dimentional grids.
+The first number in $\p$ represents relative vertical positions while the second represents horizontal positions.
 
-\begin{definition}
-A \emph{decision} is a set of tags from different dimensions.
-A \emph{complete decision} is a decision with tags from all dimensions in a variational spreadsheet.
-\end{definition}
+A variational spreadsheet combines a decision space $\dimset$ and the universe set of variational cells and is defined by the tuple $(\dimset, \var, \fml, \pos)$.
 
-A decision can be an empty set ($\emptyset$), a set of a single tag (\dset{\mapname{\htdim.Close}}), or a set of multiple tags (\dset{\mapname{\htdim.Close, \lpdim.500}}).
-Decisions provide means for selecting individual variants from variational spreadsheets.
-Given the decision \dset{\mapname{\htdim.Close, \lpdim.600}}, the variant in Figure~\ref{fig:before}~is selected. Given the decision \dset{\mapname{\htdim.Far, \lpdim.500}}, the variant in Figure~\ref{fig:after}~is selected.
+In Figure~\ref{fig:idedsheet} we provide two variants of a variational spreadsheet containing a single dimension $\mapname{D} = \set{D.1, D.2}$.
+Relative positions are shown on the top-right corner of each cell, and cell addresses are shown on the top-left corner.
+The universe set of cells contains all the cells with addresses \gcell{1--10}.
+We leave the contents of several cells blank as they are not important for our discussion.
+The cell at address \gcell{2}'s formula is \prog{\#5 + 1}, yet the formula is pretty printed as \prog{C1 + 1} and
+\prog{D1 + 1} since cell \gcell{5}'s grid position changes from one variant to another. 
+Two different types of cells exist in Figure~\ref{fig:idedsheet}, \emph{non-variational} and \emph{variational} cells.
+Non-variational cells are cells that appear in all variants whereas variational cells do not. 
+Non-variational cells' tags are the tag universe set $\qt[D^n]$, and variational cells' tags are proper subsets of $\qt[D^n]$.
+We provide the cells' tags below.
 
-\begin{figure*}
+\[
+\begin{array}{l@{\ : \ }l}
+    \gcell{1}, \gcell{2}, \gcell{5}, \gcell{6} & \set{D.1, D.2} \\
+    \gcell{3}, \gcell{4} & \dset{\mapname{D.1}} \\
+    \gcell{7}, \gcell{8}, \gcell{9}, \gcell{10} & \dset{\mapname{D.2}} \\
+\end{array}
+\]
+
+The pretty printing algorithm places the cell with the lowest horizontal and vertical positions at the position \prog{A1} and recursively adds cells to the grid based on the following conventions.
+
+\begin{itemize}
+    \item Cells with the same vertical position are on the same column. Cells with the same horizontal position are on the same row.
+    \item For all pairs of cells $x$ and $y$, if $x$'s horizontal position is less than $y$'s, $x$'s row number has to be less than $y$'s.
+    \item For all pairs of cells $x$ and $y$, if $x$'s vertical position is less than $y$'s, $x$'s column number has to be less than $y$'s.
+\end{itemize}
+
+\begin{figure*} [ht]
 \centering
 \subfloat[Variant 1]{
     \includegraphics[scale=\figscale]{tikz/v1}
@@ -369,110 +531,6 @@ Given the decision \dset{\mapname{\htdim.Close, \lpdim.600}}, the variant in Fig
 \label{fig:idedsheet}
 \end{figure*}
 
-In Figure~\ref{fig:idedsheet} we provide two variants of a variational spreadsheet containing a single dimension \mapname{D} with two tags \mapname{D.1} and \mapname{D.2}.
-As the consequence, there are two decisions, \dset{\mapname{D.1}} and \dset{\mapname{D.2}},
-the former associating with variant 1 while the latter with variant 2.
-On the top-left corner of each cell is its global identity. We leave
-the contents of several cells blank as they are not important for our discussion.
-Two different types of cells exist in Figure~\ref{fig:idedsheet}, \emph{non-variational} and \emph{variational} cells.
-Non-variational cells are cells that appear in all variants whereas variational cells do not. Cells with ID 1, 2, 5, 6 are non-variational (from now on we will use the convention: cell \gcell{1}, \gcell{2}, \gcell{5}, \gcell{6}), and all other cells are variational ones. 
-Non-variational cells' tags are empty sets while variational cells' tags are non-empty.
-We provide the cells' tags below.
-
-\[
-\begin{array}{l@{\ : \ }l}
-    \gcell{1}, \gcell{2}, \gcell{5}, \gcell{6} & \emptyset \\
-    \gcell{3}, \gcell{4} & \dset{\mapname{D.1}} \\
-    \gcell{7}, \gcell{8}, \gcell{9}, \gcell{10} & \dset{\mapname{D.2}} \\
-\end{array}
-\]
-
-% \NOTE{Talk about relative position + pretty printing algorithm.
-% Then talk about formula, global referencing.}
-\subsection{Relative Spatial Positions and Formulas}
-\label{sec:relpos_form}
-
-Figure~\ref{fig:idedsheet} gives an example of \emph{structural variation}, where
-a 2x1 sub-spreadsheet in variant 1 was replaced by a 2x2 sub-spreadsheet in variant 2.
-In each variant, there is a reference from the cell \gcell{2} to the cell \gcell{5}.
-The formula of cell \gcell{2} changes when we switch from one variant to the other (from \prog{=C1+1} to \prog{=D1+1} and vice versa), which surprisingly
-implies that cell \gcell{2} is influenced by the decision in dimension \mapname{D}, which should not be the case.
-This results from the fact that structural changes in spreadsheets
-have global impact, and we need a mechanism to reduce the scope of impact to the minimal.
-
-Instead of using conventional spreadsheets' absolute/relative address referencing schemes, we employ
-in our model a \emph{global identity referencing scheme} in which the formula of \gcell{2} is \prog{=\gcell{5}+1}.
-When the first variant of the spreadsheet is shown, \gcell{5}'s address is mapped to \prog{C1}, and
-when the second variant is selected, \gcell{5}'s address is mapped to \prog{D1}, so the formula of \gcell{2} is displayed according to the selected variant.
-The definition for spreadsheet formulas is thus defined as
-
-\[
-\begin{array}{lcl@{\qquad}l}
-\f \in \F & ::= & v  & \textit{values} \\
-         & \OR & \gid & \textit{identity references} \\
-         & \OR & \OB{\omega} (\f, \ldots, \f) & \textit{functions}\\
-\end{array}
-\]
-
-\newcommand{\natset}{\OB{\mathbb{N}}}
-\newcommand{\strset}{\OB{\mathbb{S}}}
-\noindent
-Note that we store identity references but show normal address references to users.
-As cell definitions do not encode address information, the burden now
-lies on how to map cell identities to addresses. We solve this problem by defining a pretty 
-printing algorithm for variants. 
-%
-The process of selecting a variant is 
-similar to picking a subset of cells from the universe of cells. 
-Each cell in the subset carries information about its \emph{relative spatial position},
-which is used to aid the pretty printing algorithm in deciding cell addresses.
-Relative spatial positions are pairs of natural numbers, \spos~= (\natset, \natset), the first element representing relative
-vertial positions and the second representing relative horizontal positions.
-In Figure~\ref{fig:idedsheet}, spatial positions are shown on the top-right corner
-of each cell. Normal cell addresses are pairs of strings and natural numbers, \add~= \OB{(\strset, \natset)}. 
-
-The pretty printing algorithm (presented in Algorithm~\ref{alg:prettyprint}) takes a set of cells as input and attaches an addresses to each cell (e.g. \gcell{1} will have the address \prog{A1}).
-This algorithm assumes the left-most and top-most cell's address
-is \prog{A1}.
-
-\begin{algorithm}
-    \SetKwData{posset}{P}
-    \SetKwData{vposset}{VP}
-    \SetKwData{hposset}{HP}
-    \SetKwData{cellset}{C}
-    \SetKwData{cell}{c}
-    \SetKwData{cadd}{cadd}
-    \SetKwData{radd}{radd}
-    \SetKwData{ret}{ret}
-    \SetKwData{v}{v}
-    \SetKwData{h}{h}
-    \SetKwFunction{ptag}{tag}
-    \SetKwFunction{tagLookUp}{tagLookUp}
-    \SetKwInOut{Input}{input}
-    \SetKwInOut{Output}{output}
-    \Input{A set \cellset of cells, each being encoded with (\gid, \tgs, \spos, \f)}
-    \Output{A mapping between cells and addresses}
-    \BlankLine
-        Extract the set of positions \posset from \cellset\;
-        The set of vertical positions \vposset = $\{x\ |\ (x, y) \leftarrow \posset \}$ \;
-        The set of horizontal positions \hposset = $\{y\ |\ (x, y) \leftarrow \posset \}$ \;
-        Sort elements in \vposset and \hposset in ascending order \;
-        Tag the first element in \vposset with ``\prog{A}'', the second with ``\prog{B}'' and so on\;
-        Tag the first element in \hposset with \prog{1}, the second with \prog{2} and so on\;
-        \ret $\leftarrow \emptyset$\;
-        \For{\cell $\in$ \cellset} {
-            \v $\leftarrow$ \cell's vertical position\;
-            \h $\leftarrow$ \cell's horizontal position\;
-            \cell's column address \cadd $\leftarrow$ \tagLookUp{\vposset, \v}\; 
-            \cell's row address \radd $\leftarrow$ \tagLookUp{\hposset, \h}\;
-            \ret $\leftarrow$ \ret $\cup$ \{(\cell, (\cadd, \radd))\}\;
-        }
-        \Return{\ret}\;
-    \caption{Pretty Printing Spreadsheet Variants}
-    \label{alg:prettyprint}
-\end{algorithm}
-
-
 \section{Semantics}
 \label{sec:semantics}
 \newcommand{\semP}{\sem[P]}
@@ -483,11 +541,11 @@ in this section we describe \emph{variation semantics}, a mapping between comple
 we ignore the discussion about the semantics of individual variants since
 they are basically the semantics of plain spreadsheets.}
 
-The steps involved in computing variation semantics are: (1) collecting
-the set of dimensions, (2) generating all complete decisions,
-and (3) performing \emph{tag selection} on those decisions to produce variants.
+The steps involved in computing variation semantics are: (1) generating all complete decisions,
+(2) performing \emph{tag selection} on those decisions to label each cell with either checked (\checked) or crossed (\unchecked), and 
+(3) collect all checked cells into variants.
 
-\subsection{Dimensions and Complete Decisions}
+\subsection*{Dimensions and Complete Decisions}
 \newcommand{\dimColText}{\textit{dims}}
 \newcommand{\dimCol}[1]{\OB{\dimColText(#1)}}
 \newcommand{\tagsText}{\textit{tags}}
@@ -496,127 +554,116 @@ and (3) performing \emph{tag selection} on those decisions to produce variants.
 \newcommand{\decisions}[1]{\OB{\decisionsText(#1)}}
 \newcommand{\examplesheet}{\OB{sh}}
 
-We define the \dimColText~operation for collecting
-all dimensions in a variational spreadsheet.
-For the spreadsheet in Figure~\ref{fig:mspending}, \dimColText~returns \{\mapname{\htdim}, \mapname{\lpdim}\}. 
-The set of complete decisions of a variational spreadsheet \vsheet~is defined as
+The set of complete decisions of a variational spreadsheet \vsheet~is defined below with $D^n$ being \vsheet's decision space.
 \begin{align*}
-\decisions{\vsheet} = \{D_1.t_1, \ldots, D_k.t_k\ |\ \{D_1,\ldots,D_k\} = \dimCol{\vsheet},t_i \leftarrow D_i\}
+\decisions{s} = \{\{D_1.t_1, \ldots, D_n.t_n\} \ |\ & \{D_1,\ldots,D_n\} = \dims{D^n}\\
+        & \wedge t_i \in D_i\}
 \end{align*}
 
 
-\subsection{Tag Selection}
+\subsection*{Tag Selection}
 
-The tag selection procedure $\tsel[ts]{\vsheet}$~takes a complete decision \OB{ts} and goes through
-a variational spreadsheet \vsheet~to filter out all cells whose tags are subsets of \OB{ts} into a variant.
+
+
+% The tag selection procedure $\tsel[ts]{\vsheet}$~takes a complete decision \OB{ts} and goes through
+% a variational spreadsheet \vsheet~to filter out all cells whose tags are subsets of \OB{ts} into a variant.
 
 % The two tag sequences $\OB{ts_1}$ and $\OB{ts_2}$ are compatible
 % when either $ts_1 \subseteq ts_2$ or $ts_2 \subseteq ts_1$.
-\[
-\tsel[ts]{\vsheet} = \{c\ |\ c \leftarrow \vsheet, \tagsCell{c} \subseteq ts\}
-\]
-\noindent
-Notice the \tagsText~operation, which selects a variational cell's tags .
+% \[
+% \tsel[ts]{\vsheet} = \{c\ |\ c \leftarrow \vsheet, \tagsCell{c} \subseteq ts\}
+% \]
+% \noindent
+% Notice the \tagsText~operation, which selects a variational cell's tags .
 
-Variation semantics is then defined as
-\[
-\begin{array}{r@{\ =\ }l}
-    \vari{\vsheet} & \{(ts, \tsel[ts]{\vsheet})\ |\ ts \leftarrow \decisions{\vsheet}\} \\
-\end{array}
-\]
+% Variation semantics is then defined as
+% \[
+% \begin{array}{r@{\ =\ }l}
+    % \vari{\vsheet} & \{(ts, \tsel[ts]{\vsheet})\ |\ ts \leftarrow \decisions{\vsheet}\} \\
+% \end{array}
+% \]
 
-For the spreadsheet in Figure~\ref{fig:idedsheet}, the decisions are \dset{\mapname{D.1}} and \dset{\mapname{D.2}}.
-Given each cell's tags, \dset{\mapname{D.1}} is mapped to
-the set of cells \{\gcell{1}, \gcell{2}, \gcell{3}, \gcell{4}, \gcell{5}, \gcell{6}\}, and \dset{\mapname{D.2}} is mapped to
-the set of cells \{\gcell{1}, \gcell{2}, \gcell{5}, \gcell{6}, \gcell{7}, \gcell{8}, \gcell{9}, \gcell{10}\}.
-These two sets then become inputs for the pretty printer to
-generate cell addresses.
+% For the spreadsheet in Figure~\ref{fig:idedsheet}, the decisions are \dset{\mapname{D.1}} and \dset{\mapname{D.2}}.
+% Given each cell's tags, \dset{\mapname{D.1}} is mapped to
+% the set of cells \{\gcell{1}, \gcell{2}, \gcell{3}, \gcell{4}, \gcell{5}, \gcell{6}\}, and \dset{\mapname{D.2}} is mapped to
+% the set of cells \{\gcell{1}, \gcell{2}, \gcell{5}, \gcell{6}, \gcell{7}, \gcell{8}, \gcell{9}, \gcell{10}\}.
+% These two sets then become inputs for the pretty printer to
+% generate cell addresses.
 
-\section{Concrete Syntax}
-\label{sec:concsyntax}
+% \section{Concrete Syntax}
+% \label{sec:concsyntax}
 
-The concrete syntax has two different modes: the \emph{variation exploration} mode and the default \emph{individual variant} mode.
-In the variation exploration mode, users can expand several variation points to show all the available alternatives as
-in Figure~\ref{fig:selection}. Users can also select a certain alternative of a variation point and corresponding decisions 
-will be made automatically. The individual variant mode displays individual variants to users. 
-To see a variant, users make decisions using the dimension panel as in
-Figure~\ref{fig:dimension_panel}, which visualizes the relationship between dimensions and tags.
-All tags of a dimension are grouped into a radiobutton group.
-Users make decision for that dimension by selecting one of the radiobuttons.
-The idea of dimension panel is reused from our previous work on variational representation of source code \cite{le2011}.
-This work confirmed that showing individual variants and separating the configuration structures into a dimension panel improved program comprehension.
+% The concrete syntax has two different modes: the \emph{variation exploration} mode and the default \emph{individual variant} mode.
+% In the variation exploration mode, users can expand several variation points to show all the available alternatives as
+% in Figure~\ref{fig:selection}. Users can also select a certain alternative of a variation point and corresponding decisions 
+% will be made automatically. The individual variant mode displays individual variants to users. 
+% To see a variant, users make decisions using the dimension panel as in
+% Figure~\ref{fig:dimension_panel}, which visualizes the relationship between dimensions and tags.
+% All tags of a dimension are grouped into a radiobutton group.
+% Users make decision for that dimension by selecting one of the radiobuttons.
+% The idea of dimension panel is reused from our previous work on variational representation of source code \cite{le2011}.
+% This work confirmed that showing individual variants and separating the configuration structures into a dimension panel improved program comprehension.
 
-Each dimension is mapped to a distinct color and all cells relating to that dimension is annotated with
-the same color.
-This matching is only applicable when a cell's tags has only one dimension.
-When a cell is associated with two or more dimensions, we could apply different visual cues to represent the relationship.
-One approach could be creating a color palette at one of the cell's corner for storing the colors of all associated dimensions. Another approach is using a special color for the cell to indicate its dependence on multiple dimensions
-and then when the cell is highlighted, all related dimensions are also highlighted in the dimension panel.
+% Each dimension is mapped to a distinct color and all cells relating to that dimension is annotated with
+% the same color.
+% This matching is only applicable when a cell's tags has only one dimension.
+% When a cell is associated with two or more dimensions, we could apply different visual cues to represent the relationship.
+% One approach could be creating a color palette at one of the cell's corner for storing the colors of all associated dimensions. Another approach is using a special color for the cell to indicate its dependence on multiple dimensions
+% and then when the cell is highlighted, all related dimensions are also highlighted in the dimension panel.
 
-\begin{figure}
-\centering
-\includegraphics[scale=\figscale]{img/dimension_panel}
-\caption{Dimension Panel}
-\label{fig:dimension_panel}
-\end{figure}
-
-Producing the concrete presentation of spreadsheet variants requires taking the output of the
-pretty printer and positioning cells at appropriate addresses.
-We require that each variant has a rectangular shape, which results in cases where one
-has to add \emph{filler cells} to fill up empty spaces.
-Table~\ref{tbl:fourvar} gives an example where filler cells are needed. 
-There are four variants of a variational spreadsheet with two dimensions $D = \{D_1, D_2\}$ and $D' = \{D'_1, D'_2\}$.
-The column and row headers represent the corresponding decision of each variant.
-For instance, the decision \dset{$D_1, D'_2$} corresponds to the lower left variant.
-Each cell's tags are listed below.
-\[
-\begin{array}{l@{\ : \ }l}
-    \gcell{1} & \dset{D_1} \\
-    \gcell{2} & \dset{{D'_1}} \\
-    \gcell{3}, \gcell{4} & \dset{D_1} \\
-    \gcell{5}, \gcell{6} & \dset{{D'_2}} \\
-\end{array}
-\]
-Cell \gcell{7} and \gcell{8} are filler cells, that is, they are not represented or stored in our model, yet
-they are needed to ensure variants' rectangular shapes. Cell \gcell{7} is added whenever $D'_2$ is chosen.
-For example, our semantics function maps the decision \dset{$D_1, D'_2$} to the set of three cells \{\gcell{1}, \gcell{5}, \gcell{6}\}.
-The pretty printer then generates the corresponding addresses for each of these cells.
-\[
-\begin{array}{l@{\ : \ }l}
-    \gcell{1} & \prog{A1} \\
-    \gcell{5} & \prog{B1} \\
-    \gcell{6} & \prog{B2} \\
-\end{array}
-\]
-Since address \prog{A2} is not occupied by any cell, it becomes a ``black hole'' and is filled with cell \gcell{7}.
-While cell \gcell{7} is added when a singular choice $D'_2$ is chosen, \gcell{8} requires two choices $D_2$ and $D'_2$ 
-to be added to corresponding variants.
-
-\NOTE{TODO: Get rid of relative postions from \gcell{7} and \gcell{8} in Table~\ref{tbl:fourvar}}
-
-\begin{table*}
-\centering
-  \begin{tabular}{|>{\centering\arraybackslash}m{2em}|>{\centering\arraybackslash}m{18em} >{\centering\arraybackslash}m{25em}|}
-    \hline
-    & $D_1$ & $D_2$ \\ \hline
-    $D'_1$ & \includegraphics[scale=\figscale]{tikz/2dims1} 
-      & \includegraphics[scale=\figscale]{tikz/2dims2} \\
-      $D'_2$ & \includegraphics[scale=\figscale]{tikz/2dims3}
-      & \includegraphics[scale=\figscale]{tikz/2dims4} \\ \hline
-  \end{tabular}
-  \caption{Four Variants of a Spreadsheet}\label{tbl:fourvar}
-\end{table*}
-
-% \begin{figure*}[ht]
+% \begin{figure}
 % \centering
-    % \subfloat[]{\includegraphics[scale=\figscale]{tikz/2dims1}}\hspace{2em}
-    % \subfloat[]{\includegraphics[scale=\figscale]{tikz/2dims2}}\\
-    % \noindent 
-    % \subfloat[]{\includegraphics[scale=\figscale]{tikz/2dims3}}\hspace{2em} 
-    % \subfloat[]{\includegraphics[scale=\figscale]{tikz/2dims4}}
-% \caption{For Variants of a Variational Spreadsheet}
-% \label{fig:fourvar}
-% \end{figure*}
+% \includegraphics[scale=\figscale]{img/dimension_panel}
+% \caption{Dimension Panel}
+% \label{fig:dimension_panel}
+% \end{figure}
+
+% Producing the concrete presentation of spreadsheet variants requires taking the output of the
+% pretty printer and positioning cells at appropriate addresses.
+% We require that each variant has a rectangular shape, which results in cases where one
+% has to add \emph{filler cells} to fill up empty spaces.
+% Table~\ref{tbl:fourvar} gives an example where filler cells are needed. 
+% There are four variants of a variational spreadsheet with two dimensions $D = \{D_1, D_2\}$ and $D' = \{D'_1, D'_2\}$.
+% The column and row headers represent the corresponding decision of each variant.
+% For instance, the decision \dset{$D_1, D'_2$} corresponds to the lower left variant.
+% Each cell's tags are listed below.
+% \[
+% \begin{array}{l@{\ : \ }l}
+    % \gcell{1} & \dset{D_1} \\
+    % \gcell{2} & \dset{{D'_1}} \\
+    % \gcell{3}, \gcell{4} & \dset{D_1} \\
+    % \gcell{5}, \gcell{6} & \dset{{D'_2}} \\
+% \end{array}
+% \]
+% Cell \gcell{7} and \gcell{8} are filler cells, that is, they are not represented or stored in our model, yet
+% they are needed to ensure variants' rectangular shapes. Cell \gcell{7} is added whenever $D'_2$ is chosen.
+% For example, our semantics function maps the decision \dset{$D_1, D'_2$} to the set of three cells \{\gcell{1}, \gcell{5}, \gcell{6}\}.
+% The pretty printer then generates the corresponding addresses for each of these cells.
+% \[
+% \begin{array}{l@{\ : \ }l}
+    % \gcell{1} & \prog{A1} \\
+    % \gcell{5} & \prog{B1} \\
+    % \gcell{6} & \prog{B2} \\
+% \end{array}
+% \]
+% Since address \prog{A2} is not occupied by any cell, it becomes a ``black hole'' and is filled with cell \gcell{7}.
+% While cell \gcell{7} is added when a singular choice $D'_2$ is chosen, \gcell{8} requires two choices $D_2$ and $D'_2$ 
+% to be added to corresponding variants.
+
+% \NOTE{TODO: Get rid of relative postions from \gcell{7} and \gcell{8} in Table~\ref{tbl:fourvar}}
+
+% \begin{table*}
+% \centering
+  % \begin{tabular}{|>{\centering\arraybackslash}m{2em}|>{\centering\arraybackslash}m{18em} >{\centering\arraybackslash}m{25em}|}
+    % \hline
+    % & $D_1$ & $D_2$ \\ \hline
+    % $D'_1$ & \includegraphics[scale=\figscale]{tikz/2dims1} 
+      % & \includegraphics[scale=\figscale]{tikz/2dims2} \\
+      % $D'_2$ & \includegraphics[scale=\figscale]{tikz/2dims3}
+      % & \includegraphics[scale=\figscale]{tikz/2dims4} \\ \hline
+  % \end{tabular}
+  % \caption{Four Variants of a Spreadsheet}\label{tbl:fourvar}
+% \end{table*}
 
 
 \section{Partial Tag Selection and Goal-Directed Selection}
@@ -686,10 +733,10 @@ We simplify our discussion by looking four variants of a simpler spreadsheet in 
 \label{sec:langprops}
 
 \begin{theorem}
-If \compatible{ts_1}{ts_2} and $ts_1 \cap ts_2 = \emptyset$,
-\[
-\tsel[ts_1 \cup ts_2]{\vsheet} = \ptsel[ts_2]{\ptsel[ts_1]{\vsheet}} = \ptsel[ts_1]{\ptsel[ts_2]{\vsheet}}
-\]
+% If \compatible{ts_1}{ts_2} and $ts_1 \cap ts_2 = \emptyset$,
+% \[
+% \tsel[ts_1 \cup ts_2]{\vsheet} = \ptsel[ts_2]{\ptsel[ts_1]{\vsheet}} = \ptsel[ts_1]{\ptsel[ts_2]{\vsheet}}
+% \]
 \end{theorem}
 
 \begin{proof}
