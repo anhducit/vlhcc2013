@@ -483,20 +483,20 @@ of all dimension names in a decision space.
 % , and $\tags{\dimset}{D_i}=T_i$ to return
 % the tags of dimension $D_i$ in decision space $D^n$.
 %
-The \emph{tag universe} of decision space $D^n$, written $\qt[D^n]$, is the set
+The \emph{tag universe} of decision space $D^n$, written $\qt[n]$, is the set
 of all qualified tags in $D^n$, defined as 
-$\qt[D^n]=\set{D.t\ |\ D\in\dims\dimset\wedge t\in D}$.
+$\qt[n]=\set{D.t\ |\ D\in\dims\dimset\wedge t\in D}$.
 
 
 A \emph{decision} in a decision space \dimset\ is a set of
-qualified tags $\dec\subseteq\qt[D^n]$ that contains at most one tag for each
+qualified tags $\dec\subseteq\qt[n]$ that contains at most one tag for each
 dimension, that is, $q,q'\in\dec\implies q=q'\vee\xdim{q}\neq\xdim{q'}$.
 %
 We overload the function \dimsSym\ to also denote the dimension names of a
 decisions, that is, $\dims{\dec}=\bigcup_{q\in\dec}\xdim{q}$.
 % $\dims{\dec}=\bigcup_{q\in\dec}\xdim{q}$.
 % 
-A decision $\dec\subseteq\qt[D^n]$ is \emph{complete} if it contains
+A decision $\dec\subseteq\qt[n]$ is \emph{complete} if it contains
 a qualified tag from every dimension in $D^n$, that is, if
 $\dims{\dec}=\dims{D^n}$, otherwise it is \emph{partial}.
 
@@ -508,10 +508,10 @@ Figure~\ref{fig:before} and~\ref{fig:after} show two of the four variants of the
 Each variant contains a subset of a universe set of \emph{variational cells}.
 
 Variational cells encode information about which
-variants the cells belong to, where they appear in the two-dimentional grid structure, and what types of content they store.
+variants the cells belong to, where they appear in the spreadsheet grid structure, and what types of content they store.
 Each variational cell has an unique address $\add$ from the set $\A$. 
-We define a function $\varSym:\A\to2^{\qt[D^n]}$ to map the address to a subset of the tag universe.
-The purpose of $\varSym$ is to decide whether a cell belongs to a variant.
+We define a label function $\varSym:\A\to2^{\qt[n]}\cup\set{\unchecked}$ to label each cell with either a subset of the tag universe or the \unchecked~symbol, which provides support for defining variational spreadsheets' semantics.
+$\varSym$ helps decide whether a cell belongs to a variant.
 Each cell also contains a \emph{formula} $\f\in\F$, which can be a value, an address reference, or a function on other formulas.
 \[
 \begin{array}{lcl@{\qquad}l}
@@ -523,22 +523,22 @@ Each cell also contains a \emph{formula} $\f\in\F$, which can be a value, an add
 \noindent
 In the above definition, $\F$ represents the set of all formulas, $v$ ranges over primitive values 
 (integers, etc.), and $\omega$ stands for the set of all possible functions on formulas. 
-We define a function $\fmlSym:\A\to\F$ to map cell addresses to formulas and a function $\posSym:\A\to\POS$ to generate \emph{relative positions} given cell addresses.
-Relative positions $\p = (\natset, \natset)$ are stored as pairs of natural numbers and are used to aid a pretty
-printing algorithm in computing cells' absolute positions on two-dimentional grids.
-The first number in $\p$ represents relative vertical positions while the second represents horizontal positions.
+We define a function $\fmlSym:\A\to\F$ to map cell addresses to formulas and a function $\posSym:\A\to\POS$ to generate \emph{spatial embeddings} given cell addresses.
+Spatial embeddings $\p = (\natset, \natset)$ are stored as pairs of natural numbers and are used to aid a pretty
+printing algorithm in computing cells' concrete embeddings or positions on the two-dimentional grid.
+The first number in $\p$ represents relative vertical embeddings while the second represents horizontal embeddings.
 
 A variational spreadsheet combines a decision space $\dimset$ and the universe set of variational cells and is defined by the tuple $(\dimset, \varSym, \fmlSym, \posSym)$.
 
 In Figure~\ref{fig:idedsheet} we provide two variants of a variational spreadsheet containing a single dimension $\mapname{D} = \set{D.1, D.2}$.
-Relative positions are shown on the top-right corner of each cell, and cell addresses are shown on the top-left corner.
+Relative embedding are shown on the top-right corner of each cell, and cell addresses are shown on the top-left corner.
 The universe set of cells contains all the cells with addresses \gcell{1--10}.
 We leave the contents of several cells blank as they are not important for our discussion.
 The cell at address \gcell{2}'s formula is \prog{\#5 + 1}, yet the formula is pretty printed as \prog{C1 + 1} and
-\prog{D1 + 1} since cell \gcell{5}'s grid position changes from one variant to another. 
+\prog{D1 + 1} since cell \gcell{5}'s concrete embedding changes from one variant to another. 
 Two different types of cells exist in Figure~\ref{fig:idedsheet}, \emph{non-variational} and \emph{variational} cells.
 Non-variational cells are cells that appear in all variants whereas variational cells do not. 
-Non-variational cells' tags are the tag universe set $\qt[D^n]$, and variational cells' tags are proper subsets of $\qt[D^n]$.
+Non-variational cells' tags are the tag universe set $\qt[n]$, and variational cells' tags are proper subsets of $\qt[n]$.
 We provide the cells' tags below.
 
 \[
@@ -549,12 +549,12 @@ We provide the cells' tags below.
 \end{array}
 \]
 
-The pretty printing algorithm places the cell with the lowest horizontal and vertical positions at the position \prog{A1} and recursively adds cells to the grid based on the following conventions.
+The pretty printing algorithm places the cell with the lowest horizontal and vertical embeddings at \prog{A1} and recursively adds cells to the grid based on the following conventions.
 
 \begin{itemize}
-    \item Cells with the same vertical position are on the same column. Cells with the same horizontal position are on the same row.
-    \item For all pairs of cells $x$ and $y$, if $x$'s horizontal position is less than $y$'s, $x$'s row number has to be less than $y$'s.
-    \item For all pairs of cells $x$ and $y$, if $x$'s vertical position is less than $y$'s, $x$'s column number has to be less than $y$'s.
+    \item Cells with the same vertical embedding are on the same column. Cells with the same horizontal embedding are on the same row.
+    \item For all pairs of cells $x$ and $y$, if $x$'s horizontal embedding is less than $y$'s, $x$'s row number has to be less than $y$'s.
+    \item For all pairs of cells $x$ and $y$, if $x$'s vertical embedding is less than $y$'s, $x$'s column number has to be less than $y$'s.
 \end{itemize}
 
 \begin{figure*} [ht]
@@ -603,7 +603,7 @@ The set of complete decisions of a variational spreadsheet \vsheet~is defined be
 \subsection*{Tag Selection}
 
 \newcommand{\tsel}[2][s]{\OB{{\lfloor#2\rfloor}_{#1}}}
-\newcommand{\stsel}[2][s]{\OB{{\lfloor#2\rfloor}^{s}_{#1}}}
+\newcommand{\stsel}[2][s]{\OB{{\lfloor#2\rfloor}_{#1}}}
 \newcommand{\compatibleSym}{\OB{\sim}}
 \newcommand{\compatible}[2]{\OB{#1\compatibleSym#2}}
 \newcommand{\updateText}{\textit{update}}
@@ -612,9 +612,9 @@ The set of complete decisions of a variational spreadsheet \vsheet~is defined be
 Tag selection applies complete decisions to variational spreadsheets and mark several cells as excluded (\unchecked).
 First, each cell at address $\add$'s \emph{label} is instantiated as the cell's tags $\var{\add}$.
 During the tag selection process, the cell's label either becomes \unchecked~or get reduced to a smaller set of tags.
-The set of labels $\Lbl$ is defined as $\Lbl = 2^{\qt[D^n]} \cup \set{\unchecked}$.
+The set of labels $\Lbl = 2^{\qt[n]} \cup \set{\unchecked}$.
 
-The single tag selection operation $\stsel[]{} : \Lbl \times \qt[D^n] \rightarrow \Lbl$ is defined as
+The single tag selection operation $\stsel[]{} : \Lbl \times \qt[n] \rightarrow \Lbl$ is defined as
 \[
 \begin{array}{l@{ = }ll}
     \stsel[\tg]{\unchecked} & \unchecked & \\
@@ -624,7 +624,7 @@ The single tag selection operation $\stsel[]{} : \Lbl \times \qt[D^n] \rightarro
                      \end{cases} \\
 \end{array}
 \]
-The complete tag selection operation $\tsel[]{} : \Lbl \times 2^{\qt[D^n]} \rightarrow \Lbl$ is then defined as
+We overload the complete tag selection operation $\tsel[]{} : \Lbl \times 2^{\qt[n]} \rightarrow \Lbl$ as below.
 \[
 \begin{array}{l@{ = }l}
     \tsel[\emptyset]{\lbl}          & \lbl  \\
@@ -635,7 +635,7 @@ The complete tag selection operation $\tsel[]{} : \Lbl \times 2^{\qt[D^n]} \righ
 Variation semantics is thus defined as
 \[
 \begin{array}{r@{\ =\ }l}
-    \vari{\vsheet} & \{\tsel[ts]{\vsheet}\ |\ ts \in \decisions{\vsheet}\} \\
+    \vari{\vsheet} & \{(ts, \{c \ |\ c\in\vsheet\wedge\tsel[ts]{\var{c}} \neq \unchecked\})\ |\ ts \in \decisions{\vsheet}\} \\
 \end{array}
 \]
 

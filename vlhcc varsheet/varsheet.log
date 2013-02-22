@@ -1,22 +1,19 @@
-This is XeTeX, Version 3.1415926-2.4-0.9998 (TeX Live 2012) (format=xelatex 2012.6.30)  20 FEB 2013 11:42
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.4.25)  22 FEB 2013 00:24
 entering extended mode
- restricted \write18 enabled.
- %&-line parsing enabled.
 **varsheet.tex
-(./varsheet.tex
+("C:\Users\Duc Anh Le\Documents\GitHub\vlhcc2013\vlhcc varsheet\varsheet.tex"
 LaTeX2e <2011/06/27>
-Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, ge
-rman-x-2012-05-30, ngerman-x-2012-05-30, afrikaans, ancientgreek, ibycus, arabi
-c, armenian, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danis
-h, dutch, ukenglish, usenglishmax, esperanto, estonian, ethiopic, farsi, finnis
-h, french, friulan, galician, german, ngerman, swissgerman, monogreek, greek, h
-ungarian, icelandic, assamese, bengali, gujarati, hindi, kannada, malayalam, ma
-rathi, oriya, panjabi, tamil, telugu, indonesian, interlingua, irish, italian, 
-kurmanji, latin, latvian, lithuanian, mongolian, mongolianlmc, bokmal, nynorsk,
- polish, portuguese, romanian, romansh, russian, sanskrit, serbian, serbianc, s
-lovak, slovenian, spanish, swedish, turkish, turkmen, ukrainian, uppersorbian, 
-welsh, loaded.
-(./IEEEtran.cls
+Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2009-06-19, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, lao, latin, lat
+vian, lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerm
+an, ngerman-x-2009-06-19, nynorsk, oriya, panjabi, pinyin, polish, portuguese, 
+romanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swis
+sgerman, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, u
+senglishmax, welsh, loaded.
+("C:\Users\Duc Anh Le\Documents\GitHub\vlhcc2013\vlhcc varsheet\IEEEtran.cls"
 Document Class: IEEEtran 2012/11/21 V1.8c by Harald Hanche-Olsen and Anders Chr
 istensen
 -- Based on V1.7a by Michael Shell
@@ -24,16 +21,16 @@ istensen
 -- http://www.michaelshell.org/tex/ieeetran/
 \@IEEEtrantmpdimenA=\dimen102
 \@IEEEtrantmpdimenB=\dimen103
-\@IEEEtrantmpcountA=\count80
-\@IEEEtrantmpcountB=\count81
+\@IEEEtrantmpcountA=\count79
+\@IEEEtrantmpcountB=\count80
 \@IEEEtrantmptoksA=\toks14
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 373.
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1ptm.fd"
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 -- Using 8.5in x 11in (letter) paper.
--- Using DVI output.
+-- Using PDF output.
 \@IEEEnormalsizeunitybaselineskip=\dimen104
 -- This is a 10 point document.
 \CLASSINFOnormalsizebaselineskip=\dimen105
@@ -88,21 +85,21 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
 \IEEEiednormlabelsep=\dimen114
 \IEEEiedmathlabelsep=\dimen115
 \IEEEiedtopsep=\skip41
-\c@section=\count82
-\c@subsection=\count83
-\c@subsubsection=\count84
-\c@paragraph=\count85
-\c@IEEEsubequation=\count86
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@IEEEsubequation=\count85
 \abovecaptionskip=\skip42
 \belowcaptionskip=\skip43
-\c@figure=\count87
-\c@table=\count88
-\@IEEEeqnnumcols=\count89
-\@IEEEeqncolcnt=\count90
+\c@figure=\count86
+\c@table=\count87
+\@IEEEeqnnumcols=\count88
+\@IEEEeqncolcnt=\count89
 \@IEEEtmpitemindent=\dimen116
-\c@IEEEbiography=\count91
+\c@IEEEbiography=\count90
 \@IEEEtranrubishbin=\box26
-) (/usr/local/texlive/2012/texmf-dist/tex/latex/psnfss/mathptmx.sty
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\mathptmx.sty"
 Package: mathptmx 2005/04/12 PSNFSS-v9.2a Times w/ Math, improved (SPQR, WaS) 
 LaTeX Font Info:    Redeclaring symbol font `operators' on input line 28.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
@@ -138,10 +135,10 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> OT1/ptm/m/it on input line 35.
 LaTeX Info: Redefining \hbar on input line 50.
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/amssymb.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
 Package: amssymb 2009/06/22 v3.00
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
 Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
 \@emptytoks=\toks15
 \symAMSa=\mathgroup6
@@ -149,33 +146,33 @@ Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
 ))
-(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsmath.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amsmath.sty"
 Package: amsmath 2000/07/18 v2.13 AMS math features
 \@mathmargin=\skip44
 
 For additional information on amsmath, use the `?' option.
-(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amstext.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amstext.sty"
 Package: amstext 2000/06/29 v2.01
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsgen.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks16
 \ex@=\dimen117
 ))
-(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsbsy.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amsbsy.sty"
 Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen118
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/amsmath/amsopn.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\math\amsopn.sty"
 Package: amsopn 1999/12/14 v2.01 operator names
 )
-\inf@bad=\count92
+\inf@bad=\count91
 LaTeX Info: Redefining \frac on input line 211.
-\uproot@=\count93
-\leftroot@=\count94
+\uproot@=\count92
+\leftroot@=\count93
 LaTeX Info: Redefining \overline on input line 307.
-\classnum@=\count95
-\DOTSCASE@=\count96
+\classnum@=\count94
+\DOTSCASE@=\count95
 LaTeX Info: Redefining \ldots on input line 379.
 LaTeX Info: Redefining \dots on input line 382.
 LaTeX Info: Redefining \cdots on input line 467.
@@ -184,15 +181,15 @@ LaTeX Info: Redefining \cdots on input line 467.
 \big@size=\dimen119
 LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
-\macc@depth=\count97
-\c@MaxMatrixCols=\count98
+\macc@depth=\count96
+\c@MaxMatrixCols=\count97
 \dotsspace@=\muskip10
-\c@parentequation=\count99
-\dspbrk@lvl=\count100
+\c@parentequation=\count98
+\dspbrk@lvl=\count99
 \tag@help=\toks17
-\row@=\count101
-\column@=\count102
-\maxfields@=\count103
+\row@=\count100
+\column@=\count101
+\maxfields@=\count102
 \andhelp@=\toks18
 \eqnshift@=\dimen120
 \alignsep@=\dimen121
@@ -207,16 +204,16 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/stmaryrd/stmaryrd.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\stmaryrd\stmaryrd.sty"
 Package: stmaryrd 1994/03/03 St Mary's Road symbol package
 \symstmry=\mathgroup8
 LaTeX Font Info:    Overwriting symbol font `stmry' in version `bold'
 (Font)                  U/stmry/m/n --> U/stmry/b/n on input line 89.
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/mnsymbol/MnSymbol.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\mnsymbol\MnSymbol.sty"
 Package: MnSymbol 2007/01/21 v1.4 support for the MnSymbol font
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/base/textcomp.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\textcomp.sty"
 Package: textcomp 2005/09/27 v1.99g Standard LaTeX package
 Package textcomp Info: Sub-encoding information:
 (textcomp)               5 = only ISO-Adobe without \textcurrency
@@ -231,7 +228,7 @@ Package textcomp Info: Sub-encoding information:
 (textcomp)             See the documentation for details.
 Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 71.
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/base/ts1enc.def
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1enc.def"
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 )
 LaTeX Info: Redefining \oldstylenums on input line 266.
@@ -372,16 +369,16 @@ LaTeX Font Info:    Redeclaring math accent \widehat on input line 1845.
 LaTeX Font Info:    Redeclaring math accent \widetilde on input line 1846.
 LaTeX Font Info:    Redeclaring math accent \vec on input line 1848.
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/float/float.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\float\float.sty"
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count104
+\c@float@type=\count103
 \float@exts=\toks21
 \float@box=\box29
 \@float@everytoks=\toks22
 \@floatcapt=\box30
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/amscls/amsthm.sty
-Package: amsthm 2009/07/02 v2.20.1
+("C:\Program Files\MiKTeX 2.9\tex\latex\ams\classes\amsthm.sty"
+Package: amsthm 2004/08/06 v2.20
 \thm@style=\toks23
 \thm@bodyfont=\toks24
 \thm@headfont=\toks25
@@ -392,7 +389,7 @@ Package: amsthm 2009/07/02 v2.20.1
 \thm@headsep=\skip49
 \dth@everypar=\toks28
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/tools/array.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\array.sty"
 Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
 \col@sep=\dimen126
 \extrarowheight=\dimen127
@@ -400,47 +397,51 @@ Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
 \extratabsurround=\skip50
 \backup@length=\skip51
 )
-(/usr/local/texlive/2012/texmf-dist/tex/generic/babel/babel.sty
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.sty"
 Package: babel 2008/07/08 v3.8m The Babel package
 
-(/usr/local/texlive/2012/texmf-dist/tex/generic/babel/english.ldf
+*************************************
+* Local config file bblopts.cfg used
+*
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\bblopts.cfg"
+File: bblopts.cfg 2006/07/31 v1.0 MiKTeX 'babel' configuration
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\english.ldf"
 Language: english 2005/03/30 v3.3o English support from the babel system
 
-(/usr/local/texlive/2012/texmf-dist/tex/generic/babel/babel.def
+("C:\Program Files\MiKTeX 2.9\tex\generic\babel\babel.def"
 File: babel.def 2008/07/08 v3.8m Babel common definitions
-\babel@savecnt=\count105
+\babel@savecnt=\count104
 \U@D=\dimen128
 )
 \l@canadian = a dialect from \language\l@american 
 \l@australian = a dialect from \language\l@british 
 \l@newzealand = a dialect from \language\l@british 
 ))
-(/usr/local/texlive/2012/texmf-dist/tex/latex/tools/enumerate.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\enumerate.sty"
 Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
 \@enLab=\toks30
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\fancyvrb\fancyvrb.sty"
 Package: fancyvrb 2008/02/07
 
 Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
-<2008/02/07> (tvz)
-(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/keyval.sty
+<2008/02/07> (tvz) ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks31
 )
-\FV@CodeLineNo=\count106
+\FV@CodeLineNo=\count105
 \FV@InFile=\read1
 \FV@TabBox=\box31
-\c@FancyVerbLine=\count107
-\FV@StepNumber=\count108
+\c@FancyVerbLine=\count106
+\FV@StepNumber=\count107
 \FV@OutFile=\write3
-)
-(/usr/local/texlive/2012/texmf-dist/tex/latex/cite/cite.sty
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\cite\cite.sty"
 LaTeX Info: Redefining \cite on input line 302.
 LaTeX Info: Redefining \nocite on input line 373.
 Package: cite 2010/09/10  v 5.3
-) (./mathpartir.sty
-Invalid UTF-8 byte or sequence at line 3 replaced by U+FFFD.
+)
+("C:\Users\Duc Anh Le\Documents\GitHub\vlhcc2013\vlhcc varsheet\mathpartir.sty"
 Package: mathpartir 2005/12/20 version 1.2.0 Math Paragraph for Typesetting Inf
 erence Rules
 \mpr@andskip=\skip52
@@ -449,34 +450,41 @@ erence Rules
 \mpr@hlist=\box32
 \mpr@vlist=\box33
 \mpr@right=\box34
-) (/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/graphicx.sty
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/graphics.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/trig.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/latexconfig/graphics.cfg
-File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
+File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
 )
-Package graphics Info: Driver file: xetex.def on input line 91.
+Package graphics Info: Driver file: pdftex.def on input line 91.
 
-(/usr/local/texlive/2012/texmf-dist/tex/xelatex/xetex-def/xetex.def
-File: xetex.def 2009/11/22 v0.94 LaTeX color/graphics driver for XeTeX (RRM/JK)
+("C:\Program Files\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/message (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
+Package: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)
+)
+\Gread@gobject=\count108
 ))
 \Gin@req@height=\dimen129
 \Gin@req@width=\dimen130
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/subfig/subfig.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\subfig\subfig.sty"
 Package: subfig 2005/06/28 ver: 1.3 subfig package
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/caption/caption.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption.sty"
 Package: caption 2012/02/19 v3.2f Customizing captions (AR)
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/caption/caption3.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\caption\caption3.sty"
 Package: caption3 2012/01/12 v1.4b caption3 kernel (AR)
 \captionmargin=\dimen131
 \captionmargin@=\dimen132
@@ -517,57 +525,45 @@ Package caption Info: float package is loaded.
 \c@lotdepth=\count116
 \sf@top=\skip56
 \sf@bottom=\skip57
-) (/usr/local/texlive/2012/texmf-dist/tex/latex/graphics/color.sty
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\color.sty"
 Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/latexconfig/color.cfg
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
-Package color Info: Driver file: xetex.def on input line 130.
+Package color Info: Driver file: pdftex.def on input line 130.
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/tools/verbatim.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\verbatim.sty"
 Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
 \every@verbatim=\toks34
 \verbatim@line=\toks35
 \verbatim@in@stream=\read2
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/psnfss/pifont.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\pifont.sty"
 Package: pifont 2005/04/12 PSNFSS-v9.2a Pi font support (SPQR) 
 LaTeX Font Info:    Try loading font information for U+pzd on input line 63.
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/psnfss/upzd.fd
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\upzd.fd"
 File: upzd.fd 2001/06/04 font definitions for U/pzd.
 )
 LaTeX Font Info:    Try loading font information for U+psy on input line 64.
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/psnfss/upsy.fd
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\upsy.fd"
 File: upsy.fd 2001/06/04 font definitions for U/psy.
 ))
-(./algorithm2e.sty
-Invalid UTF-8 byte or sequence at line 164 replaced by U+FFFD.
-Invalid UTF-8 byte or sequence at line 414 replaced by U+FFFD.
+("C:\Users\Duc Anh Le\Documents\GitHub\vlhcc2013\vlhcc varsheet\algorithm2e.sty
+"
 Package: algorithm2e 2013/01/06 v5.00 algorithms environments
 \c@AlgoLine=\count117
-
-(/usr/local/texlive/2012/texmf-dist/tex/latex/base/ifthen.sty
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/tools/xspace.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\xspace.sty"
 Package: xspace 2009/10/20 v1.13 Space after command names (DPC,MH)
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/relsize/relsize.sty
-Package: relsize 2011/09/21 ver 4.0
-
-Examine \normalsize starts \@setfontsize size may be 10. 
-Examine \small starts \@setfontsize size may be 9. 
-Examine \footnotesize starts \@setfontsize size may be 8. 
-Examine \large starts \@setfontsize size may be 12. 
-Examine \Large starts \@setfontsize size may be 14. 
-Examine \LARGE starts \@setfontsize size may be 17. 
-Examine \scriptsize starts \@setfontsize size may be 7. 
-Examine \tiny starts \@setfontsize size may be 5. 
-Examine \huge starts \@setfontsize size may be 20. 
-Examine \Huge starts \@setfontsize size may be 24. )
+("C:\Program Files\MiKTeX 2.9\tex\latex\ltxmisc\relsize.sty"
+Package: relsize 2003/07/04 ver 3.1
+)
 ********************************************************
 Package `algorithm2e' Release 5.0 -- january 06 2013 --
 - algorithm2e-announce@lirmm.fr mailing list for announcement about releases
@@ -616,9 +612,7 @@ Package color Info: Redefining color green on input line 88.
 \c@theorem=\count122
 \c@lemma=\count123
 \c@corollary=\count124
- (./varsheet.aux)
-\openout1 = `varsheet.aux'.
-
+ ("C:\Users\Duc Anh Le\Documents\GitHub\vlhcc2013\vlhcc varsheet\varsheet.aux")
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 274.
 LaTeX Font Info:    ... okay on input line 274.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 274.
@@ -634,10 +628,25 @@ LaTeX Font Info:    ... okay on input line 274.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 274.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 274.
 
- (/usr/local/texlive/2012/texmf-dist/tex/latex/base/ts1cmr.fd
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 274.
+
+("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count125
+\scratchdimen=\dimen144
+\scratchbox=\box43
+\nofMPsegments=\count126
+\nofMParguments=\count127
+\everyMPshowfont=\toks36
+\MPscratchCnt=\count128
+\MPscratchDim=\dimen145
+\MPnumerator=\count129
+\makeMPintoPDFobject=\count130
+\everyMPtoPDFconversion=\toks37
+)
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
@@ -658,13 +667,13 @@ LaTeX Warning: Citation `Scaffidi12hcc.' on page 1 undefined on input line 318.
 
 LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 34
 1.
-(/usr/local/texlive/2012/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1ztmcm.fd"
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
 LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 34
 1.
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/psnfss/omlztmcm.fd
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omlztmcm.fd"
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
@@ -674,37 +683,64 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 LaTeX Font Info:    Try loading font information for U+stmry on input line 341.
 
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/stmaryrd/Ustmry.fd)
+("C:\Program Files\MiKTeX 2.9\tex\latex\stmaryrd\ustmry.fd")
 LaTeX Font Info:    Try loading font information for TS1+ptm on input line 346.
 
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ts1ptm.fd"
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
 LaTeX Font Info:    Try loading font information for OT1+pcr on input line 361.
 
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.fd"
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-File: img/before.png Graphic file (type QTm)
+<img/before.png, id=1, 173.14688pt x 137.7647pt>
+File: img/before.png Graphic file (type png)
+ <use img/before.png>
+Package pdftex.def Info: img/before.png used on input line 373.
+(pdftex.def)             Requested size: 103.88892pt x 82.65944pt.
 
-<use  "img/before.png" >
-File: img/after.png Graphic file (type QTm)
- <use  "img/after.png" >
-File: img/selection.png Graphic file (type QTm)
- <use  "img/selection.png" >
-[1
+<img/after.png, id=2, 175.40532pt x 137.01187pt>
+File: img/after.png Graphic file (type png)
+ <use img/after.png>
+Package pdftex.def Info: img/after.png used on input line 377.
+(pdftex.def)             Requested size: 105.24399pt x 82.20775pt.
+
+<img/selection.png, id=3, 195.73125pt x 158.09062pt>
+File: img/selection.png Graphic file (type png)
+ <use img/selection.png>
+Package pdftex.def Info: img/selection.png used on input line 381.
+(pdftex.def)             Requested size: 117.43964pt x 94.85509pt.
+
+[1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
-]
-File: img/food.png Graphic file (type QTm)
- <use  "img/food.png" > [2]
-File: tikz/v1.pdf Graphic file (type QTm)
- <use  "tikz/v1.pdf" >
-File: tikz/v2.pdf Graphic file (type QTm)
- <use  "tikz/v2.pdf" >
-(./varsheet.bbl
+ <C:/Users/Duc Anh Le/Documents/GitHub/vlhcc2013/vlhcc varsheet/img/before.png>
+ <C:/Users/Duc Anh Le/Documents/GitHub/vlhcc2013/vlhcc varsheet/img/after.png> 
+<C:/Users/Duc Anh Le/Documents/GitHub/vlhcc2013/vlhcc varsheet/img/selection.pn
+g>]
+<img/food.png, id=13, 164.86594pt x 36.88782pt>
+File: img/food.png Graphic file (type png)
+ <use img/food.png>
+Package pdftex.def Info: img/food.png used on input line 401.
+(pdftex.def)             Requested size: 98.9203pt x 22.13284pt.
+ [2 <C:/Users/Duc Anh Le/Documents/GitHub/vlhcc2013/vlhcc varsheet/img/food.png
+>]
+<tikz/v1.pdf, id=26, 287.06647pt x 87.06627pt>
+File: tikz/v1.pdf Graphic file (type pdf)
+ <use tikz/v1.pdf>
+Package pdftex.def Info: tikz/v1.pdf used on input line 565.
+(pdftex.def)             Requested size: 172.2412pt x 52.24014pt.
+
+<tikz/v2.pdf, id=27, 352.06633pt x 87.06627pt>
+File: tikz/v2.pdf Graphic file (type pdf)
+ <use tikz/v2.pdf>
+Package pdftex.def Info: tikz/v2.pdf used on input line 569.
+(pdftex.def)             Requested size: 211.24142pt x 52.24014pt.
+
+("C:\Users\Duc Anh Le\Documents\GitHub\vlhcc2013\vlhcc varsheet\varsheet.bbl"
 Underfull \hbox (badness 10000) in paragraph at lines 4--6
 []\OT1/ptm/m/n/8 Florencesoft dif-f-enginex com-pares mi-crosoft ex-cel work-sh
 eets.
@@ -715,7 +751,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--10
 []\OT1/ptm/m/n/8 Synkronizer com-pares ex-cel files faster than you can.
  []
 
-)
+[3])
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -727,20 +763,43 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[3] [4
+[4
 
-] (./varsheet.aux)
+ <C:/Users/Duc Anh Le/Documents/GitHub/vlhcc2013/vlhcc varsheet/tikz/v1.pdf> <C
+:/Users/Duc Anh Le/Documents/GitHub/vlhcc2013/vlhcc varsheet/tikz/v2.pdf>]
+("C:\Users\Duc Anh Le\Documents\GitHub\vlhcc2013\vlhcc varsheet\varsheet.aux")
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 8030 strings out of 494004
- 114967 string characters out of 3150890
- 187078 words of memory out of 3000000
- 11167 multiletter control sequences out of 15000+200000
- 48035 words of font info for 122 fonts, out of 3000000 for 9000
- 1144 hyphenation exceptions out of 8191
+ 8626 strings out of 494045
+ 123467 string characters out of 3148372
+ 199239 words of memory out of 3000000
+ 11760 multiletter control sequences out of 15000+200000
+ 65111 words of font info for 143 fonts, out of 3000000 for 9000
+ 715 hyphenation exceptions out of 8191
  44i,14n,46p,286b,349s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/mnsymbol/MnSymbolE.enc}{C:/Progr
+am Files/MiKTeX 2.9/fonts/enc/dvips/mnsymbol/MnSymbolD.enc}{C:/Program Files/Mi
+KTeX 2.9/fonts/enc/dvips/mnsymbol/MnSymbolF.enc}{C:/Program Files/MiKTeX 2.9/fo
+nts/enc/dvips/mnsymbol/MnSymbolA.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvi
+ps/mnsymbol/MnSymbolC.enc}{C:/Program Files/MiKTeX 2.9/fonts/enc/dvips/fontname
+/8r.enc}<C:/Program Files/MiKTeX 2.9/fonts/type1/public/mnsymbol/MnSymbol10.pfb
+><C:/Program Files/MiKTeX 2.9/fonts/type1/public/mnsymbol/MnSymbol7.pfb><C:/Pro
+gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/pu
+blic/amsfonts/symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/c
+ourier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/symbol/usyr.pfb>
+<C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb><C:/Program Files
+/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/font
+s/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times
+/utmri8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/zapfding/uzdr.pfb>
+Output written on varsheet.pdf (4 pages, 195495 bytes).
+PDF statistics:
+ 112 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
-Output written on varsheet.pdf (4 pages).
