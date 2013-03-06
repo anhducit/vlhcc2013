@@ -341,29 +341,43 @@ points to a technical problem/issue and say where in the paper this issue will
 be addressed.}
 
 
-We first give a motivating example for \varsheet. Figure~\ref{fig:before} shows a conventional spending estimate of
-a college student. Suppose the student is not happy with it,
-they would adjust the costs of some categories based on available options. After some adjustments, the student ends up with the spreadsheet in Figure~\ref{fig:after}, for which they pay \$50 less.
-In the updated spreadsheet, the housing cost is \$50 less since the rented house is further from campus, but that would increase
-the cost of transportation. The student also decides to pay \$100 less on their loan.
-Considering both versions, the student would probably go after the latter one, and by doing this, they lose
-the chance to reduce another \$50. Had the student chosen the original housing option and kept Loan payment to be \$500, the monthly
-cost would have been \$1450.
-
-Figure~\ref{fig:selection} shows a possible user interface of \varsheet~that could support the student in their decision making process.
-There are three variation points in the spreadsheet. The \mapname{\htdim} categories are related and thus grouped
-into a red box with a dashed line separating the two available options. 
-In \varsheet, \mapname{\htdim} is called a \emph{dimension}---a choice users have to make. A dimension contains a set of options, each being called a \emph{tag}.
-\mapname{\htdim}'s tags are \mapname{Close} and \mapname{Far}.
-The \mapname{\lpdim} dimension represents a different variation point with two tags \mapname{500} and \mapname{600}
- and thus is colored differently (green). 
-The last variation point, the \mapname{Total} category, does not contain variational formulas by itself. The formula being
-used is \prog{SUM(B2:B6)} and is non-variational, yet the cell inherits the variational structures of its referred cells and
-hence contains four available options. This cell is therefore colored purple to indicate that it contains \emph{induced variation}. Showing all the four alternatives of 
-\mapname{Total} gives the student an overview of all the different options they
-have. Moreover, if the student selects the \$1450 alternative, \varsheet~will automatically make
-decisions for \mapname{\htdim} and \mapname{\lpdim}, and displays those decisions and the resulting spreadsheet to them.
-We call this feature \emph{\gds}, the process of selecting spreadsheet variants based on certain goals.
+We first give a motivating example for \varsheet. 
+Figure~\ref{fig:before} shows a conventional spending estimate of a 
+college student. Suppose the student is not happy with it, they would 
+adjust the costs of some categories based on available options. After 
+some adjustments, the student ends up with the spreadsheet in 
+Figure~\ref{fig:after}, for which they pay \$50 less. In the updated 
+spreadsheet, the housing cost is \$50 less since the rented house is 
+further from campus, but that would increase the cost of transportation. 
+The student also decides to pay \$100 less on their loan. Considering 
+both versions, the student would probably go after the latter one, and 
+by doing this, they lose the chance to reduce another \$50. Had the 
+student chosen the original housing option and kept Loan payment to be 
+\$500, the monthly cost would have been \$1450. 
+%
+Figure~\ref{fig:selection} shows a possible user interface of 
+\varsheet~that could support the student in their decision making 
+process. There are three variation points in the spreadsheet. The 
+\mapname{\htdim} categories are related and thus grouped into a red box 
+with a dashed line separating the two available options. In \varsheet, 
+\mapname{\htdim} is called a \emph{dimension}---a choice users have to 
+make. A dimension contains a set of options, each being called a 
+\emph{tag}. \mapname{\htdim}'s tags are \mapname{Close} and 
+\mapname{Far}. The \mapname{\lpdim} dimension represents a different 
+variation point with two tags \mapname{500} and \mapname{600} and thus 
+is colored differently (green). The last variation point, the 
+\mapname{Total} category, does not contain variational formulas by 
+itself. The formula being used is \prog{SUM(B2:B6)} and is 
+non-variational, yet the cell inherits the variational structures of its 
+referred cells and hence contains four available options. This cell is 
+therefore colored purple to indicate that it contains \emph{induced 
+variation}. Showing all the four alternatives of \mapname{Total} gives 
+the student an overview of all the different options they have. 
+Moreover, if the student selects the \$1450 alternative, \varsheet~will 
+automatically make decisions for \mapname{\htdim} and \mapname{\lpdim}, 
+and displays those decisions and the resulting spreadsheet to them. We 
+call this feature \emph{\gds}, the process of selecting spreadsheet 
+variants based on certain goals. 
 
 \begin{figure}
 \centering
@@ -383,18 +397,26 @@ We call this feature \emph{\gds}, the process of selecting spreadsheet variants 
 \label{fig:mspending}
 \end{figure}
 
-
-
-The study of variational spreadsheets brings up several insights to current research on software variation.
-While traditional variation mechanisms focus on either the syntax or semantics domain, spreadsheets' immediate semantics computation expands the application of variational constructs to both domains, enabling the realization of \gds. 
-In the example above, Loan payment varies syntactically while Total varies semanticallly, and one could even define cells that vary on both domains.
-
-Existing variational contructs mainly work on linear or tree structures, which localizes their scope of impact. 
-Spreadsheets have a special two dimensional structure that makes localization hard to achieve.
-For instance, in Figure~\ref{fig:before}, one could replace row 4 by the spreadsheet in Figure~\ref{fig:food} and
-expects this variation introduction to be local. This action unfortunately has a global impact on the spreadsheet's structure and the addresses/values of several unrelated cells.
-The Monthly Cost column has to be shifted to column C, while the Total column has to be shifted one row down. 
-In our variational spreadsheet model, we provide mechanisms to localize the effect of structural changes.
+The study of variational spreadsheets brings up several insights to 
+current research on software variation. While traditional variation 
+mechanisms focus on either the syntax or semantics domain, spreadsheets' 
+immediate semantics computation expands the application of variational 
+constructs to both domains, enabling the realization of \gds. In the 
+example above, Loan payment varies syntactically while Total varies 
+semanticallly, and one could even define cells that vary on both 
+domains. 
+%
+Existing variational contructs mainly work on linear or tree structures, 
+which localizes their scope of impact. Spreadsheets have a special two 
+dimensional structure that makes localization hard to achieve. For 
+instance, in Figure~\ref{fig:before}, one could replace row 4 by the 
+spreadsheet in Figure~\ref{fig:food} and expects this variation 
+introduction to be local. This action unfortunately has a global impact 
+on the spreadsheet's structure and the addresses/values of several 
+unrelated cells. The Monthly Cost column has to be shifted to column C, 
+while the Total column has to be shifted one row down. In our 
+variational spreadsheet model, we provide mechanisms to localize the 
+effect of structural changes. 
 
 \begin{figure}
 \centering
@@ -403,13 +425,18 @@ In our variational spreadsheet model, we provide mechanisms to localize the effe
 \label{fig:food}
 \end{figure}
 
-Lastly, by letting users actively define variation in spreadsheets, we remove the need for using spreadsheet diffing algorithm,
-which can be imperfect and misleading at times.
+Lastly, by letting users actively define variation in spreadsheets, we 
+remove the need for using spreadsheet diffing algorithm, which can be 
+imperfect and misleading at times. 
 
-% In following sections of the paper, we first discuss the background and related work in section~\ref{sec:background}. Then we
-% begin describing the syntax of \varsheet~in section \ref{sec:syntax}, which is followed by section \ref{sec:semantics} about the language's semantics.
-% Section \ref{sec:langprops} discusses several axiomatic rules that could be used to transformed,
-% while section \ref{sec:eval} provides an evaluation of our language on the \EUSES~corpus \cite{Ii05theeuses}. Section \ref{sec:concl} concludes the paper.
+% In following sections of the paper, we first discuss the background 
+% and related work in section~\ref{sec:background}. Then we % begin 
+% describing the syntax of \varsheet~in section \ref{sec:syntax}, which is 
+% followed by section \ref{sec:semantics} about the language's semantics. 
+% Section \ref{sec:langprops} discusses several axiomatic rules that 
+% could be used to transformed, % while section \ref{sec:eval} provides an 
+% evaluation of our language on the \EUSES~corpus \cite{Ii05theeuses}. 
+% Section \ref{sec:concl} concludes the paper. 
 
 \section{Background and Related Work}
 \label{sec:background}
@@ -418,39 +445,60 @@ which can be imperfect and misleading at times.
 
 \NOTE{Talk about the prototype of the VLHCC 2011 paper}
 
-Existing empirical research demonstrates the need for an effective approach to deal with spreadsheet variation.
-Spreadsheet reusing is common, but users often have to choose from various options [citation needed].
-Once a spreadsheet is chosen and several modifications have been made to it,
-if users recognize that it was not the right one to begin with, they will have to start all over again on a
-different one. This could happen for many times until users are happy with their choice. To mitigate this problem, \varsheet~
-gives users the ability to modify multiple versions/spreadsheets at the same time on a single representation and
-select a desired version later.
-Another reason for spreadsheet variation is due to spreadsheet errors and debugging.
-Spreadsheets contain errors \cite{Panko98whatwe}\cite{Powell2008128}, many of which are introduced in the process of
-reusing and modifying existing spreadsheets. When debugging, users often need to show the
-differences between multiple versions, so a framework for systematically managing changes is needed.
+Existing empirical research demonstrates the need for an effective 
+approach to deal with spreadsheet variation. Spreadsheet reusing is 
+common, but users often have to choose from various options [citation 
+needed]. Once a spreadsheet is chosen and several modifications have 
+been made to it, if users recognize that it was not the right one to 
+begin with, they will have to start all over again on a different one. 
+This could happen for many times until users are happy with their 
+choice. To mitigate this problem, \varsheet~ gives users the ability to 
+modify multiple versions/spreadsheets at the same time on a single 
+representation and select a desired version later. Another reason for 
+spreadsheet variation is due to spreadsheet errors and debugging. 
+Spreadsheets contain errors \cite{Panko98whatwe}\cite{Powell2008128}, 
+many of which are introduced in the process of reusing and modifying 
+existing spreadsheets. When debugging, users often need to show the 
+differences between multiple versions, so a framework for systematically 
+managing changes is needed. 
 
-In the area of spreadsheet change support, existing tools can be classified into two big categories: change tracking tools and spreadsheet diffing tools.
-One representative example of a change tracking tool is Microsoft Excel's change tracking feature, which provides users the ability to track spreadsheet edits
-such as inserting rows, updating equations, etc. This tool is useful and effective in helping users
-understand versioning information of spreadsheets but is not
-without limitation. The entire variational spreadsheet is represented using only the time dimension. It is not possible
-to group changes into categories or groups such that they can be undone or applied again. Another problem arises when two or more users copy and modify
-the same original spreadsheet. When trying to merge the modified copies, it is unclear which change includes or excludes other changes.
-For \varsheet, grouping changes could simply be resolved by changing dimension/choice names, which will be defined in the next sections.
-Research and commercial tools for diffing spreadsheets are prevalent, including CC DiffEngineX \cite{DiffEngineX} and Synkronizer \cite{Synkronizer}.
-These tools are effective in comparing spreadsheets and producing accurate results. However, they do not reveal the original purposes
-of users' changes and do not provide a way to document those.
+In the area of spreadsheet change support, existing tools can be 
+classified into two big categories: change tracking tools and 
+spreadsheet diffing tools. One representative example of a change 
+tracking tool is Microsoft Excel's change tracking feature, which 
+provides users the ability to track spreadsheet edits such as inserting 
+rows, updating equations, etc. This tool is useful and effective in 
+helping users understand versioning information of spreadsheets but is 
+not without limitation. The entire variational spreadsheet is 
+represented using only the time dimension. It is not possible to group 
+changes into categories or groups such that they can be undone or 
+applied again. Another problem arises when two or more users copy and 
+modify the same original spreadsheet. When trying to merge the modified 
+copies, it is unclear which change includes or excludes other changes. 
+For \varsheet, grouping changes could simply be resolved by changing 
+dimension/choice names, which will be defined in the next sections. 
+Research and commercial tools for diffing spreadsheets are prevalent, 
+including CC DiffEngineX \cite{DiffEngineX} and Synkronizer 
+\cite{Synkronizer}. These tools are effective in comparing spreadsheets 
+and producing accurate results. However, they do not reveal the original 
+purposes of users' changes and do not provide a way to document those. 
 
-On a broader topic, there has been extensive research on the topic of representing and managing software variation. The two big pillars of this topic
-is the compositional approach \cite{KA08}, which modularizes software product line features \cite{CN01} into individual folders and
-describes variability at a higher level using feature models \cite{Bat05}, and the annotated approach \cite{KA08}, where variability is encoded
-and represented inside source code. Since there are advantages and disadvantages for each approach, Erwig and Walkingshaw~\cite{EW11tosem}
-designed the Choice Calculus to shorten the gap between them and to take advantage of the approaches' benefits. The Choice Calculus's design
-is based on the idea that software variation should be done at both source code and higher
-levels with not-too-restrictive and not-too-relaxed constraints, making it highly
-applicable for tree-like structures. \varsheet~expands Choice Calculus's ideas of dimensions
-and choices to the spatial, two dimensional structure of spreadsheets.
+On a broader topic, there has been extensive research on the topic of 
+representing and managing software variation. The two big pillars of 
+this topic is the compositional approach \cite{KA08}, which modularizes 
+software product line features \cite{CN01} into individual folders and 
+describes variability at a higher level using feature models 
+\cite{Bat05}, and the annotated approach \cite{KA08}, where variability 
+is encoded and represented inside source code. Since there are 
+advantages and disadvantages for each approach, Erwig and 
+Walkingshaw~\cite{EW11tosem} designed the Choice Calculus to shorten the 
+gap between them and to take advantage of the approaches' benefits. The 
+Choice Calculus's design is based on the idea that software variation 
+should be done at both source code and higher levels with 
+not-too-restrictive and not-too-relaxed constraints, making it highly 
+applicable for tree-like structures. \varsheet~expands Choice Calculus's 
+ideas of dimensions and choices to the spatial, two dimensional 
+structure of spreadsheets. 
 
 \section{Dimensions and Decisions}
 \label{sec:dims}
@@ -502,17 +550,23 @@ $\dims{\dec}=\dims{D^n}$, otherwise it is \emph{partial}.
 
 \section{Variational Spreadsheets}
 
-A variational spreadsheet represents a family of related 
-plain spreadsheets, each being called a \emph{variant}.
-Figure~\ref{fig:before} and~\ref{fig:after} show two of the four variants of the monthly spending spreadsheet.
-Each variant contains a subset of a universe set of \emph{variational cells}.
+A variational spreadsheet represents a family of related plain 
+spreadsheets, each being called a \emph{variant}. 
+Figure~\ref{fig:before} and~\ref{fig:after} show two of the four 
+variants of the monthly spending spreadsheet. Each variant contains a 
+subset of a universe set of \emph{variational cells}. 
 
-Variational cells encode information about which
-variants the cells belong to, where they appear in the spreadsheet grid structure, and what types of content they store.
-Each variational cell has an unique address $\add$ from the set $\A$. 
-We define a label function $\varSym:\A\to2^{\qt[n]}\cup\set{\unchecked}$ to label each cell with either a subset of the tag universe or the \unchecked~symbol, which provides support for defining variational spreadsheets' semantics.
-$\varSym$ helps decide whether a cell belongs to a variant.
-Each cell also contains a \emph{formula} $\f\in\F$, which can be a value, an address reference, or a function on other formulas.
+Variational cells encode information about which variants the cells 
+belong to, where they appear in the spreadsheet grid structure, and what 
+types of content they store. Each variational cell has an unique address 
+$\add$ from the set $\A$. We define a label function 
+$\varSym:\A\to2^{\qt[n]}\cup\set{\unchecked}$ to label each cell with 
+either a subset of the tag universe or the \unchecked~symbol, which 
+provides support for defining variational spreadsheets' semantics. 
+$\varSym$ helps decide whether a cell belongs to a variant. Each cell 
+also contains a \emph{formula} $\f\in\F$, which can be a value, an 
+address reference, or a function on other formulas. 
+
 \[
 \begin{array}{lcl@{\qquad}l}
 \f \in \F & ::= & v  & \textit{values} \\
@@ -520,26 +574,38 @@ Each cell also contains a \emph{formula} $\f\in\F$, which can be a value, an add
          & \OR & \OB{\omega} (\f, \ldots, \f) & \textit{functions}\\
 \end{array}
 \]
+
 \noindent
-In the above definition, $\F$ represents the set of all formulas, $v$ ranges over primitive values 
-(integers, etc.), and $\omega$ stands for the set of all possible functions on formulas. 
-We define a function $\fmlSym:\A\to\F$ to map cell addresses to formulas and a function $\posSym:\A\to\POS$ to generate \emph{spatial embeddings} given cell addresses.
-Spatial embeddings $\p = (\natset, \natset)$ are stored as pairs of natural numbers and are used to aid a pretty
-printing algorithm in computing cells' concrete embeddings or positions on the two-dimentional grid.
-The first number in $\p$ represents relative vertical embeddings while the second represents horizontal embeddings.
+In the above definition, $\F$ represents the set of all formulas, $v$ 
+ranges over primitive values (integers, etc.), and $\omega$ stands for 
+the set of all possible functions on formulas. We define a function 
+$\fmlSym:\A\to\F$ to map cell addresses to formulas and a function 
+$\posSym:\A\to\POS$ to generate \emph{spatial embeddings} given cell 
+addresses. Spatial embeddings $\p = (\natset, \natset)$ are stored as 
+pairs of natural numbers and are used to aid a pretty printing algorithm 
+in computing cells' concrete embeddings or positions on the 
+two-dimentional grid. The first number in $\p$ represents relative 
+vertical embeddings while the second represents horizontal embeddings. 
 
-A variational spreadsheet combines a decision space $\dimset$ and the universe set of variational cells and is defined by the tuple $(\dimset, \varSym, \fmlSym, \posSym)$.
+A variational spreadsheet combines a decision space $\dimset$ and the 
+universe set of variational cells and is defined by the tuple $(\dimset, 
+\varSym, \fmlSym, \posSym)$. 
 
-In Figure~\ref{fig:idedsheet} we provide two variants of a variational spreadsheet containing a single dimension $\mapname{D} = \set{D.1, D.2}$.
-Relative embedding are shown on the top-right corner of each cell, and cell addresses are shown on the top-left corner.
-The universe set of cells contains all the cells with addresses \gcell{1--10}.
-We leave the contents of several cells blank as they are not important for our discussion.
-The cell at address \gcell{2}'s formula is \prog{\#5 + 1}, yet the formula is pretty printed as \prog{C1 + 1} and
-\prog{D1 + 1} since cell \gcell{5}'s concrete embedding changes from one variant to another. 
-Two different types of cells exist in Figure~\ref{fig:idedsheet}, \emph{non-variational} and \emph{variational} cells.
-Non-variational cells are cells that appear in all variants whereas variational cells do not. 
-Non-variational cells' tags are the tag universe set $\qt[n]$, and variational cells' tags are proper subsets of $\qt[n]$.
-We provide the cells' tags below.
+In Figure~\ref{fig:idedsheet} we provide two variants of a variational 
+spreadsheet containing a single dimension $\mapname{D} = \set{D.1, 
+D.2}$. Relative embedding are shown on the top-right corner of each 
+cell, and cell addresses are shown on the top-left corner. The universe 
+set of cells contains all the cells with addresses \gcell{1--10}. We 
+leave the contents of several cells blank as they are not important for 
+our discussion. The cell at address \gcell{2}'s formula is \prog{\#5 + 
+1}, yet the formula is pretty printed as \prog{C1 + 1} and \prog{D1 + 1} 
+since cell \gcell{5}'s concrete embedding changes from one variant to 
+another. Two different types of cells exist in 
+Figure~\ref{fig:idedsheet}, \emph{non-variational} and 
+\emph{variational} cells. Non-variational cells are cells that appear in 
+all variants whereas variational cells do not. Non-variational cells' 
+tags are the tag universe set $\qt[n]$, and variational cells' tags are 
+proper subsets of $\qt[n]$. We provide the cells' tags below. 
 
 \[
 \begin{array}{l@{\ : \ }l}
@@ -549,12 +615,17 @@ We provide the cells' tags below.
 \end{array}
 \]
 
-The pretty printing algorithm places the cell with the lowest horizontal and vertical embeddings at \prog{A1} and recursively adds cells to the grid based on the following conventions.
+The pretty printing algorithm places the cell with the lowest horizontal 
+and vertical embeddings at \prog{A1} and recursively adds cells to the 
+grid based on the following conventions. 
 
 \begin{itemize}
-    \item Cells with the same vertical embedding are on the same column. Cells with the same horizontal embedding are on the same row.
-    \item For all pairs of cells $x$ and $y$, if $x$'s horizontal embedding is less than $y$'s, $x$'s row number has to be less than $y$'s.
-    \item For all pairs of cells $x$ and $y$, if $x$'s vertical embedding is less than $y$'s, $x$'s column number has to be less than $y$'s.
+    \item Cells with the same vertical embedding are on the same column. 
+    Cells with the same horizontal embedding are on the same row. 
+    \item For all pairs of cells $x$ and $y$, if $x$'s horizontal embedding 
+    is less than $y$'s, $x$'s row number has to be less than $y$'s. 
+    \item For all pairs of cells $x$ and $y$, if $x$'s vertical embedding is 
+    less than $y$'s, $x$'s column number has to be less than $y$'s. 
 \end{itemize}
 
 \begin{figure*} [ht]
@@ -575,15 +646,19 @@ The pretty printing algorithm places the cell with the lowest horizontal and ver
 \label{sec:semantics}
 \newcommand{\semP}{\sem[P]}
 
-The pretty printing algorithm works on individual variants, which are selected by picking a subset of cells from the cell universe.
-A natural question is how do we know which cell to pick. To answer this question,
-in this section we describe \emph{variation semantics}, a mapping between complete decisions and spreadsheet variants.\footnote{Note that
-we ignore the discussion about the semantics of individual variants since
-they are basically the semantics of plain spreadsheets.}
+The pretty printing algorithm works on individual variants, which are 
+selected by picking a subset of cells from the cell universe. A natural 
+question is how do we know which cell to pick. To answer this question, 
+in this section we describe \emph{variation semantics}, a mapping 
+between complete decisions and spreadsheet variants.\footnote{Note that 
+we ignore the discussion about the semantics of individual variants 
+since they are basically the semantics of plain spreadsheets.} 
 
-The steps involved in computing variation semantics are: (1) generating all complete decisions,
-(2) performing \emph{tag selection} on those decisions to mark several cells as excluded (\unchecked), and 
-(3) collect all remaining cells into variants and map corresponding decisions to those variants.
+The steps involved in computing variation semantics are: (1) generating 
+all complete decisions, (2) performing \emph{tag selection} on those 
+decisions to mark several cells as excluded (\unchecked), and (3) 
+collect all remaining cells into variants and map corresponding 
+decisions to those variants. 
 
 \subsection*{Dimensions and Complete Decisions}
 \newcommand{\dimColText}{\textit{dims}}
@@ -594,7 +669,9 @@ The steps involved in computing variation semantics are: (1) generating all comp
 \newcommand{\decisions}[1]{\OB{\decisionsText(#1)}}
 \newcommand{\examplesheet}{\OB{sh}}
 
-The set of complete decisions of a variational spreadsheet \vsheet~is defined below with $D^n$ being \vsheet's decision space.
+The set of complete decisions of a variational spreadsheet \vsheet~is 
+defined below with $D^n$ being \vsheet's decision space. 
+
 \begin{align*}
 \decisions{s} = \{\{D_1.t_1, \ldots, D_n.t_n\} \ |\ & \{D_1,\ldots,D_n\} = \dims{D^n}\\
         & \wedge \forall i \in \set{1\ldots n}, t_i \in D_i\}
@@ -609,12 +686,16 @@ The set of complete decisions of a variational spreadsheet \vsheet~is defined be
 \newcommand{\updateText}{\textit{update}}
 \newcommand{\update}[2]{\updateText(#1, #2)}
 % A cell is excluded from a variant when it is marked as \unchecked.
-Tag selection applies complete decisions to variational spreadsheets and mark several cells as excluded (\unchecked).
-First, each cell at address $\add$'s \emph{label} is instantiated as the cell's tags $\var{\add}$.
-During the tag selection process, the cell's label either becomes \unchecked~or get reduced to a smaller set of tags.
-The set of labels $\Lbl = 2^{\qt[n]} \cup \set{\unchecked}$.
+Tag selection applies complete decisions to variational spreadsheets and 
+mark several cells as excluded (\unchecked). First, each cell at address 
+$\add$'s \emph{label} is instantiated as the cell's tags $\var{\add}$. 
+During the tag selection process, the cell's label either becomes 
+\unchecked~or get reduced to a smaller set of tags. 
+The set of labels is $\Lbl = 2^{\qt[n]} \cup \set{\unchecked}$.
 
-The single tag selection operation $\stsel[]{} : \Lbl \times \qt[n] \rightarrow \Lbl$ is defined as
+The single tag selection operation $\stsel[]{} : \Lbl \times \qt[n] 
+\rightarrow \Lbl$ is defined as 
+
 \[
 \begin{array}{l@{ = }ll}
     \stsel[\tg]{\unchecked} & \unchecked & \\
@@ -624,7 +705,10 @@ The single tag selection operation $\stsel[]{} : \Lbl \times \qt[n] \rightarrow 
                      \end{cases} \\
 \end{array}
 \]
-We overload the complete tag selection operation $\tsel[]{} : \Lbl \times 2^{\qt[n]} \rightarrow \Lbl$ as below.
+
+We overload the complete tag selection operation $\tsel[]{} : \Lbl 
+\times 2^{\qt[n]} \rightarrow \Lbl$ as below. 
+
 \[
 \begin{array}{l@{ = }l}
     \tsel[\emptyset]{\lbl}          & \lbl  \\
