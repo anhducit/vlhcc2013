@@ -754,16 +754,11 @@ A choice denotes one or more dimensions/decisions to be made and contains a
 set of alternatives, each being pair of a decision and a set of cells. 
 Formally, choices are defined as a pair (\cdims, \calts) satisfying the
 following conditions.
-
-\NOTE{I did not include the position conditions in this section since they
-seem to be a bit arbitrary. We can add those later if we want to}
-
 \[
 \begin{array}{l}
 \cdims \subseteq \dims{\dimset}, \cdims \neq \emptyset \\
 \calts = \set{(\dec_1, s_1), \ldots, (\dec_k, s_k)}  \\
 \forall i \in \set{1..k}, s_i \subseteq \uniset, \forall i \neq j, \dec_i \neq \dec_j \\
-\forall i \in \set{1..k}, \forall c \in s_i, \var{c} \subseteq \dec_i\\
 \setsize{\calts} = \prod_{D_i \in \cdims}{\setsize{D_i}} \\
 \end{array}
 \]
@@ -774,7 +769,7 @@ The above example can be represented as the choice
 (\set{A.2}, \set{\gcell{7}, \gcell{8},\gcell{9}, \gcell{10}})})
 \]
 
-To simplify the notations, from now on we assume 
+
 
 \section{Language Properties}
 \label{sec:langprops}

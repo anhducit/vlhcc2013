@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.4.25)  6 MAR 2013 14:31
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.4.25)  6 MAR 2013 17:13
 entering extended mode
 **C:/Users/Duc*Anh*Le/Documents/GitHub/vlhcc2013/vlhcc*varsheet/varsheet.tex
 ("C:/Users/Duc Anh Le/Documents/GitHub/vlhcc2013/vlhcc varsheet/varsheet.tex"
@@ -613,25 +613,25 @@ Package color Info: Redefining color green on input line 88.
 \c@lemma=\count123
 \c@corollary=\count124
  ("C:\Users\Duc Anh Le\Documents\GitHub\vlhcc2013\vlhcc varsheet\varsheet.aux")
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 274.
-LaTeX Font Info:    ... okay on input line 274.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 274.
-LaTeX Font Info:    ... okay on input line 274.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 274.
-LaTeX Font Info:    ... okay on input line 274.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 274.
-LaTeX Font Info:    ... okay on input line 274.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 274.
-LaTeX Font Info:    ... okay on input line 274.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 274.
-LaTeX Font Info:    ... okay on input line 274.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 274.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 274.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 277.
+LaTeX Font Info:    ... okay on input line 277.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 277.
+LaTeX Font Info:    ... okay on input line 277.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 277.
+LaTeX Font Info:    ... okay on input line 277.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 277.
+LaTeX Font Info:    ... okay on input line 277.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 277.
+LaTeX Font Info:    ... okay on input line 277.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 277.
+LaTeX Font Info:    ... okay on input line 277.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 277.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 277.
 
  ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 274.
+LaTeX Font Info:    ... okay on input line 277.
 
 ("C:\Program Files\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -651,46 +651,46 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
 
-** WARNING: \thanks is locked out when in conference mode (line 297).
+** WARNING: \thanks is locked out when in conference mode (line 300).
 
-LaTeX Warning: Citation `SPL' on page 1 undefined on input line 308.
-
-
-LaTeX Warning: Citation `FOSD' on page 1 undefined on input line 308.
+LaTeX Warning: Citation `SPL' on page 1 undefined on input line 311.
 
 
-LaTeX Warning: Citation `...' on page 1 undefined on input line 308.
+LaTeX Warning: Citation `FOSD' on page 1 undefined on input line 311.
 
 
-LaTeX Warning: Citation `Scaffidi12hcc.' on page 1 undefined on input line 318.
+LaTeX Warning: Citation `...' on page 1 undefined on input line 311.
+
+
+LaTeX Warning: Citation `Scaffidi12hcc.' on page 1 undefined on input line 321.
 
 
 LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 34
-1.
+4.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1ztmcm.fd"
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
 LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 34
-1.
+4.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\omlztmcm.fd"
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 341.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 344.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 341.
-LaTeX Font Info:    Try loading font information for U+stmry on input line 341.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 344.
+LaTeX Font Info:    Try loading font information for U+stmry on input line 344.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\stmaryrd\ustmry.fd")
-LaTeX Font Info:    Try loading font information for TS1+ptm on input line 349.
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 352.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ts1ptm.fd"
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 370.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 373.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\psnfss\ot1pcr.fd"
@@ -699,19 +699,19 @@ File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 <img/before.png, id=1, 173.14688pt x 137.7647pt>
 File: img/before.png Graphic file (type png)
  <use img/before.png>
-Package pdftex.def Info: img/before.png used on input line 387.
+Package pdftex.def Info: img/before.png used on input line 390.
 (pdftex.def)             Requested size: 103.88892pt x 82.65944pt.
 
 <img/after.png, id=2, 175.40532pt x 137.01187pt>
 File: img/after.png Graphic file (type png)
  <use img/after.png>
-Package pdftex.def Info: img/after.png used on input line 391.
+Package pdftex.def Info: img/after.png used on input line 394.
 (pdftex.def)             Requested size: 105.24399pt x 82.20775pt.
 
 <img/selection.png, id=3, 195.73125pt x 158.09062pt>
 File: img/selection.png Graphic file (type png)
  <use img/selection.png>
-Package pdftex.def Info: img/selection.png used on input line 395.
+Package pdftex.def Info: img/selection.png used on input line 398.
 (pdftex.def)             Requested size: 117.43964pt x 94.85509pt.
 
 [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
@@ -724,23 +724,28 @@ g>]
 <img/food.png, id=13, 164.86594pt x 36.88782pt>
 File: img/food.png Graphic file (type png)
  <use img/food.png>
-Package pdftex.def Info: img/food.png used on input line 423.
+Package pdftex.def Info: img/food.png used on input line 426.
 (pdftex.def)             Requested size: 98.9203pt x 22.13284pt.
  [2 <C:/Users/Duc Anh Le/Documents/GitHub/vlhcc2013/vlhcc varsheet/img/food.png
 >]
 <tikz/v1.pdf, id=26, 287.06647pt x 87.06627pt>
 File: tikz/v1.pdf Graphic file (type pdf)
  <use tikz/v1.pdf>
-Package pdftex.def Info: tikz/v1.pdf used on input line 636.
+Package pdftex.def Info: tikz/v1.pdf used on input line 639.
 (pdftex.def)             Requested size: 172.2412pt x 52.24014pt.
 
 <tikz/v2.pdf, id=27, 352.06633pt x 87.06627pt>
 File: tikz/v2.pdf Graphic file (type pdf)
  <use tikz/v2.pdf>
-Package pdftex.def Info: tikz/v2.pdf used on input line 640.
+Package pdftex.def Info: tikz/v2.pdf used on input line 643.
 (pdftex.def)             Requested size: 211.24142pt x 52.24014pt.
 
-("C:\Users\Duc Anh Le\Documents\GitHub\vlhcc2013\vlhcc varsheet\varsheet.bbl"
+Underfull \hbox (badness 2435) in paragraph at lines 745--752
+[]\OT1/ptm/m/n/10 While each cell in a vari-a-tional spread-sheet is la-
+ []
+
+[3] ("C:\Users\Duc Anh Le\Documents\GitHub\vlhcc2013\vlhcc varsheet\varsheet.bb
+l"
 Underfull \hbox (badness 10000) in paragraph at lines 4--6
 []\OT1/ptm/m/n/8 Florencesoft dif-f-enginex com-pares mi-crosoft ex-cel work-sh
 eets.
@@ -751,7 +756,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--10
 []\OT1/ptm/m/n/8 Synkronizer com-pares ex-cel files faster than you can.
  []
 
-[3])
+)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -773,10 +778,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 8626 strings out of 494045
- 123467 string characters out of 3148372
- 199239 words of memory out of 3000000
- 11760 multiletter control sequences out of 15000+200000
+ 8633 strings out of 494045
+ 123515 string characters out of 3148372
+ 199256 words of memory out of 3000000
+ 11767 multiletter control sequences out of 15000+200000
  65111 words of font info for 143 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  44i,14n,46p,301b,349s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -797,7 +802,7 @@ ourier/ucrr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/symbol/usyr.pfb>
 /MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/Program Files/MiKTeX 2.9/font
 s/type1/urw/times/utmr8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/times
 /utmri8a.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on varsheet.pdf (4 pages, 195493 bytes).
+Output written on varsheet.pdf (4 pages, 198621 bytes).
 PDF statistics:
  112 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
