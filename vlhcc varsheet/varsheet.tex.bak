@@ -123,6 +123,11 @@
 \newcommand{\chcPP}[3][D]{\chc[#1]{\prog{#2},\prog{#3}}}
 \newcommand{\chcPPP}[4][D]{\chc[#1]{\prog{#2},\prog{#3},\prog{#4}}}
 
+%%% Choices
+\newcommand{\chcL}{\langle}
+\newcommand{\chcR}{\rangle}
+\newcommand{\chc}[2][D]{\OB{#1\chcL#2\chcR}}
+
 % dimensions and tags
 \newcommand{\dimA}[2][a_1,a_2]{\DimIn[A]{#1}{#2}}
 \newcommand{\chcA}[1]{\chc[A]{#1}}
@@ -742,7 +747,7 @@ Variation semantics is thus defined as
 \newcommand{\setsize}[1]{\OB{|#1|}}
 
 
-While each cell in a variational spreadsheet is labelled separately,
+While each cell in a variational spreadsheet is labeled individually,
 the entire spreadsheet exhibits a common pattern---several sets of cells
 are alternatives of one another. For instance, in Figure~\ref{fig:idedsheet},
 $\set{\gcell{3}, \gcell{4}}$ is an alternative of $\set{\gcell{7}, \gcell{8},
@@ -754,21 +759,39 @@ A choice denotes one or more dimensions/decisions to be made and contains a
 set of alternatives, each being pair of a decision and a set of cells. 
 Formally, choices are defined as a pair (\cdims, \calts) satisfying the
 following conditions.
+
+\NOTE{I did not include the position conditions in this section since they
+seem to be a bit arbitrary. We can add those later if we want to}
+
 \[
 \begin{array}{l}
 \cdims \subseteq \dims{\dimset}, \cdims \neq \emptyset \\
 \calts = \set{(\dec_1, s_1), \ldots, (\dec_k, s_k)}  \\
 \forall i \in \set{1..k}, s_i \subseteq \uniset, \forall i \neq j, \dec_i \neq \dec_j \\
+\forall i \in \set{1..k}, \forall c \in s_i, \var{c} \subseteq \dec_i\\
 \setsize{\calts} = \prod_{D_i \in \cdims}{\setsize{D_i}} \\
 \end{array}
 \]
 
-The above example can be represented as the choice
+Each element in $\calts$ represents a complete decision with regard
+to $\cdims$ and the alternative obtained by applying that decision.
+The aforementioned example can be represented as the choice
 \[
 (\set{A}, \set{(\set{A.1}, \set{\gcell{3}, \gcell{4}}), 
 (\set{A.2}, \set{\gcell{7}, \gcell{8},\gcell{9}, \gcell{10}})})
 \]
 
+To simplify the notations, from now on we assume each dimension contains two tags, 
+$A = \set{A.1, A.2}$, and we use the notation $\chcA{s_1, s_2}$ to represent 
+$(\set{A}, \set{(\set{A.1}, s_1), (\set{A.2}, s_2)})$. By the same convention, the notation 
+$\chcA{\chcB{s_{11}, s_{12}}, \chcB{s_{21}, s_{22}}}$ is
+equivalent to
+\begin{align*}
+(\set{A,B}, \set{& (\set{A.1, B.1}, s_{11}), (\set{A.1, B.2}, s_{12}),\\
+                 & (\set{A.2, B.1}, s_{21}), (\set{A.2, B.2}, s_{22})}) \\
+\end{align*}
+
+Any variational spreadsheet can be represented by sets of choices....
 
 
 \section{Language Properties}

@@ -123,6 +123,11 @@
 \newcommand{\chcPP}[3][D]{\chc[#1]{\prog{#2},\prog{#3}}}
 \newcommand{\chcPPP}[4][D]{\chc[#1]{\prog{#2},\prog{#3},\prog{#4}}}
 
+%%% Choices
+\newcommand{\chcL}{\langle}
+\newcommand{\chcR}{\rangle}
+\newcommand{\chc}[2][D]{\OB{#1\chcL#2\chcR}}
+
 % dimensions and tags
 \newcommand{\dimA}[2][a_1,a_2]{\DimIn[A]{#1}{#2}}
 \newcommand{\chcA}[1]{\chc[A]{#1}}
@@ -618,6 +623,11 @@ either partial or complete decisions $\dec$. We provide the cells' tags below.
 \end{array}
 \]
 
+\NOTE{Note that we can always allow tags like $\set{A.1, B.1, B.2}$ since,
+due to the semantics definitions, $\set{A.1, B.1, B.2}$ is the same as $\set{A.1}$
+in the case the $B$ has only two tags. If $B$ has more than two tags, $\set{A.1, B.1, B.2}$
+is ``syntactic sugar'' for the two labels $\set{A.1, B.1}$ and $\set{A.1, B.2}$ }
+
 The pretty printing algorithm places the cell with the lowest horizontal
 and vertical embeddings at \prog{A1} and recursively adds cells to the
 grid based on the following conventions.
@@ -707,7 +717,8 @@ The single tag selection operation $\stsel[]{} : \Lbl \times \qt[n]
 \begin{array}{l@{ = }ll}
     \stsel[\tg]{\unchecked} & \unchecked & \\
     \stsel[\tg]{\lbl} & \begin{cases}
-                        l \setminus \set{\tg} &, \textrm{if } \tg \in \lbl \\
+                        \lbl \setminus \set{\tg} &, \textrm{if } \tg \in \lbl \\
+                        \lbl                     &, \textrm{if } \tg \not\in \lbl \wedge \dim(\tg) \not\in \dims{\lbl}\\
                         \unchecked &, \textrm{otherwise} \\
                      \end{cases} \\
 \end{array}
@@ -732,6 +743,14 @@ Variation semantics is thus defined as
 \]
 
 
+\NOTE{With the semantics defined above, we can even remove the condition  $ts_1 \cap ts_2 = \emptyset$}
+\begin{lemma}
+If $ts_1 \cap ts_2 = \emptyset$,
+\[
+\tsel[ts_1 \cup ts_2]{\lbl} = \tsel[ts_2]{\tsel[ts_1]{\lbl}} = \tsel[ts_1]{\tsel[ts_2]{\lbl}}
+\]
+\end{lemma}
+
 \section{Variational Choices}
 \label{sec:choices}
 
@@ -740,18 +759,20 @@ Variation semantics is thus defined as
 \newcommand{\clist}[1]{\OB{[#1]}}
 \newcommand{\listlen}[1]{\OB{length(#1)}}
 \newcommand{\setsize}[1]{\OB{|#1|}}
+\newcommand{\unionchcsym}{\OB{\uplus}}
+\newcommand{\unionchc}[2]{#1\unionchcsym#2}
 
 
-While each cell in a variational spreadsheet is labelled separately,
+While each cell in a variational spreadsheet is labeled individually,
 the entire spreadsheet exhibits a common pattern---several sets of cells
 are alternatives of one another. For instance, in Figure~\ref{fig:idedsheet},
 $\set{\gcell{3}, \gcell{4}}$ is an alternative of $\set{\gcell{7}, \gcell{8},
 \gcell{9}, \gcell{10}}$. Since presenting cells and tags in a linear fashion does not
-reveal this pattern, in this section we define the idea of \emph{choices} to
+reveal this pattern, in this section we define the notion of \emph{choices} to
 explicitly represent alternatives. 
 
 A choice denotes one or more dimensions/decisions to be made and contains a 
-set of alternatives, each being pair of a decision and a set of cells. 
+set of alternatives, each being a pair of a decision and a set of cells. 
 Formally, choices are defined as a pair (\cdims, \calts) satisfying the
 following conditions.
 
@@ -768,23 +789,92 @@ seem to be a bit arbitrary. We can add those later if we want to}
 \end{array}
 \]
 
-The above example can be represented as the choice
+Each element in $\calts$ represents a complete decision with regard
+to $\cdims$ and the alternative obtained by applying that decision.
+The aforementioned example can be represented as the choice
 \[
 (\set{A}, \set{(\set{A.1}, \set{\gcell{3}, \gcell{4}}), 
 (\set{A.2}, \set{\gcell{7}, \gcell{8},\gcell{9}, \gcell{10}})})
 \]
 
-To simplify the notations, from now on we assume 
+To simplify this notations, from now on we assume each dimension contains two tags, 
+$\forall A, A = \set{A.1, A.2}$, and we use the notation $\chcA{s_1, s_2}$ to represent 
+$(\set{A}, \set{(\set{A.1}, s_1), (\set{A.2}, s_2)})$. Using the same convention, the notation 
+$\chcA{\chcB{s_{11}, s_{12}}, \chcB{s_{21}, s_{22}}}$ is
+equivalent to
+\begin{align*}
+(\set{A,B}, \set{& (\set{A.1, B.1}, s_{11}), (\set{A.1, B.2}, s_{12}),\\
+                 & (\set{A.2, B.1}, s_{21}), (\set{A.2, B.2}, s_{22})}) \\
+\end{align*}
 
-\section{Language Properties}
-\label{sec:langprops}
+Any variational spreadsheet can be partitioned into sets of choices and non-variational cells.
+In the following spreadsheet, every cell is represented by a tuple of three elements: address,
+label, and position. The set of five cells can be split into two choices 
+$\chcA{\set{\gcell{1}}, \set{\gcell{2}}}$ and $\chcA{\chcB{\set{\gcell{3}}, \emptyset}, 
+\chcB{\emptyset, \gcell{4}}}$ and a set $\set{\gcell{5}}$.
 
-% \begin{theorem}
-% If \compatible{ts_1}{ts_2} and $ts_1 \cap ts_2 = \emptyset$,
-% \[
-% \tsel[ts_1 \cup ts_2]{\vsheet} = \ptsel[ts_2]{\ptsel[ts_1]{\vsheet}} = \ptsel[ts_1]{\ptsel[ts_2]{\vsheet}}
-% \]
-% \end{theorem}
+\[
+\begin{array}{l}
+    (\gcell{1}, \set{A.1},(1,1)) \\
+    (\gcell{2}, \set{A.2},(1,1)) \\
+    (\gcell{3}, \set{A.1, B.1},(2,1)) \\
+    (\gcell{4}, \set{A.2, B.2},(2,1)) \\
+    (\gcell{5}, \emptyset,(3,1)) \\
+\end{array}
+\]
+
+\NOTE{We can talk about the algorithm to derive the set of choices here, but it's really simple}
+
+This enables us to look at variational spreadsheet from a different angle where choices 
+and sets of non-variational cells are combined into variational spreadsheets. 
+We define the $\unionchcsym$ operator to combine choices
+and sets. The above spreadsheet can be represented as
+
+\[
+\unionchc{\unionchc{\chcA{\set{\gcell{1}}, \set{\gcell{2}}}}{\chcA{\chcB{\set{\gcell{3}}, \emptyset},
+\chcB{\emptyset, \gcell{4}}}}}{\set{\gcell{5}}}
+\]
+\noindent
+$\unionchcsym$ is commutative, associative and performs similarly to set union when being applied to
+two sets. 
+
+Given this \emph{choice-directed} representation of spreadsheets, we can define an alternative way to 
+compute spreadsheet semantics. For every complete decision $\dec$, each choice in the choice-directed
+representation is resolved to an alternative that is simply a set. For example, given the decision 
+$\set{A.1, B.1}, \chcA{\set{\gcell{1}}, \set{\gcell{2}}}$ is resolved to $\set{\gcell{1}}$, while
+\chcA{\chcB{\set{\gcell{3}}, \emptyset},\chcB{\emptyset, \gcell{4}}} is resolved to $\set{\gcell{3}}$.
+We can then compute the union of those alternatives and the set of non-variational cells to form 
+the corresponding variant for the decision $\dec$.
+
+\NOTE{We formalize this semantics if we want. This should be pretty easy as well}
+
+We can now talk about several properties of choices and variants. The transformations below
+are semantics-preserving. Note that all the conditions for choices mentioned above have to be satisfied.
+\[
+    \chcA{s,s} = s
+\]
+This transformation is also true when \chcA{s,s} is an alternative of a different choice $B$.
+
+\[
+    \unionchc{s_1}{\chcA{a_1,a_2}} = \chcA{\unionchc{s_1}{a_1}, \unionchc{s_2}{a_2}}
+\]
+
+In this equation, $a_1$ and $a_2$ can either be sets of cells or choices.
+
+\[
+    \unionchc{\chcA{a_1, a_2}}{\chcB{a_3,a_4}} 
+                    = \begin{cases}
+                          \chcA{\unionchc{a_1}{a_3}, \unionchc{a_2}{a_4}}, \text{ if } A == B\\
+                          \chcA{\chcB{\unionchc{a_1}{a_3}, \unionchc{a_1}{a_4}},
+                                \chcB{\unionchc{a_2}{a_3}, \unionchc{a_2}{a_4}}}, \text{ otherwise }\\
+                      \end{cases} \\
+\]
+
+
+% \section{Language Properties}
+% \label{sec:langprops}
+
+
 
 % \begin{proof}
 % ...
