@@ -18,6 +18,7 @@
 \usepackage{verbatim}
 \usepackage{pifont}
 \usepackage[lined,boxed,linesnumbered]{algorithm2e}
+\usepackage{paralist}
 
 \widowpenalty=0
 \clubpenalty=0
@@ -623,6 +624,11 @@ either partial or complete decisions $\dec$. We provide the cells' tags below.
 \end{array}
 \]
 
+\NOTE{Note that we can always allow tags like $\set{A.1, B.1, B.2}$ since,
+due to the semantics definitions, $\set{A.1, B.1, B.2}$ is the same as $\set{A.1}$
+in the case the $B$ has only two tags. If $B$ has more than two tags, $\set{A.1, B.1, B.2}$
+is ``syntactic sugar'' for the two labels $\set{A.1, B.1}$ and $\set{A.1, B.2}$ }
+
 The pretty printing algorithm places the cell with the lowest horizontal
 and vertical embeddings at \prog{A1} and recursively adds cells to the
 grid based on the following conventions.
@@ -670,7 +676,7 @@ The steps involved in computing variation semantics are: (1) generating
 all complete decisions, (2) performing \emph{tag selection} on those
 decisions to mark several cells as excluded (\unchecked), and (3)
 collect all remaining cells into variants and map corresponding
-decisions to those variants. 
+decisions to those variants.
 
 \subsection*{Dimensions and Complete Decisions}
 \newcommand{\dimColText}{\textit{dims}}
@@ -712,7 +718,8 @@ The single tag selection operation $\stsel[]{} : \Lbl \times \qt[n]
 \begin{array}{l@{ = }ll}
     \stsel[\tg]{\unchecked} & \unchecked & \\
     \stsel[\tg]{\lbl} & \begin{cases}
-                        l \setminus \set{\tg} &, \textrm{if } \tg \in \lbl \\
+                        \lbl \setminus \set{\tg} &, \textrm{if } \tg \in \lbl \\
+                        \lbl                     &, \textrm{if } \tg \not\in \lbl \wedge \dim(\tg) \not\in \dims{\lbl}\\
                         \unchecked &, \textrm{otherwise} \\
                      \end{cases} \\
 \end{array}
@@ -737,6 +744,15 @@ Variation semantics is thus defined as
 \]
 
 
+\NOTE{With the semantics defined above, we can even remove the condition  $ts_1 \cap ts_2 = \emptyset$}
+\begin{lemma}
+\label{lem:ts}
+If $ts_1 \cap ts_2 = \emptyset$,
+\[
+\tsel[ts_1 \cup ts_2]{\lbl} = \tsel[ts_2]{\tsel[ts_1]{\lbl}} = \tsel[ts_1]{\tsel[ts_2]{\lbl}}
+\]
+\end{lemma}
+
 \section{Variational Choices}
 \label{sec:choices}
 
@@ -745,6 +761,8 @@ Variation semantics is thus defined as
 \newcommand{\clist}[1]{\OB{[#1]}}
 \newcommand{\listlen}[1]{\OB{length(#1)}}
 \newcommand{\setsize}[1]{\OB{|#1|}}
+\newcommand{\unionchcsym}{\OB{\uplus}}
+\newcommand{\unionchc}[2]{#1\unionchcsym#2}
 
 
 While each cell in a variational spreadsheet is labeled individually,
@@ -752,11 +770,11 @@ the entire spreadsheet exhibits a common pattern---several sets of cells
 are alternatives of one another. For instance, in Figure~\ref{fig:idedsheet},
 $\set{\gcell{3}, \gcell{4}}$ is an alternative of $\set{\gcell{7}, \gcell{8},
 \gcell{9}, \gcell{10}}$. Since presenting cells and tags in a linear fashion does not
-reveal this pattern, in this section we define the idea of \emph{choices} to
-explicitly represent alternatives. 
+reveal this relationship, in this section we define the notion of \emph{choices} to
+explicitly represent alternatives.
 
-A choice denotes one or more dimensions/decisions to be made and contains a 
-set of alternatives, each being pair of a decision and a set of cells. 
+A choice denotes one or more dimensions/decisions to be made and contains a
+set of alternatives, each being a pair of a decision and a set of cells.
 Formally, choices are defined as a pair (\cdims, \calts) satisfying the
 following conditions.
 
@@ -777,32 +795,154 @@ Each element in $\calts$ represents a complete decision with regard
 to $\cdims$ and the alternative obtained by applying that decision.
 The aforementioned example can be represented as the choice
 \[
-(\set{A}, \set{(\set{A.1}, \set{\gcell{3}, \gcell{4}}), 
+(\set{A}, \set{(\set{A.1}, \set{\gcell{3}, \gcell{4}}),
 (\set{A.2}, \set{\gcell{7}, \gcell{8},\gcell{9}, \gcell{10}})})
 \]
 
-To simplify the notations, from now on we assume each dimension contains two tags, 
-$A = \set{A.1, A.2}$, and we use the notation $\chcA{s_1, s_2}$ to represent 
-$(\set{A}, \set{(\set{A.1}, s_1), (\set{A.2}, s_2)})$. By the same convention, the notation 
+To simplify this notations, from now on we assume each dimension contains two tags,
+$\forall A, A = \set{A.1, A.2}$, and we use the notation $\chcA{s_1, s_2}$ to represent
+$(\set{A}, \set{(\set{A.1}, s_1), (\set{A.2}, s_2)})$. Using the same convention, the notation
 $\chcA{\chcB{s_{11}, s_{12}}, \chcB{s_{21}, s_{22}}}$ is
-equivalent to
+equivalent to the choice
 \begin{align*}
 (\set{A,B}, \set{& (\set{A.1, B.1}, s_{11}), (\set{A.1, B.2}, s_{12}),\\
                  & (\set{A.2, B.1}, s_{21}), (\set{A.2, B.2}, s_{22})}) \\
 \end{align*}
 
-Any variational spreadsheet can be represented by sets of choices....
+Any variational spreadsheet can be partitioned into sets of choices and non-variational cells.
+In the following spreadsheet, every cell is represented by a tuple of three elements: address,
+label, and position. The set of five cells can be split into two choices
+$\chcA{\set{\gcell{1}}, \set{\gcell{2}}}$ and $\chcA{\chcB{\set{\gcell{3}}, \emptyset},
+\chcB{\emptyset, \gcell{4}}}$ and a set $\set{\gcell{5}}$.
+
+\[
+\begin{array}{l}
+    (\gcell{1}, \set{A.1},(1,1)) \\
+    (\gcell{2}, \set{A.2},(1,1)) \\
+    (\gcell{3}, \set{A.1, B.1},(2,1)) \\
+    (\gcell{4}, \set{A.2, B.2},(2,1)) \\
+    (\gcell{5}, \emptyset,(3,1)) \\
+\end{array}
+\]
+
+\NOTE{We can talk about the algorithm to derive the set of choices here, but it's really simple}
+
+This enables us to look at spreadsheets from a different angle where choices
+and sets of non-variational cells are combined into variational spreadsheets.
+We define the $\unionchcsym$ operator to combine choices
+and sets. The above spreadsheet can be represented as
+
+\[
+\unionchc{\unionchc{\chcA{\set{\gcell{1}}, \set{\gcell{2}}}}{\chcA{\chcB{\set{\gcell{3}}, \emptyset},
+\chcB{\emptyset, \gcell{4}}}}}{\set{\gcell{5}}}
+\]
+\noindent
+$\unionchcsym$ is commutative, associative and performs similarly to set union when being applied to
+two sets.
+
+Given this \emph{choice-directed} representation of spreadsheets, we can define an alternative way to
+compute variation semantics. For every complete decision $\dec$, each choice in the choice-directed
+representation is resolved to an alternative, which is simply a set. For example, given the decision
+$\set{A.1, B.1}, \chcA{\set{\gcell{1}}, \set{\gcell{2}}}$ is resolved to $\set{\gcell{1}}$, while
+\chcA{\chcB{\set{\gcell{3}}, \emptyset},\chcB{\emptyset, \gcell{4}}} is resolved to $\set{\gcell{3}}$.
+We can then compute the union of the produced alternatives and the set of non-variational cells to form
+the corresponding variant for the decision $\dec$.
+
+\NOTE{We can formalize this semantics if we want. This shouldn't be too hard}
+
+We can now talk about several properties of choices and variants. The transformations below
+are semantics-preserving. Note that all the conditions for choices mentioned above have to be satisfied.
+\[
+    \chcA{s,s} = s
+\]
+This transformation is also true when \chcA{s,s} is an alternative of a different choice $B$.
+
+\[
+    \unionchc{s_1}{\chcA{a_1,a_2}} = \chcA{\unionchc{s_1}{a_1}, \unionchc{s_2}{a_2}}
+\]
+
+In this equation, $a_1$ and $a_2$ can either be sets of cells or choices.
+
+\[
+    \unionchc{\chcA{a_1, a_2}}{\chcB{a_3,a_4}}
+                    = \begin{cases}
+                          \chcA{\unionchc{a_1}{a_3}, \unionchc{a_2}{a_4}}, \text{ if } A == B\\
+                          \chcA{\chcB{\unionchc{a_1}{a_3}, \unionchc{a_1}{a_4}},
+                                \chcB{\unionchc{a_2}{a_3}, \unionchc{a_2}{a_4}}}, \text{ otherwise }\\
+                      \end{cases} \\
+\]
 
 
-\section{Language Properties}
-\label{sec:langprops}
+\section{Variation Design Theory}
+\label{sec:vardesign}
 
-% \begin{theorem}
-% If \compatible{ts_1}{ts_2} and $ts_1 \cap ts_2 = \emptyset$,
-% \[
-% \tsel[ts_1 \cup ts_2]{\vsheet} = \ptsel[ts_2]{\ptsel[ts_1]{\vsheet}} = \ptsel[ts_1]{\ptsel[ts_2]{\vsheet}}
-% \]
-% \end{theorem}
+In this section we provide a list of principles/guidelines for variation languages in general and
+for our specific \varsheet~language. We will also provide how the design of
+\varsheet~follows the principles and guidelines.
+
+\begin{inparaenum}[(1)]
+\item Any variation model should provide ways to encode the variation structure.
+In our model, the variation structure is encoded in the dimension space $\dimset$.
+
+\item Any variation model should enable collaborative decision process, that is, dimensions
+or decisions can be made independently. There is no ordering constraints on decisions.
+Whether a decision in $D$ is made before dimension $D'$ or vice versa should not change
+the variation semantics. Lemma~\ref{lem:ts} verifies this principle.
+
+\item Variation has to be composable. Given two variational spreadsheets, we should be
+able to compose them into a single one. In our model, spreadsheets are represented as
+sets of cells, composing them requires renaming, matching of dimensions and the set
+union operation. We can also use the $\unionchcsym$ operator to combine choice-directed
+representation of spreadsheets.
+
+Another spreadsheet composing operator that our model supports is the \emph{alternative composition}
+operation. Given two spreadsheets $s_1$ and $s_2$, we can add $\set{A.1}$ to all of $s_1$'s
+cell labels and $\set{A.2}$ to all of $s_2$'s cell labels to produce a choice $\chcA{s_1, s_2}$.
+
+\item Any variation model has to enable automatic diffing among variants. Given two variants
+$v_1$ and $v_2$ and the corresponding decision $\dec_1$ and $\dec_2$ in the variational spreadsheet 
+$s$, the set of common cells is
+
+\[v_1 \cap v_2 = \{ c \ |\ c \in s \wedge \var{c} \subseteq \dec_1 \cap \dec_2  \} \]
+
+The set of cells in $v_1$ and not in $v_2$ is
+
+\[v_1 \setminus v_2 = \{ c \ |\ c \in s \wedge \var{c} \subseteq \dec_1 \wedge \var{c} \not\in \dec_2  \} \]
+
+\item Variational spreadsheets should enable structural variation, in which choice alternatives
+have different widths and heights. For instance, in Figure~\ref{fig:idedsheet}, the choice $A$
+contains one 2-by-1 alternative and one 2-by-2 alternative.
+
+\item Variational spreadsheets should localize the effect of structural variation, which
+might change cell embeddings and thus change cell references. For instance,
+in Figure~\ref{fig:idedsheet}, \gcell{5}'s embeddings are \prog{C1} and \prog{D1}
+in different variants, affecting the reference in \gcell{2}. In our model, the reference
+in \gcell{2} is not affected by the structural choice since we store address reference.
+\gcell{2} always points to \gcell{5}, and the pretty printer ensures the embedding references
+are shown correctly.
+
+\item Variational spreadsheets should allow filtering variants based on certain criteria.
+The variant filtering operation is applied using tag selection and is the basis for 
+defining goal-directed selection. Goal-directed selection is the selection of all
+variants containing a certain cell. Given a variational spreadsheet $s$ and a cell $c$,
+the set of $s$'s variants containing $c$ is represented by the spreadsheet.
+
+\[
+(\dimset \setminus \dims{\var{c}}, \{ c' \ |\ c' \in s \wedge \tsel[\var{c}]{\var{c'}} \neq \unchecked \})
+\]
+
+\item Variational spreadsheets should allow easy integration into existing spreadsheet tools such as Excel.
+
+
+
+
+
+\end{inparaenum}
+
+% \section{Language Properties}
+% \label{sec:langprops}
+
+
 
 % \begin{proof}
 % ...
